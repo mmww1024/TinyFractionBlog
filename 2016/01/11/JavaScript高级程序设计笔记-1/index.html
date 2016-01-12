@@ -1,0 +1,3907 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>JavaScript高级程序设计笔记 | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="John Doe">
+    
+    <meta name="description" content="第二章 在HTMl中使用JavaScript2.1 &amp;lt;script&amp;gt;元素
+6个属性：
+
+
+async:可选。表示立即下载脚本，但不妨碍其他正在加载的脚本。仅适用于外部加载的脚本
+charset:可选。表示代码的字符集。因为大多数浏览器会忽略他的值，所以很少用。
+defer:可选。表示脚本">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Hexo" title="Hexo"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Hexo">Hexo</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/TinyFractionBlog">首页</a></li>
+					
+						<li><a href="/TinyFractionBlog/archives">所有日志</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/01/11/JavaScript高级程序设计笔记-1/" title="JavaScript高级程序设计笔记" itemprop="url">JavaScript高级程序设计笔记</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="John Doe">John Doe</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-01-11T09:48:22.000Z" itemprop="datePublished">2016-01-11</time>
+    更新日期:<time datetime="2016-01-11T09:59:15.279Z" itemprop="dateModified">2016-01-11</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u7B2C_u4E8C_u7AE0__u5728HTMl_u4E2D_u4F7F_u7528JavaScript"><span class="toc-number">1.</span> <span class="toc-text">第二章 在HTMl中使用JavaScript</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1__26lt_3Bscript_26gt_3B_u5143_u7D20"><span class="toc-number">1.1.</span> <span class="toc-text">2.1 <script>元素</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u7B2C_u4E09_u7AE0__u57FA_u672C_u6982_u5FF5"><span class="toc-number">2.</span> <span class="toc-text">第三章 基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1__u8BED_u6CD5"><span class="toc-number">2.1.</span> <span class="toc-text">3.1 语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2__u5173_u952E_u5B57_u548C_u4FDD_u7559_u5B57"><span class="toc-number">2.2.</span> <span class="toc-text">3.2 关键字和保留字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3__u53D8_u91CF"><span class="toc-number">2.3.</span> <span class="toc-text">3.3 变量</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u7B2C_u4E03_u7AE0__u51FD_u6570_u8868_u8FBE_u5F0F"><span class="toc-number">3.</span> <span class="toc-text">第七章 函数表达式</span></a></li></ol>
+		</div>
+		
+		<h1 id="u7B2C_u4E8C_u7AE0__u5728HTMl_u4E2D_u4F7F_u7528JavaScript"><a href="#u7B2C_u4E8C_u7AE0__u5728HTMl_u4E2D_u4F7F_u7528JavaScript" class="headerlink" title="第二章 在HTMl中使用JavaScript"></a>第二章 在HTMl中使用JavaScript</h1><h2 id="2-1__26lt_3Bscript_26gt_3B_u5143_u7D20"><a href="#2-1__26lt_3Bscript_26gt_3B_u5143_u7D20" class="headerlink" title="2.1 &lt;script&gt;元素"></a>2.1 &lt;script&gt;元素</h2><blockquote>
+<p>6个属性：</p>
+</blockquote>
+<ul>
+<li><strong>async</strong>:可选。表示立即下载脚本，但不妨碍其他正在加载的脚本。仅适用于外部加载的脚本</li>
+<li>charset:可选。表示代码的字符集。因为大多数浏览器会忽略他的值，所以很少用。</li>
+<li><strong>defer</strong>:可选。表示脚本可以等文档解析完之后再加载。仅适用于外部加载的脚本</li>
+<li>src:可选。引入要执行的代码</li>
+<li>type:可选。考虑到约定俗成和最大限度的浏览器兼容性，目前type属性的值依旧是text/javascript。不过，他不是必须的，因为其默认值就是text/javascript。</li>
+</ul>
+<blockquote>
+<p>只要不存在defer和async属性，浏览器都会按照script元素在页面中出现的先后顺序对他们依次进行解析。</p>
+</blockquote>
+<p><strong>2.1.1 标签的位置</strong></p>
+<blockquote>
+<p>放在标签之前</p>
+</blockquote>
+<p><strong>2.1.2 延迟脚本</strong><br>有了defer=”defer”相当于告诉脚本立即下载，但延迟执行。</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot; defer=&quot;defer&quot; src=&quot;&quot;&gt;&lt;/script&gt;
+</code></pre><p>(不可以简写，因为要兼容ie等一些浏览器)</p>
+<ul>
+<li>考虑到浏览器的兼容性，把脚本放在页面底部仍然是最佳选择。</li>
+</ul>
+<p><strong>2.1.3 异步脚本</strong></p>
+<pre><code>&lt;script type=&quot;text/javascript&quot; async=&quot;async&quot; src=&quot;&quot;&gt;&lt;/script&gt;
+</code></pre><ul>
+<li>异步脚本不要在下载期间修改DOM</li>
+</ul>
+<p><strong>2.1.4 在XHTML中的用法</strong></p>
+<ul>
+<li><p>在xhtml中会把&lt;号理解为一个新标签的开始，新标签后跟空格，就会导致错误，因此需要引入CData片段，才可以通过xhtml验证，而且对xhtml之前的浏览器也会平稳退化。</p>
+  <script>
+  //<![CDATA[
+      function compare(a,b){
+          if(a < b){
+
+          }else if(a > b){
+
+          }else{
+
+          }
+      }
+  //]]>
+  </script>
+
+</li>
+</ul>
+<p>##2.2 嵌入代码与外部文件##<br>优点：</p>
+<ul>
+<li>可维护性</li>
+<li>可缓存</li>
+<li>适应未来通过外部文件来包含javascript无需使用前面提到的xhtml或注释hack。html和xhtml外部文件的语法相同。</li>
+</ul>
+<p>##2.3 文档模式##<br>混杂模式和标准模式</p>
+<pre><code>&lt;!-- html 4.01 严格型 --&gt;
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot; &quot;http://www.w3.org/TR/html4/strict.dtd&quot;&gt;
+&lt;!-- xhtml 1.1 严格型 --&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+&lt;!-- html 5 --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;!-- html 4.01 过渡型 --&gt;
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+&lt;!-- xhtml 1.0 过渡型 --&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+&lt;!-- html 4.01 框架集型 --&gt;
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot; &quot;http://www.w3.org/TR/html4/frameset.dtd&quot;&gt;
+&lt;!-- xhtml 1.0 框架集型 --&gt;
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD XHTML 1.0 Frameset//EN&quot; &quot;http://www.w3.org/TR/xhtml11/DTD/xhtml11-frameset.dtd&quot;&gt;
+</code></pre><p>##2.4 &lt;noscript/&gt;元素##</p>
+<blockquote>
+<p>执行条件：</p>
+</blockquote>
+<ul>
+<li>浏览器不支持脚本</li>
+<li>浏览器支持脚本，但脚本被禁用</li>
+</ul>
+<h1 id="u7B2C_u4E09_u7AE0__u57FA_u672C_u6982_u5FF5"><a href="#u7B2C_u4E09_u7AE0__u57FA_u672C_u6982_u5FF5" class="headerlink" title="第三章 基本概念"></a>第三章 基本概念</h1><h2 id="3-1__u8BED_u6CD5"><a href="#3-1__u8BED_u6CD5" class="headerlink" title="3.1 语法"></a>3.1 语法</h2><p><strong>3.1.1 区分大小写</strong></p>
+<p><strong>3.1.2 标识符</strong></p>
+<blockquote>
+<p>所谓标识符，就是指变量、函数、属性的名字，或者函数的参数。</p>
+</blockquote>
+<p><strong>3.1.3 注释</strong></p>
+<pre><code>//单行注释
+/*
+ *多行（块级）注释
+ */
+</code></pre><p><strong>3.1.4 严格模式</strong></p>
+<blockquote>
+<p>ECMAScript 5 引入了严格模式（strict mode）的概念。他是一种不同的解析与执行模式。在严格模式下，ECMAScript 3 中的一些不确定的行为将得到处理，而且对某些不安全的操作也会抛出异常。</p>
+</blockquote>
+<pre><code>在整个脚本中启动严格模式，可以在顶部添加
+&quot;use stritct&quot;
+指定函数在严格模式下执行
+function doSomething(){
+    &quot;use strict&quot;;
+    //函数体
+}
+</code></pre><p><strong>3.1.5 语句</strong></p>
+<blockquote>
+<p>以分号结尾</p>
+</blockquote>
+<h2 id="3-2__u5173_u952E_u5B57_u548C_u4FDD_u7559_u5B57"><a href="#3-2__u5173_u952E_u5B57_u548C_u4FDD_u7559_u5B57" class="headerlink" title="3.2 关键字和保留字"></a>3.2 关键字和保留字</h2><h2 id="3-3__u53D8_u91CF"><a href="#3-3__u53D8_u91CF" class="headerlink" title="3.3 变量"></a>3.3 变量</h2><ul>
+<li>松散型的，可以用来保存任何类型的数据</li>
+<li>使用var操作符定义的变量将成为定义该变量的作用域中的局部变量，在函数退出后就会被销毁</li>
+<li><p>可以使用一条语句定义多个变量，用逗号隔开即可</p>
+<p>  var message = “hi”,</p>
+<pre><code>found = false,
+age = 29;
+</code></pre></li>
+</ul>
+<p>##3.4 数据类型##</p>
+<blockquote>
+<p>ECMAScript种有5种基本数据类型：Undefined、Null、Boolean、Number和String。还有一种复杂的数据类型：Object,Object由一组无序的名值对组成。</p>
+</blockquote>
+<ul>
+<li>ECMAScript不支持任何创建自定义类型的机制</li>
+</ul>
+<p><strong>3.4.1 typeof操作符</strong></p>
+<blockquote>
+<p>检测给定变量的数据类型（除上面的几种类型外，还可能是function函数）</p>
+</blockquote>
+<ul>
+<li>特例：typeof null 返回”object”,因为null被认为是一个空的对象引用 </li>
+</ul>
+<p><strong>3.4.2 Undefined 类型</strong></p>
+<blockquote>
+<p>对未初始化和未声明的变量执行typeof操作符都会返回undefined值</p>
+</blockquote>
+<p><strong>3.4.3 Null 类型</strong></p>
+<ul>
+<li><p>如果定义的变量用于保存对象，最好将该变量初始化为null,这样只要检查null值就可以知道相应的变量是否已经保存了一个对象的引用，如</p>
+<pre><code>if(car != null){
+    //对car对象执行某些操作
+}    
+</code></pre></li>
+<li><p>实际上undefined值是派生自null值的，因此</p>
+<pre><code>alert(null == undefined);  //true
+</code></pre></li>
+</ul>
+<p><strong>3.4.4 Boolean 类型</strong></p>
+<ul>
+<li><p>要将一个值转换为其对应的Boolean值，可以调用转型函数Boolean(),如下：</p>
+<pre><code>var message = &quot;test&quot;;
+var messageAsBoolean = Boolean(message);
+</code></pre></li>
+<li><p>各种数据类型及其对应的转换规则</p>
+</li>
+</ul>
+<p><strong>3.4.5 Number 类型</strong></p>
+<ol>
+<li>浮点数    </li>
+</ol>
+<ul>
+<li><p>八进制字面值的第一位必须是0，然后是八进制数字序列0~7。如果字面值中的数值超出了范围，那么前导0将被忽略，后面的数值将被当做十进制数值解析</p>
+<pre><code>var num1 = 070   //八进制的56
+var num2 = 079   //无效的八进制数值——解析为79
+var num3 = 08    //无效的八进制数值——解析为8
+</code></pre></li>
+<li><p>八进制字面量在严格模式下是无效的，会导致支持的JavaScript引擎抛出错误</p>
+</li>
+<li><p>十六进制字面值的前两位必须是0x,后跟任何十六进制数字（0~9 及 A~F）。其中，字母A~F可以大写，也可以小写，如下：</p>
+<pre><code>var hexNum1 = 0xA;   //十六进制的10
+var hexNum2 = 0x1f;  //十六进制的31 
+</code></pre></li>
+</ul>
+<p><strong>- 浮点数的最高精度是17位小数，因此永远不要测试某个特定的浮点数值</strong></p>
+<ol>
+<li>数值范围</li>
+</ol>
+<ul>
+<li>超出数值范围，这个值将被自动转换成特殊的Infinity值，或 -Infinity</li>
+<li>判断一个数值是不是有穷的（即位于最大最小值之间），用isFinite()函数，如果是有穷的，则返回true</li>
+</ul>
+<ol>
+<li>NaN</li>
+</ol>
+<ul>
+<li>NaN,任何数除以0会返回NaN;任何涉及NaN的操作都会返回NaN;NaN与任何值都不相等，包括NaN本身。用isNaN()判断某个参数是否“不是数值”</li>
+</ul>
+<ol>
+<li>数值转换<br>有三个函数：Number()、parseInt()和parseFloat()</li>
+</ol>
+<ul>
+<li>Number()可以用于任何数据类型</li>
+<li><p>parseInt()专门用于把字符串转换成数值，可以为这两个函数指定参数，避免不同版本ECMAScript解析的不一样</p>
+<p>  var num1 = parseInt(“AF”,16)  //175<br>  var num2 = parseInt(“AF”)     //NaN</p>
+</li>
+<li><p>parseFloat()解析时第一个小数点是有效的，第二个小数点无效，会忽略前导的零，只解析十进制数，所以没有用第二个参数指定技术的用法。十六进制的字符串始终会被转换成0，如果字符串包含的是一个可解析为整数的数，会返回整数。</p>
+</li>
+</ul>
+<p><strong>3.4.6 String 类型</strong></p>
+<ol>
+<li><p>字符字面量</p>
+<p> \n  换行<br> \t  制表<br> \b  空格<br> \r  回车<br> \f  进纸<br> \  斜杠<br> \’  单引号（’）<br> \”    双引号（”）</p>
+</li>
+<li><p>字符串的特点 </p>
+</li>
+<li><p>转换为字符串</p>
+<p> var age = 11;<br> var ageAsString = age.toString();      //字符串”11”<br> //toString()可以传递基数，输出不同进制的数<br> //age.toString(2)<br> //age.toString(8)<br> //age.toString(10)<br> //age.toString(16)</p>
+</li>
+<li><p>在不知道要转换的值是不是null或undefined的情况下，还可以使用转型函数String(),这个函数可以将任何类型的值转换为字符串。其规则如下：</p>
+</li>
+</ol>
+<ul>
+<li>如果值有toString()方法，则调用该方法（没有参数）并返回相应的结果；</li>
+<li>如果值是null,则返回”null”;</li>
+<li>如果值是undefined,则返回”undefined”。</li>
+</ul>
+<p><strong>3.4.7 Object 类型</strong></p>
+<pre><code>var o = new Object();
+</code></pre><blockquote>
+<p>Object的每个实例都具有下列属性和方法</p>
+</blockquote>
+<ul>
+<li>Constructor:保存着用于创建当前对象的函数。</li>
+<li>hasOwnProperty(<em>propertyName</em>):用于检查给定的属性在当前对象实例中是否存在。其中作为参数的属性名propertyName必须是以字符串形式指定。eg:o.hasOwnProperty(“name”).</li>
+<li>isPrototypeOf(object):用于检查传入的对象是否是另一个对象的原型。</li>
+<li>propertyIsEnumerable(propertyName):用于检查给定属性是否能够使用for-in语句来枚举。与hasOwnProperty()一样，参数名必须是字符串形式。</li>
+<li>toLocaleString():返回对象的字符串表示，该字符串与执行环境的地区对应</li>
+<li>toString():返回对象的字符串表示</li>
+<li>valueOf():返回对象的字符串、数值或布尔值表示。通常与toString()的返回值相同。</li>
+</ul>
+<p>##3.5 操作符##<br><strong>3.5.1 一元操作符</strong><br><strong>3.5.2 位操作符</strong></p>
+<ol>
+<li><p>按位非（NOT）</p>
+<pre><code>var num1 = 25;
+var num2 = ~num1;
+alert(num2);        //-26
+</code></pre><ul>
+<li>都转换成二进制数取反</li>
+<li>按位非操作的本质：操作数的负值减1<br><br><br></li>
+</ul>
+</li>
+<li><p>按位与（AND）</p>
+<pre><code>var result = 25 &amp; 3;
+alert(result);    //1
+</code></pre><ul>
+<li>两个数值的对应位都是1时才返回1，任何一位是0，结果就是0<br><br><br></li>
+</ul>
+</li>
+<li><p>按位或（OR）</p>
+<pre><code>var result = 25 | 3;
+alert(result);    //27
+</code></pre><ul>
+<li>有一位是1就返回1，只有在两位都是0的情况下才返回0<br><br><br></li>
+</ul>
+</li>
+<li><p>按位异或（XOR）</p>
+<pre><code>var result = 25 ^ 3;
+alert(result);    //26
+</code></pre><ul>
+<li>与按位或的不同之处在于，两个数值对应位上只有一个1时才返回1，如果两位都是1或都是0，则返回0<br><br><br></li>
+</ul>
+</li>
+<li><p>左移</p>
+<pre><code>var oldValue = 2;              //等于二进制的10
+var newValue = oldValue &lt;&lt; 5   //等于二进制的1000000，十进制的64
+</code></pre><ul>
+<li>向左移位后，原数值的右侧多出了5个空位。左移操作会以0来填充这些空位</li>
+<li>左移不会影响操作数的符号位。即：-2向左移动5位是-64，而非64<br><br><br></li>
+</ul>
+</li>
+<li><p>有符号的右移</p>
+<pre><code>var oldValue = 64;              //等于二进制的1000000
+var newValue = oldValue &gt;&gt; 5    //等于二进制的10，十进制的2
+</code></pre><ul>
+<li>空位出现在原数值的左侧，符号位的右侧</li>
+<li>空位由符号位的值来填充<br><br><br></li>
+</ul>
+</li>
+<li><p>无符号的右移</p>
+<pre><code>var oldValue = 64;              //等于二进制的1000000
+var newValue = oldValue &gt;&gt;&gt; 5    //等于二进制的10，十进制的2
+</code></pre><ul>
+<li>对于正数来说，无符号右移的结果与有符号右移相同</li>
+<li>无符号右移是以0来填充空位的</li>
+<li><p>无符号右移操作符会把负数的二进制码当成正数的二进制码</p>
+<pre><code>var oldValue = -64;              //等于二进制的1111111111111111111111111000000（不准确）
+var newValue = oldValue &gt;&gt;&gt; 5    //等于十进制的134217726
+</code></pre></li>
+<li><p>无符号右移操作会把这个二进制码（1111111111111111111111111000000）当成正数的二进制码，换算成十进制就是4294967273。如果把这个值右移5位，结果就是00000111111111111111111110.即十进制的134217726<br><br><br></p>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>3.5.3 布尔操作符</strong></p>
+<ol>
+<li><p>逻辑非</p>
+<pre><code>alert(!&quot;blue&quot;);     //false
+alert(!NaN);        //true
+</code></pre></li>
+<li><p>逻辑与</p>
+<ul>
+<li>不能在逻辑与操作中使用未定义的值，否则会导致错误 </li>
+<li>是一个短路操作符</li>
+</ul>
+</li>
+<li><p>逻辑或</p>
+<ul>
+<li>同样不能在逻辑与操作中使用未定义的值，否则会导致错误 </li>
+<li>也是短路操作符</li>
+<li><p>可以用逻辑或的这种行为来避免为变量赋null或undefined值。</p>
+<pre><code>var myObject = preferredObject || backupObject;
+//如果preferredObject是null,则将backupObject的值赋给myObject
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<p><strong>3.5.4 乘性操作符</strong></p>
+<ol>
+<li>乘法（*）</li>
+<li>除法（/）</li>
+<li>求模（余数）（%）</li>
+</ol>
+<p><strong>3.5.5 加性操作符</strong></p>
+<ol>
+<li>加法</li>
+<li>减法</li>
+</ol>
+<p><strong>3.5.6 关系操作符</strong></p>
+<ul>
+<li>&lt;,&gt;,&lt;=,&gt;=</li>
+<li><p>大写字母的字符编码全部小于小写字母的字符编码</p>
+<pre><code>var result = &quot;23&quot; &lt; &quot;3&quot;   //true
+//因为字符转比较的是编码，2的字符编码是50,3是51
+var result = &quot;23&quot; &lt; 3     //false 
+var result = &quot;a&quot; &lt; 3      //false,因为&quot;a&quot;被转换成了NaN
+</code></pre></li>
+<li><p>任何操作数与NaN进行关系比较，结果都是false</p>
+</li>
+</ul>
+<p><strong>3.5.7 相等操作符</strong></p>
+<ol>
+<li><p>相等和不相等（==和！=）</p>
+<pre><code>NaN == NaN   //false
+</code></pre></li>
+<li><p>全等和不全等（===和！==）</p>
+<pre><code>null == undefined   //true
+null === undefined  //false
+</code></pre></li>
+</ol>
+<p><strong>3.5.8 条件操作符</strong></p>
+<pre><code>variable = boolean_expression ? true_value : flase_value;
+</code></pre><p><strong>3.5.9 赋值操作符</strong></p>
+<ul>
+<li>复合赋值操作符（*= /= %= += -= &lt;&lt;= &gt;&gt;= &gt;&gt;&gt;=）</li>
+</ul>
+<p><strong>3.5.10 逗号操作符</strong></p>
+<pre><code>var num1=1,num2=2,num3=3;
+var numm = (5,1,4,8,0);   //num的值为0
+</code></pre><p>##3.6 语句##</p>
+<p><strong>3.6.1 if语句</strong></p>
+<p><strong>3.6.2 do-while 语句</strong></p>
+<ul>
+<li>后测试循环语句，即只有在循环体中的代码执行之后，才会测试出口条件。换句话说，在对表达是求值之前，循环体内的代码至少会被执行一次。</li>
+</ul>
+<p><strong>3.6.3 while语句</strong></p>
+<ul>
+<li><p>在循环体内的代码被执行之前，就会对出口条件求值，因此，循环体内的代码有可能永远不会被执行。</p>
+<pre><code>var i = 0;
+while(i &lt; 10){
+    i += 2；
+}
+</code></pre></li>
+</ul>
+<p><strong>3.6.4 for 语句</strong></p>
+<p><strong>3.6.5 for-in 语句</strong></p>
+<ul>
+<li><p>一种精准的迭代语句，可以用来枚举对象的属性</p>
+<pre><code>for(var proName in window){
+    document.write(proName);
+}
+//显示BOM中window对象的所有属性
+</code></pre></li>
+<li><p>ECMAScript 对象的属性没有顺序。因此，通过for-in循环输出的属性名的顺序是不可预测的。具体来讲，所有属性都会被返回一次，但返回的先后次序可能会因浏览器而异。</p>
+</li>
+<li>因为如果要迭代的对象的变量值为null或undefined，for-in语句会抛出错误。ECMAScript5更正了这一行为；对于这种情况不再抛出异常，而只是不执行循环体。为了保证最大限度的兼容性，建议在使用for-in 循环前，先检测确认对象的值不是null或undefined。</li>
+</ul>
+<p><strong>3.6.6 label 语句</strong></p>
+<ul>
+<li><p>使用label语句可以在代码红添加标签，以便将来使用。</p>
+<pre><code>start:for(var i=0;i&lt;count;i++){
+    alert(i);
+}    
+</code></pre></li>
+<li><p>这个start标签可以在将来由break或contrinue语句引用</p>
+</li>
+<li>加标签的语句一般都要与for语句等循环语句配合使用</li>
+</ul>
+<p><strong>3.6.7 break和continue 语句</strong></p>
+<ul>
+<li>break语句会立即推出循环，强制继续执行循环后面的语句</li>
+<li><p>continue语句虽然也是立即退出循环，但退出循环后会从循环的顶部继续执行。</p>
+<pre><code>var num = 0;
+for(var i=1; i&lt;10; i++){
+    if(i%5==0){
+        break;
+    }
+    num++;
+}
+alert(num);     //4
+
+var num = 0;
+for(var i=1; i&lt;10; i++){
+    if(i%5==0){
+        countinue;
+    }
+    num++;
+}
+alert(num);     //8
+</code></pre></li>
+</ul>
+<p><strong>3.6.8 with 语句</strong></p>
+<ul>
+<li><p>将代码的作用域设置到一个特定的对象中。</p>
+<pre><code>var qs = location.search.substring(1);
+var hostName = location.hostname;
+var url = location.href;
+
+with(location){
+    var qs = search.substring(1);
+    var hostName = hostname;
+    var url = href;
+}
+//由于大量使用with语句会导致性能下降，同事也会给调试代码造成困难，因此不建议使用
+</code></pre></li>
+</ul>
+<p><strong>3.6.9 switch 语句</strong></p>
+<pre><code>if(i==25){
+    alert(&quot;25&quot;);
+}else if(i==35){
+    alert(&quot;35&quot;);
+}else if(i==45){
+    alert(&quot;45&quot;);
+}else{
+    alert(&quot;Other&quot;);
+}
+
+//于此等价的switch语句如下：
+
+switch(i){
+    case 25:
+        alert(&quot;25&quot;);
+        break;
+    case 35：
+        alert(&quot;35&quot;);
+        break;
+    case 45:
+        alert(&quot;45&quot;);
+        break;
+    default:
+        alert(&quot;Other&quot;);
+}
+</code></pre><ul>
+<li>switch语句中使用任何数据类型，无论是字符串，还是对象都没有问题</li>
+<li>每个case值不一定是常量，也可以是变量，甚至是表达式</li>
+<li>switch语句在比较值时使用的是全等操作符，因此不会发生类型转换</li>
+</ul>
+<p>##3.7 函数##</p>
+<pre><code>function sum(num1,num2){
+    return num1+num2;
+    alert(&quot;hello&quot;);   //永远不会执行
+}
+//这个函数会在执行完return语句之后停止并立即退出。因此，位于return语句之后的任何代码都永远不会执行
+</code></pre><p><strong>3.7.1 理解参数</strong></p>
+<ul>
+<li>在函数体内可以通过arguments对象来访问这个参数数组（第一个参数：arguments[0],第二个参数：argument[1]，以此类推）</li>
+<li>使用length属性来确定传递进来多少个参数</li>
+<li>没有传递值得命名参数将自动被赋予undefined值</li>
+</ul>
+<p><strong>3.7.2 没有重载</strong></p>
+<ul>
+<li>后定义的函数覆盖先定义的函数</li>
+</ul>
+<p>#第四章 变量、作用域和内存问题#</p>
+<p>##4.1 基本类型和引用类型的值##</p>
+<ul>
+<li>基本类型值：简单的数据段</li>
+<li>引用类型值：那些可能由多个值构成的对象</li>
+</ul>
+<p><strong>4.1.1 动态的属性</strong></p>
+<pre><code>var person = new Object();
+person.name = &quot;Nicholas&quot;;
+alert(person.name);   //&quot;Nicholas&quot;;
+
+var name = &quot;Nicholas&quot;;
+name.age = 27;
+alert(name.age);      //undefined
+</code></pre><ul>
+<li>只能给引用类型值动态地添加属性，以便将来使用</li>
+</ul>
+<p><strong>4.1.2 复制变量值</strong></p>
+<p><strong>4.1.3 传递参数</strong></p>
+<pre><code>function addTen(num){
+    num += 10;
+    return num;
+}
+var count = 20;
+var result = addTen(count);
+alert(count);      //20,没有变化
+alert(result);     //20
+//参数num与变量count互不认识，他们仅仅是具有相同的值
+
+function setName(obj){
+    obj.name = &quot;Nicholas&quot;;
+}
+var person = new Object();
+setName(person);
+alert(person.name);   //&quot;Nicholas&quot;
+//在这个函数内部，obj和person引用的是同一个对象。换句话说，即使这个对象是按值传递的，obj也会按引用来访问同一个对象。
+
+function setName(obj){
+    obj.name = &quot;Nicholas&quot;;
+    obj = new Object();
+    obj.name = &quot;Greg&quot;;
+}
+var person = new Object();
+setName(person);
+alert(person.name);   //&quot;Nicholas&quot;
+//即使在函数内部修改了参数的值，但原始的引用仍然保持未变。实际上，挡在函数内部重写obj时，这个变量引用的就是一个局部对象了，这个局部对象会在函数执行完毕后立即被销毁
+</code></pre><p><strong>4.1.4 检测类型</strong></p>
+<pre><code>alert(person instanceof Object);   //变量person是Object吗？
+alert(colors instanceof Array);   //变量colors是Array吗？
+alert(pattern instanceof RegExp);   //变量pattern是RegExp吗？
+</code></pre><ul>
+<li>所有引用类型的值都是Object的实例。因此在检测一个引用类型值和Object构造函数时，instanceof操作符始终会返回true</li>
+<li>如果使用instanceof操作符检测基本类型的值，该操作符始终会返回false,因为基本类型不是对象</li>
+<li>在Safari 5及之前版本和Chrome 7及之前版本中使用typeof检测正则表达式时，会返回“function”。在IE和Firefox中，对正则表达式应typeof会返回“object”</li>
+</ul>
+<p>##4.2 执行环境及作用域##</p>
+<p><strong>4.2.1 延长作用域链</strong></p>
+<pre><code>- try-catch语句的catch块
+- with语句
+</code></pre><p><strong>4.2.2 没有块级作用域</strong></p>
+<pre><code>1. 声明变量
+2. 查询标识符
+</code></pre><p>##4.3 垃圾收集##</p>
+<p><strong>4.3.1 标记清楚</strong></p>
+<p><strong>4.3.2 引用计数</strong></p>
+<pre><code>- 循环引用问题
+
+        var element = document.getElementById(&quot;some_element&quot;);
+        var myObject = new Object();
+        myObject.element = element;
+        element.someObject = myObject;
+
+        //用下面的方法可以消除循环
+        myObject.element = null;
+        element.someObject =null;
+</code></pre><p><strong>4.3.3 性能问题</strong></p>
+<p><strong>4.3.4 管理内存</strong></p>
+<ul>
+<li><p>解除引用：一旦数据不再有用，最好通过将其值设置为null来释放其引用</p>
+<pre><code>function creatPerson(name){
+    var localPerson = new Object();
+    localPerson.name = name;
+    return localPerson;
+}
+var globalPerson = createPerson(&quot;Nicholas&quot;);
+//手工解除globalPerson的引用
+globalPerson = null;
+</code></pre></li>
+</ul>
+<p>#第五章 引用类型#</p>
+<p>##5.1 Object类型##</p>
+<ul>
+<li><p>创建Object实例的方式</p>
+<ol>
+<li><p>使用new操作符后跟Object构造函数</p>
+<pre><code>var person = new Object();
+person.name = &quot;Nicholas&quot;;
+person.age = 29;
+</code></pre></li>
+<li><p>使用对象字面量表示法</p>
+<pre><code>var person = {
+    name : &quot;Nicholas&quot;,
+    age : 29
+};
+</code></pre></li>
+</ol>
+</li>
+<li><p>通过变量访问属性</p>
+<p>  var propertyName = “name”;<br>  alert(person[propertyName]);   //“Nicholas”</p>
+</li>
+</ul>
+<p>##5.2 Array类型##</p>
+<ul>
+<li><p>利用length属性也可以方便地在数组末尾添加新项</p>
+<pre><code>var colors = [&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;];
+colors[colors.length] = &quot;black&quot;;
+colors[colors.length] = &quot;brown&quot;;
+</code></pre></li>
+</ul>
+<p><strong>5.2.1 监测数组</strong></p>
+<pre><code>if(Array.isArray(value)){
+    //对数组执行某些操作
+}
+</code></pre><p><strong>5.2.2 转换方法</strong></p>
+<ul>
+<li>三种方法：toLocaleString(),toString()和valueOf()</li>
+<li>valueOf()返回的是数组</li>
+<li>toString()返回的是一个以逗号分割的字符串</li>
+</ul>
+<p><strong>5.2.3 栈方法</strong></p>
+<ul>
+<li>栈是一种LIFO(Last-In-First-Out,后进先出)的数据结构，最新添加的项最早被移除</li>
+<li><p>栈的插入push()和移除pop(),只发生在一个位置——栈的顶部。</p>
+<pre><code>var colors = new Array();
+var count = colors.push(&quot;red&quot;,&quot;green&quot;);
+alert(count);      //2
+
+count = colors.push(&quot;black&quot;);
+alert(count);      //3
+
+var item = colors.pop();   //取得最后一项
+alert(item);            //&quot;black&quot;
+alert(colors.length);   //2
+</code></pre></li>
+</ul>
+<p><strong>5.2.4 队列方法</strong></p>
+<ul>
+<li>队列是FIFO(First-In-First-Out，先进先出)</li>
+<li>从一个数组前端取得项的方法shift()</li>
+<li><p>使用shift()和push()方法，可以像使用队列一样使用数组</p>
+<pre><code>var colors = new Array();
+var count = colors.push(&quot;red&quot;,&quot;green&quot;);
+alert(count);      //2
+
+count = colors.push(&quot;black&quot;);
+alert(count);      //3
+
+var item = colors.shift();    //取得第一项
+alert(item);            //&quot;red&quot;    
+alert(colors.length);   //2
+</code></pre></li>
+<li><p>使用unshift()和pop()方法，可以从相反的方向来模拟队列，即在叔组的前端添加项，从数组的末端移除项</p>
+<pre><code>var colors = new Array();
+var count = colors.unshift(&quot;red&quot;,&quot;green&quot;);
+alert(count);      //2
+
+count = colors.unshift(&quot;black&quot;);
+alert(count);      //3
+
+var item = colors.pop();    //取得最后一项
+alert(item);            //&quot;green&quot;    
+alert(colors.length);   //2
+</code></pre></li>
+</ul>
+<p><strong>5.2.5 重排序方法</strong></p>
+<ul>
+<li>有两个重排序的方法：reverse()和sort()</li>
+<li>reverse()翻转数组项的顺序</li>
+<li>sort()按升序排列数组项,该方法会调用每个数组项的toString()转型方法，然后比较的得到的字符串，以确定如何排序</li>
+<li><p>即使数组中的每一项都是数值，sort()方法比较的也是字符串</p>
+<pre><code>var values = [0,1,5,10,15];
+values.sort();
+alert(values);    //0,1,10,15,5
+
+//sort()方法可以接受一个比较函数作为参数
+
+function compare(value1,value2){
+    if(value1 &lt; value2){
+        return -1;
+    }else if(value1&gt;value2){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+var values = [0,1,5,10,15];
+values.sort(compare);
+alert(values);   //0,1,5,10,15
+
+//也可以通过比较函数产生降序排序结果，只要交换比较函数的返回值即可
+
+function compare(value1,value2){
+    if(value1 &lt; value2){
+        return 1;
+    }else if(value1&gt;value2){
+        return -1;
+    }else{
+        return 0;
+    }
+}
+
+//对于数值类型或者其valueOf()方法会返回数值类型的对象类型，可以使用更简单的函数，即：
+function compare(value1,value2){
+    return value2 - value1;
+}
+</code></pre></li>
+</ul>
+<p><strong>5.2.6 操作方法</strong></p>
+<ul>
+<li><p>concat()方法可以给基于当前数组中的所有项创建一个新数组。</p>
+<pre><code>var colors = [&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;];
+var colors2 = colors.concat(&quot;yellow&quot;,[&quot;black&quot;,&quot;brown&quot;]);
+
+alert(colors);   //red,green,blue
+alert(colors2);  //red,green,blue,yellow,black,brown
+</code></pre></li>
+<li><p>slice()方法基于当前数组中的一个或多个项创建一个新数组</p>
+<pre><code>var colors = [&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;yellow&quot;,&quot;purple&quot;];
+var colors2 = colors.slice(1);
+var colors3 = colors.slice(1,4);
+
+alert(colors2);  //green,blue,yellow,purple
+alert(colors3);  //green,blue,yellow
+
+//如果slice()方法的参数中有一个负数，则用数组长度加上该数来确定相应的位置
+    如：slice(-2,-1)与调用slice(3,4)结果一样
+//如果结束位置小雨起始位置，则返回空数组
+</code></pre></li>
+<li><p>splice()方法，主要用途是向数组的中部插入项</p>
+<ol>
+<li>删除：可以删除任意数量的项，只需提供2个参数，eg:splice(0,2)会删除数组中的前两项</li>
+<li>插入：可以向指定位置插入任意数量的项，只需提供3个参数：起始位置、0（要删除的项数）和要插入的项。eg:splice(2,0,”red”,”green”)会从当前数组的位置2开始插入字符串“red”和“green”.</li>
+<li><p>替换：可以向指定位置插入任意数量的项，且同时删除任意数量的项，只需指定3个参数：起始位置、要删除的项数和要插入的任意数量的项。传入的项数不必与删除的项数相等。eg:splice(2,1,”red”,”green”)会删除当前数组位置2的项，然后再从位置2开始插入字符串“red”和“green”</p>
+<pre><code>//splice()方法始终都会返回一个数组，该数组中包含从原始数组中删除的项（如果没有删除任何项，则返回一个空数组）            
+
+var colors = [&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;];
+var removed = colors.splice(0,1);   //删除第一项
+alert(colors);     //green,blue
+alert(removed)；   //red,返回数组中只包含一项
+
+rempved = colors.splice(1,0,&quot;yellow&quot;,&quot;orange&quot;);  //从位置1开始插入两项
+alert(colors);     //green,yellow,orange,blue
+alert(removed);    //返回一个空数组
+
+removed = colors.splice(1,1,&quot;red&quot;,&quot;purple&quot;);   //插入两项，删除一项
+alert(colors);     //green,red,purple,orange,blue
+alert(removed);    //yellow
+</code></pre></li>
+</ol>
+</li>
+</ul>
+<p><strong>5.2.7 位置方法</strong></p>
+<ul>
+<li>indexOf():从数组的开头（位置0）开始向后查找</li>
+<li>lastIndexOf()从数组的末尾开始向前查找</li>
+<li>这两个方法都接受两个参数，要查找的项和（可选的）表示查找起点位置的索引</li>
+<li><p>这两个方法都要返回查找的项在数组中的位置，在没有找到的情况下返回-1</p>
+<pre><code>var numbers = [1,2,3,4,5,4,3,2,1];
+
+alert(numbers.indexOf(4));       //3
+alert(numbers.lastIndexOf(4));   //5
+
+alert(numbers.indexOf(4,4))      //5
+alert(numbers.lastIndexOf(4,4))  //3
+
+var person = {name:&quot;Nicholas&quot;};
+var people = [{name:&quot;Nicholas&quot;}];
+
+var morePeople = [person];
+
+alert(people.indexOf(person));      //-1
+alert(morePeople.indexOf(person));  //0
+</code></pre></li>
+</ul>
+<p><strong>5.2.8 迭代方法</strong></p>
+<ul>
+<li>5个迭代方法，每个方法接受两个参数：要在每一项上运行的函数和（可选的）运行该函数的作用域对象——影响this的值。</li>
+<li><p>传入这些方法中的函数会接受三个参数：数组项的值、该项在数组中的位置和数组对象本身</p>
+<pre><code>var numbers = [1,2,3,4,5,4,3,2,1];
+
+var everyResult = numbers.every(function(item,index,array){
+    return(item &gt; 2);
+})    
+alert(everyResult);     //false
+
+var someResult = numbers.some(function(item,index,array){
+    return(item &gt; 2);
+})
+alert(someResult);      //true
+
+var filterResult = numbers.filter(function(item,index,array){
+    return(item &gt; 2);
+})        
+alert(filterResult);      //[3,4,5,4,3]
+
+var mapResult = numbers.map(function(item,index,array){
+    return item*2;
+})
+alert(mapResult);        //[2,4,6,8,10,8,6,4,2]
+
+numbers.forEach(function(item,index,array){
+    //执行某些操作
+})
+</code></pre></li>
+</ul>
+<p><strong>5.2.9 缩小方法</strong></p>
+<ul>
+<li>两个缩小数组的方法：reduce()和reduceRight()。这两个方法都会迭代数组的所有项，然后构建一个最终返回的值</li>
+<li>reduce()方法丛书组的第一项开始，逐个遍历到最后</li>
+<li>reduceRight()则从数组的最后一项开始，向前遍历到第一项</li>
+<li>这两个方法都接受两个参数：一个在每一项上调用的函数和（可选的）作为缩小基础的初始值。</li>
+<li>传递给reduce()和reduceRight()的函数接受4个参数：前一个值、当前值、项的索引和数组对象</li>
+<li><p>这个函数返回的任何职都会作为第一个参数自动传给下一项</p>
+<pre><code>var values = [1,2,3,4,5];
+var sum = values.reduce(function(pre,cur,index,array){
+    return pre+cur;
+})
+alert(sum);     //15
+
+//reduceRight()的作用类似，只不过方向相反而已
+var values = [1,2,3,4,5];
+var sum = values.reduceRight(function(pre,cur,index,array){
+    return pre+cur;
+})
+alert(sum);     //15
+</code></pre></li>
+</ul>
+<p>##5.3 Date类型##</p>
+<ul>
+<li><p>要创建一个日期对象，如下</p>
+<pre><code>var now = new Date();
+</code></pre></li>
+<li><p>Date.parse()方法接受一个表示日期的字符串参数，然后尝试根据这个字符串返回相应日期的毫秒数</p>
+<pre><code>//为2004年5月25日创建一个日期对象，如下：
+var someDate = new Date(Date.parse(&quot;May 25,2004&quot;));
+//直接将表示日期的字符串传递给Date构造函数，也会在后台调用Date.parse(),即：下面这个与上面的效果一样
+var someDate = new Date(&quot;May 25,2004&quot;);
+</code></pre></li>
+<li><p>Date.UTC()返回表日期的毫秒数。其参数分别是年份、基于0的月份（1月是0，二月是1，以此类推）、月中的哪一天（1到31）、小时数（0到23）、分钟、秒以及毫秒数。这些参数中，只有前两个参数（年和月）是必须的。如果没有提供月中的天数，则假设天数为1；如果省略其他参数，则统统假设为0</p>
+<pre><code>//GMT时间2000年1月1日午夜零时
+var y2k = new Date(Date.UTC(2000,0))
+
+//GMT时间2005年5月5日下午5:55:55
+var allFives = new Date(Date.UTC(2005,4,5,17,55,55));
+
+//如果第一个参数是数值，Date构造函数会假设该值是日期中的年份，而第二个参数是月份，以此类推，因此上面的可以简写如下：
+var y2k = new Date(2000,0);
+var allFives =(2005,4,5,17,55,55);
+</code></pre></li>
+<li><p>Data.now()方法，返回表示调用这个方法时的日期和时间的毫秒数</p>
+<pre><code>//取得开始时间
+var start = Date.now();
+
+//调用函数
+doSomething();
+
+//取得停止时间
+var stop = Date.now();
+    result = stop-start;
+
+//无兼容性写法
+var start = +new Date();
+doSomething();
+var stop = +new Date();
+    result = stop-start;
+</code></pre></li>
+</ul>
+<p><strong>5.3.1 继承的方法</strong></p>
+<ul>
+<li>Date类型也重写了toLocaleString()、toString()和valueOf()方法</li>
+<li>toLocaleString()按照与浏览器设置的地区相适应的格式返回日期和时间，意味着时间格式中会包含AM或PM,但不包含时区信息。</li>
+<li>toString()返回带有时区信息的日期和时间，时间一般以军用时间（小时的范围0到23）表示</li>
+<li>上面两个方法的差别仅在调试时有用，在显示日期和时间时没有什么价值</li>
+<li><p>valueOf()方法，根本不返回字符串，而是返回日期的毫秒表示。因此可以方便使用比较操作符来比较日期</p>
+<pre><code>var date1 = new Date(2007,0,1);   //&quot;January 1,2007&quot;
+var date2 = new Date(2007,1,1);   //&quot;February 1, 2007&quot;
+
+alert(date1 &lt; date2);   //true
+</code></pre></li>
+</ul>
+<p><strong>5.3.2 日期格式化方法</strong></p>
+<pre><code>1. toDateString()——以特定于实现的格式显示星期几、月、日和年；
+2. toTimeString()——以特定于实现的格式显示时、分、秒和时区；
+3. toLocaleDateString()——以特定于地区的格式显示星期几、月、日和年；
+4. toLocaleTimeString()——以特定于实现的格式显示时、分、秒；
+5. toUTCString()——以特定于实现的格式完整的UTC日期。
+</code></pre><p><strong>5.3.3 日期/时间组件方法</strong></p>
+<p>##5.4 RegExp类型##</p>
+<ul>
+<li>正则表达式 var expression = / pattern / flags;</li>
+</ul>
+<p>##5.5 Function类型##</p>
+<ul>
+<li><p>函数通常是使用函数声明语法定义的，如下：</p>
+<pre><code>function sum(num1,num2){
+    return num1 + num2;
+}
+//这与下面使用函数表达式定义函数的方式几乎相差无几
+var sum = function(num1,num2){
+    return num1 + num2;
+}
+差别：1.function关键字后面没有函数名。这是因为在使用函数表达式定义函数时，没有必要使用函数名，通过变量sum即可引用函数
+     2.还要注意函数末尾有个分号，就像声明其他变量一样
+</code></pre></li>
+<li><p>函数名仅仅是指向函数的指针，因此函数名与包含对象指针的其他变量没有什么不同。换句话说，一个函数可能会有多个名字</p>
+<pre><code>function sum(num1,num2){
+    return num1+num2;
+}
+alert(sum(10,10));      //20
+
+var anotherSum = sum;
+alert(anotherSum(10,10));   //20
+
+sum = null;
+alert(anotherSum(10,10));   //20
+</code></pre></li>
+<li><p>使用不带圆括号的函数名是访问函数指针，而非调用函数。本例中即使让anotherSum与函数”断绝关系”，任然可以调用anotherSum()</p>
+</li>
+</ul>
+<p><strong>5.5.1 没有重载（深入理解）</strong></p>
+<ul>
+<li>两个同名函数，后者会覆盖前面的函数</li>
+</ul>
+<p><strong>5.5.2 函数声明与函数表达式</strong></p>
+<ul>
+<li>解析器会率先读取函数声明，并使其在执行任何代码之前可用。</li>
+<li><p>至于函数表达式，则必须等到解析器执行到它所在的代码行，才会真正被解释执行。</p>
+<pre><code>alert(sum(10,10));
+function sum(num1,num2){
+    return num1+num2;
+}//可以运行
+
+alert(sum(10,10));
+var sum = function(num1,num2){
+    return num1 + num2;
+}//报错
+</code></pre></li>
+</ul>
+<p><strong>5.5.3 作为值得函数</strong></p>
+<ul>
+<li><p>不仅可以像传递参数一样把一个函数传递给另一个函数，而且可以将一个函数作为另一个函数的结果返回。</p>
+<pre><code>function callSomeFunction(someFuntction,someArgument){
+    return someFunction(someArgument);
+}
+//这个函数接受两个参数，第一个应该是一个函数，第二个应该是要传递给该函数的一个值
+
+function add10(num){
+    return num + 10;
+}
+
+var result1 = callSomeFunction(add10,10);
+alert(result1);   //20
+</code></pre></li>
+<li><p>要访问函数的指针而不执行函数的话，必须去掉函数名后面的那对圆括号</p>
+</li>
+<li><p>可以从一个函数中返回另一个函数</p>
+<pre><code>function ceatComparisonFunction(propertyName){
+    return function(object1.object2){
+        var value1 = object1[propertyName]; 
+        var value2 = object2[propertyName]; 
+
+        if(value1 &lt; value2){
+            return 1;
+        }else if(value1&gt;value2){
+            return -1;
+        }else{
+            return 0;
+        }
+    }
+}
+
+var data = [{name:&quot;Zachary&quot;,age:28},{name:&quot;Nicholas&quot;,age:29}];
+
+data.sort(ceatComparisonFunction(&quot;name&quot;));
+alert(data[0].name);   //Nicholas
+
+data.sort(ceatComparisonFunction(&quot;age&quot;));
+alert(data[0].name);   //Zachary
+</code></pre></li>
+</ul>
+<p><strong>5.5.4 函数内部属性</strong></p>
+<ul>
+<li>函数的内部，有两个特殊的对象：arguments和this</li>
+<li>arguments是一个类数组对象，包含着传入函数中的所有参数</li>
+<li><p>arguments对象还有一个名叫callee的属性，该属性是一个指针，指向拥有这个arguments对象的函数</p>
+<pre><code>function factorial(num){
+    if(num&lt;=1){
+        return 1;
+    }else{
+        return num * factorial(num-1)
+    }
+}
+//函数的执行和函数名factorial紧紧耦合在一起了，为了消除耦合，可以使用arguments.callee
+
+function factorial(num){
+    if(num&lt;=1){
+        return 1;
+    }else{
+        return num * arguments.callee(num-1)
+    }
+}
+
+var trueFactorial = factorial;
+factorial = function(){
+    return 0;
+}
+
+alert(trueFactorial(5));    //120
+alert(factorial(5));        //0
+
+//如果像原来的factorial()那样不使用arguments.callee，调用trueFactorial（）就会返回0
+</code></pre></li>
+<li><p>this引用的是函数据以执行的环境对象（当在网页的全局作用域中调用函数时，this对象引用的就是window）</p>
+<pre><code>window.color = &quot;red&quot;;
+var o = {color:&quot;blue&quot;};
+
+function sayColor(){
+    alert(this.color);
+}    
+
+sayColor();    //&quot;red&quot;
+
+o.sayColor = sayColor;
+o.sayColor();    //&quot;blue&quot;
+</code></pre></li>
+</ul>
+<p><strong>5.5.5 函数属性和方法</strong></p>
+<ul>
+<li>每个函数都包含两个属性：length和prototype</li>
+<li><p>length属性表示函数希望接收的命名参数的个数</p>
+<pre><code>function sayName(name){
+    alert(name);
+}
+
+function sum(num1,num2){
+    return num1+num2;
+}
+
+function sayHi(){
+    alert(&quot;hi&quot;);
+}
+
+alert(sayName.length);  //1
+alert(sum.length);      //2
+alert(sayHi.length);    //0
+</code></pre></li>
+<li><p>prototype 是保存他们所有实例方法的真正所在（诸如toString()和valueOf()等方法实际上都保存在其名下，只不过通过各自对象的实例访问罢了）</p>
+</li>
+<li>prototype属性是不可枚举的，因此使用for-in无法发现。</li>
+<li>每个函数都包含两个非继承的方法：apply()和call()。这两个方法的用途都是在特定的作用域中调用函数，实际上等于设置函数体内this对象的值</li>
+<li><p>apply()方法接受两个参数：一个是在其中运行函数的作用域，另一个是参数数组。其中第二个参数可以是Array的实例，也可以是arguments对象。</p>
+<pre><code>function sum(num1,num2){
+    return num1 + num2;
+}
+
+function callSum1(num1,num2){
+    return sum.apply(this,arguments);       //传入window对象和arguments对象
+}
+
+function callSum2(num1,num2){
+    return sum.apply(this,[num1,num2]);     //传入数组
+}
+
+alert(callSum1(10,10));    //20
+alert(callSum2(10,10));    //20
+</code></pre></li>
+<li><p>call()方法与apply()方法的作用相同，第一个参数是this值没有变化，变化的是其余参数都直接传递给函数，传递给函数的参数必须逐个列举出来</p>
+<pre><code>function sum(num1,num2){
+    return num1+num2;
+}
+
+function callSum(num1,num2){
+    return sum.call(this,num1,num2);
+}
+
+alert(callSum(10,10));   //20
+</code></pre></li>
+</ul>
+<p>##5.6 基本包装类型##</p>
+<ul>
+<li>3个特殊的引用类型：Boolean、Number和String</li>
+<li>引用类型与基本包装类型的主要区别就是对象的生存期</li>
+</ul>
+<p><strong>5.6.1 Boolean类型</strong></p>
+<ul>
+<li><p>创建Boolean对象，可以像下面这样调用Boolean构造函数并传入true或false值</p>
+<pre><code>var booleanObject = new Boolean(true);
+</code></pre></li>
+<li><p>布尔表达式中的所有对象都会被转换为true</p>
+<pre><code>var falseObject = new Boolean(false);
+var result = falseObject &amp;&amp; true;
+alert(result);  //true 
+</code></pre></li>
+<li><p>基本类型与引用类型的布尔值有两个差别</p>
+<ol>
+<li>typeof操作符对基本类型返回“boolean”,而对引用类型返回“object”</li>
+<li><p>Boolean对象是Boolean类型的实例，所以instanceof操作符测试Boolean对象会返回true,而测试基本类型的布尔值则返回false</p>
+<pre><code>alert(typeof falseObject);   //object
+alert(typeof falseValue);    //boolean
+alert(falseObject instanceof Boolean);   //true
+alert(falseValue instanceof Boolean);    //false
+</code></pre></li>
+</ol>
+</li>
+<li><p>建议永远不要使用Boolean对象</p>
+</li>
+</ul>
+<p><strong>5.6.2 Number类型</strong></p>
+<ul>
+<li><p>创建Number对象</p>
+<pre><code>var numberObject = new Number(10);
+</code></pre></li>
+<li><p>toFixed()方法会按照指定的小数位返回熟知的字符串表示[存在兼容性问题]</p>
+<pre><code>var num = 10;
+alert(num.toFixed(2));    //10.00
+</code></pre></li>
+<li><p>toExponential()用于栅格化数值，该方法返回以指数表示法表示的数值的字符串形式，也接受一个参数，而且该参数同样也是指定输出结果中的小数位数</p>
+<pre><code>var num = 10;
+alert(num.toExponential(1));   //1.0e+1
+</code></pre></li>
+<li><p>上面那个数值一般不必使用e表示法，表示一个数值最合适的格式，是使用toPrecision()方法，该方法接收一个参数，即表示数值的所有数字的位数（不包括指数部分）</p>
+<pre><code>var num = 99;
+alert(num.toPrecision(1));    //1e+2
+alert(num.toPrecision(2));    //99
+alert(num.toPrecision(3));    99.0
+</code></pre></li>
+</ul>
+<p><strong>5.6.3 String类型</strong></p>
+<ul>
+<li><p>创建String对象</p>
+<pre><code>var stringObject = new String(&quot;hello world&quot;);
+</code></pre></li>
+<li><p>String 类型的每个实例都有一个length属性，表示字符串中包含多个字符</p>
+<pre><code>var stringValue = &quot;hello world&quot;;
+alert(stringValue.length);    //11
+</code></pre></li>
+<li><p>String类型提供了很多方法，用于辅助完成对ECMAScript中字符串的解析和操作</p>
+<ol>
+<li><p>字符方法</p>
+<ul>
+<li>两个用于访问字符串中特定字符的方法是：charAt()和charCodeAt(),这两个方法都接受一个参数，即基于0的字符位置</li>
+<li><p>charAt()方法以单字符字符串的形式返回给定位置的那个字符</p>
+<pre><code>var stringValue = &quot;hello world&quot;;
+alert(stringValue.charAt(1));   //e
+</code></pre></li>
+<li><p>如果你想得到的不是字符而是字符编码，就要使用charCodeAt()了</p>
+<pre><code>var stringValue = &quot;hello world&quot;;
+alert(stringValue.charCodeAt(1));   //101,小写字母e的字符编码
+</code></pre></li>
+<li><p>ECMAScript5还定义了另一个访问个别字符的方法【存在兼容性问题】</p>
+<pre><code>var stringValue = &quot;hello world&quot;;
+alert(stringValue[1]);    //e
+</code></pre></li>
+</ul>
+</li>
+<li><p>字符串操作方法</p>
+<ul>
+<li><p>concat()用于将一或多个字符串拼接起来，返回拼接得到的新字符串</p>
+<pre><code>var stringValue = &quot;hello &quot;；
+var result = stringValue.concat(&quot;world&quot;);
+alert(result);      //hello world
+</code></pre></li>
+<li><p>concat()方法可以接受任意多个参数，就是说可以通过它拼接任意多个字符串</p>
+<pre><code>var stringValue = &quot;hello &quot;；
+var result = stringValue.concat(&quot;world&quot;,&quot;!&quot;);
+alert(result);     //hello world!
+</code></pre></li>
+<li><p>三个基于子字符串传创建新字符串的方法：slice(),substr()和substring()，这三个方法都返回被操作字符串的一个子字符串，而且也都接受一个或两个参数。参数一是指定子字符串的开始位置，参数二表示子字符串到哪里结束。</p>
+</li>
+<li><p>slice()和substring()的第二个参数指定的是子字符串最后一个字符后面的位置。而substr()的第二个参数指定的则是返回字符个数。如果没有给这些方法传递第二个参数，则将字符串的长度作为结束位置。</p>
+<pre><code>var stringValue = &quot;hello world&quot;;
+alert(stringValue.slice(3));             //lo world
+alert(stringValue.substring(3));         //lo world
+alert(stringValue.substr(3));            //lo world
+alert(stringValue.slice(3，7));          //lo w
+alert(stringValue.substring(3，7));      //lo w
+alert(stringValue.substr(3,7));          //lo worl
+</code></pre></li>
+<li><p>在传递给这些方法的参数是负值的情况下，他们的行为就不尽相同了：</p>
+</li>
+<li>slice()方法会将传入的负值与字符串的长度相加</li>
+<li>substr()方法将负的第一个参数加上字符串的长度，将负的第二个参数转换为0【ie可能有问题】</li>
+<li><p>substring()方法会把所有负值参数都转换成0</p>
+<pre><code>var stringValue = &quot;hello world&quot;;
+alert(stringValue.slice(-3));             //rld
+alert(stringValue.substring(-3));         //hello world
+alert(stringValue.substr(-3));            //rld
+alert(stringValue.slice(3，-4));          //lo w
+alert(stringValue.substring(3，-4));      //hel，substring(3,0)由于这个方法会将较小的数作为开始的位置，将较大的数作为结束的位置，所以最终是substring(0,3)
+alert(stringValue.substr(3,-4));          //&quot;&quot;空字符串,第二个参数相当于0，返回包含零个字符的字符串，也就是一个空字符串
+</code></pre></li>
+</ul>
+</li>
+<li><p>字符串位置方法</p>
+<ul>
+<li><p>indexOf()和lastIndexOf()：这两个方法都是从一个字符串中搜索给定的子字符串，然后返回子字符串的位置（如果没有找到，返回-1）</p>
+<pre><code>var stringValue = &quot;hello world&quot;;
+alert(stringValue.indexOf(&quot;o&quot;));     //4
+alert(stringValue.lastIndexOf(&quot;o&quot;)); //7
+</code></pre></li>
+<li><p>这两个方法都可以接受可选的第二个参数，表示从字符串中的那个位置开始搜索。即indexOf()会从该参数指定的位置向后检索，忽略该位置之前的所有字符串；而lastIndexOf()则会从指定的位置向前搜索，忽略该位置之后的所有字符。</p>
+<pre><code>var stringValue = &quot;hello world&quot;;
+alert(stringValue.indexOf(&quot;o&quot;，6));     //7
+alert(stringValue.lastIndexOf(&quot;o&quot;,6));  //4
+</code></pre></li>
+<li><p>在使用第二个参数的情况下，可以通过循环调用indexOf()或lastIndexOf()来找到所有匹配的子字符串</p>
+<pre><code>var stringValue = &quot;Lorem ipsum dolor sit amet, consectetur adipisicing elit&quot;;
+var posotion = new Array();
+var pos = stringValue.indexOf(&quot;e&quot;);
+
+while(pos &gt; -1){
+    positions.push(pos);
+    pos = stringValue.indexOf(&quot;e&quot;,pos + 1);
+}
+
+alert(positions);      //3,24,32,35,52
+</code></pre></li>
+</ul>
+</li>
+<li><p>trim()方法：这个方法会创建一个字符串的副本，删除<strong>前置</strong>及<strong>后缀</strong>的所有空格。</p>
+<pre><code>var stringValue = &quot;   hello world   &quot;;
+var trimmedStringValue = stringValue.trim();
+alert(stringValue);           //&quot;   hello world   &quot;;
+alert(trimmedStringValue)     //&quot;hello world&quot;
+</code></pre><ul>
+<li>由于trim()返回的是字符串的副本，所以原始字符串中的前置和后缀空格会保持不变。【ie8及以下不支持此属性】</li>
+</ul>
+</li>
+<li><p>字符串大小写转换</p>
+<ul>
+<li><p>toLowerCase()、toLocaleLowerCase()、toUpperCase()和toLocaleUpperCase()</p>
+<pre><code>var stringValue = &quot;hello world&quot;;
+alert(stringValue.toLocaleUpperCase());   //&quot;HELLO　WORLD&quot;
+alert(stringValue.toUpperCase());         //&quot;HELLO　WORLD&quot; 
+alert(stringValue.toLocaleLowerCase());   //&quot;hello world&quot;
+alert(stringValue.toLowerCase());         //&quot;hello world&quot;
+</code></pre></li>
+<li><p>toLocaleLowerCase()和toLocaleUpperCase()方法是针对特定地区的实现</p>
+</li>
+<li>一般来说，在不知道自己的代码将在哪种语言环境中运行的情况下，还是使用针对地区的方法更稳妥些</li>
+</ul>
+</li>
+<li><p>字符串的模式匹配方法<strong><strong><em>**</em></strong></strong>看完正则再看</p>
+</li>
+<li><p>localeCompare()方法，这个方法比较两个字符串，并返回下列值中的一个</p>
+<ul>
+<li>如果字符串在字母表中应该排在字符串参数之前，则返回一个负数（大多数情况下是-1，具体的值要视实现而定）；</li>
+<li>如果字符串等于字符串参数，则返回0；</li>
+<li><p>如果字符串在字母表中应该排在字符串参数制后，则返回一个正数（大多数情况下是1，具体的值同样要视实现而定）。</p>
+<pre><code>var stringValue = &quot;yellow&quot;;
+alert(stringValue.localeCompare(&quot;brick&quot;));    //1
+alert(stringValue.localeCompare(&quot;yellow&quot;));   //0
+alert(stringValue.localeCompare(&quot;zoo&quot;));      //-1
+</code></pre></li>
+</ul>
+</li>
+<li><p>fromCharCode()方法,这个方法的任务是接受一或多个字符编码，然后将它们转换成一个字符串。从本质上来看，这个方法与实例方法charCodeAt()执行的是相反的操作</p>
+<pre><code>alert(String.fromCharCode(104,101,108,111));   //&quot;hello&quot;
+</code></pre></li>
+<li><p>HTML方法</p>
+</li>
+</ol>
+</li>
+</ul>
+<p>##5.7 单体内置对象##</p>
+<ul>
+<li>内置对象是指：由ECMAScript实现提供的，不依赖于宿主环境的对象，这些对象在ECMAScript程序执行之前就已经存在了。意思是说，开发人员不必显示的实例化内置对象，因为他们已经实例化了。如：Object、Array和String。ECMA-262还定义了两个单体内置对象：Global和Math。</li>
+</ul>
+<p><strong>5.7.1 Global对象</strong></p>
+<ul>
+<li><p>Global对象不属于任何其他对象的属性和方法，最终都是他的属性和方法。之前介绍的isNaN()、isFinite()、parseInt()以及parseFloat()实际上都是Global对象的方法。此外，Global对象还包含其他一些方法。</p>
+<ol>
+<li><p>URI编码方法</p>
+<ul>
+<li>Global对象的encodeURI()和encodeURIComponent()方法可以对URI进行编码，以便发送给浏览器。有效的URI中不包含某些字符，例如空格。这两个URI编码方法就可以对URI进行编码，他们用特殊的UTF-8编码替换所有无效的字符，从而让浏览器能够接受和理解</li>
+<li>encodeURI()主要用于整个URI</li>
+<li>encodeURIComponent()主要对URI中的某一段进行编码</li>
+<li>区别是encodeURI()不会对本身属于URI的特殊字符进行编码，如冒号、正斜杠、问号和井号，而encodeURIComponent()则会对它发现的任何非标准字符进行编码</li>
+<li>一般来说，我们使用encodeURIComponent()方法的时候要比使用encodeURI()更多，因为在实践中更常见的是对查询字符串参数而不是对基础URI进行编码</li>
+<li>与encodeURI()和encodeURIComponent()方法对应的两个方法分别是decodeURI()和decodeURIComponent(),即解码</li>
+</ul>
+</li>
+<li><p>eval()方法<strong><strong><strong><strong><strong><strong>*</strong></strong></strong></strong></strong></strong>没看懂</p>
+</li>
+<li>Global对象的属性</li>
+<li><p>window对象</p>
+<ul>
+<li><p>取得Global对象的方法：</p>
+<pre><code>var global = function(){
+    return this;
+}();
+</code></pre></li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<p><strong>5.7.2 Mathd对象</strong></p>
+<ol>
+<li><p>Math对象的属性</p>
+</li>
+<li><p>min()和max()方法</p>
+<ul>
+<li><p>用于确定<strong>一组数值</strong>中的最小值和最大值。这两个方法都可以接受任意多个数值</p>
+<pre><code>var max = Math.max(3,54,32,16);
+alert(max);     //54
+var min = Math.min(3,54,32,16);
+alert(min);     //3
+</code></pre></li>
+<li><p>要找到数组中的最大值或最小值，可以像下面这样使用apply()方法</p>
+<pre><code>var values = [1,2,3,4,5,6,7,8];
+var max = Math,max.apple(Math,value);
+//这个技巧的关键是把Math对象作为apply()的第一个参数，从而正确地设置this值，然后，可以将任意术组作为第二个参数
+</code></pre></li>
+</ul>
+</li>
+<li><p>舍入方法</p>
+<ul>
+<li>Math.ceil()执行向上舍入，即他总是将数值向上舍入最最接近的整数</li>
+<li>Math.floor()执行向下舍入，即他总是将数值向下舍入最最接近的整数</li>
+<li><p>Math.round()执行标准舍入，即他总是将数值四舍五入为最接近的整数（数学课上学的）</p>
+<pre><code>alert(Math.ceil(25.9));   //26
+alert(Math.ceil(25.5));   //26
+alert(Math.ceil(25.1));   //26
+
+alert(Math.round(25.9));   //26
+alert(Math.round(25.5));   //26
+alert(Math.round(25.1));   //25
+
+alert(Math.floor(25.9));   //25
+alert(Math.floor(25.5));   //25
+alert(Math.floor(25.1));   //25
+</code></pre></li>
+</ul>
+</li>
+<li><p>random()方法</p>
+<ul>
+<li>返回介于0和1之间的一个随机数，不包括0和1</li>
+<li><p>套用下面的公式，可以利用Math.random()从某个整数范围内随机选择一个值</p>
+<pre><code>值 = Math.floor(Math.random() * 可能值得总数 + 第一个可能的值)
+</code></pre></li>
+<li><p>如果想选择一个1到10之间的数值，可以像下面这样编写代码：</p>
+<pre><code>var num = Math.floor(Math.random() * 10 + 1)；
+//总共有10个可能的值（1到10），而第一个可能的值是1.而如果想要选择一个介于2到10 之间的值，就应该如下：
+var num = Math.floor(Math.radom() * 9 + 2);
+//从2数到10要9个数，因此可能值得总数是9，第一个可能值是2
+</code></pre></li>
+<li><p>多数情况下，都可以通过一个函数来计算可能直的总数和第一个可能的值</p>
+<pre><code>function selectFrom(lowerValue,upperValue){
+    var choices = upperValue - lowerValue + 1;
+    return Math.floor(Math.radom() * choices + lowerValue);
+}
+
+var num = selectFrom(2,10);
+alert(num);   //介于2和10之间（包括2和10）的一个数值
+</code></pre></li>
+<li><p>利用这个函数，可以方便地从数组中随机取出一项</p>
+<pre><code>var colors = [&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;yellow&quot;,&quot;black&quot;,&quot;purple&quot;,&quot;brown&quot;];
+var color = colors[selectFrom(0,colors.length-1)];
+alert(color);   //可能是数组中包含的任何一个字符串
+</code></pre></li>
+</ul>
+</li>
+<li><p>其他方法</p>
+</li>
+</ol>
+<p>#第六章 面向对象的程序设计#</p>
+<p>##6.1 理解对象##</p>
+<p><strong>6.1.1 属性类型</strong></p>
+<ol>
+<li><p>数据属性</p>
+<ul>
+<li>[[Configurable]]:表示能否通过delete删除属性从而重新定义属性，能否修改属性的特性，或者能否把属性修改为访问器属性</li>
+<li>[[Enumerable]]:表示能否通过for-in循环返回属性</li>
+<li>[[Writable]]:表示能否修改属性的值</li>
+<li><p>[[Value]]:包含这个属性的数据值</p>
+<p>  <strong>要修改属性默认的特性，必须使用Object.defineProperty()方法</strong></p>
+</li>
+</ul>
+</li>
+<li><p>访问器属性：不包含数据值，他们包含一对getter和setter函数</p>
+<ul>
+<li>[[Configurable]]:表示能否通过delete删除属性从而重新定义属性，能否修改属性的特性，或者能否把属性修改为数据属性</li>
+<li>[[Enumerable]]:表示能否通过for-in循环返回属性</li>
+<li>[[Get]]:在读取属性时调用的函数。默认值为undefined。</li>
+<li><p>[[Set]]:在写入属性时调用的函数。默认值为undefined。</p>
+<p>  <strong>访问器属性不能直接定义，必须使用Object.defineProperty()来定义</strong></p>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>6.1.2 定义多个属性</strong></p>
+<ul>
+<li>由于为对象定义多个属性的可能性很大，ECMAScript 5有定义了一个Object.defineProperties()方法。利用这个方法可以通过描述符一次性定义多个属性</li>
+</ul>
+<p><strong>6.1.3 读取属性的特性</strong></p>
+<ul>
+<li>使用ECMAScript 5的Object.getOwnPropertyDescriptor()方法，可以取得给定属性的描述符</li>
+</ul>
+<p>##6.2 创建对象##</p>
+<p><strong>6.2.1 工厂模式</strong></p>
+<ul>
+<li><p>工厂模式是软件工程领域一种广为人知的设计模式，这种模式抽象了创建具体对象的过程。考虑到在ECMAScript中无法创建类，开发人员就发明了一种函数，用函数来封装以特定接口创建对象的细节。</p>
+<pre><code>function createPerson(name,age,job){
+    var o = new Object();
+    o.name = name;    
+    o.age = age;
+    o.job = job;
+    o.sayName = function(){
+        alert(this.name);
+    };
+    return o;
+}
+
+var person1 = createPerson(&quot;Nicholas&quot;,29,&quot;Software Engineer&quot;);
+var person2 = caeatePerson(&quot;Greg&quot;,27,&quot;Doctor&quot;);
+</code></pre></li>
+<li><p>工厂模式虽然解决了创建多个相似对象的问题，但却没有解决对象识别的问题（即怎样知道一个对象的类型）</p>
+</li>
+</ul>
+<p><strong>6.2.2 构造函数模式</strong></p>
+<ul>
+<li>ECMAScript中的构造函数可以用来创建特定类型的对象。像Object和Array这样的原生构造函数，在运行时会自动出现在执行环境中。</li>
+<li><p>也可以创建自定义的构造函数，从而定义自定义对象类型的属性和方法。例如，可以使用构造函数模式将前面的例子重写如下：</p>
+<pre><code>function Person(name,age,job){
+    this.name = name;
+    this.age = age;
+    this.job = job;
+    this.sayName = function(){
+        alert(this.name);
+    }
+}
+
+var person1 = new Person(&quot;Nicholas&quot;,29,&quot;Software Engineer&quot;);
+var person2 = new Person(&quot;Greg&quot;,27,&quot;Doctor&quot;);
+</code></pre></li>
+<li><p>Person()函数取代了createPerson()函数。其不同之处有：</p>
+<pre><code>- 没有显示地创建对象；
+- 直接将属性和方法赋给了this对象；
+- 没有return 语句。
+</code></pre></li>
+<li><p>还有函数名Person使用的是大写字母P(按照惯例，构造函数始终都应该以一个大写字母开头)</p>
+</li>
+<li><p>要创建Person的新实例，必须使用new操作符。以这种方式调用构造函数实际上会经历以下4个步骤：</p>
+<ul>
+<li>创建一个新对象；</li>
+<li>将构造函数的作用域赋给新对象（因此this就指向了这个新对象）；</li>
+<li>执行构造函数中的代码（为这个新对象添加属性）；</li>
+<li><p>返回新对象。</p>
+<ol>
+<li><p>将构造函数当做函数</p>
+<pre><code>//当做构造函数使用
+var person = new Person(&quot;Nicholas&quot;,29,&quot;Software Engineer&quot;);
+person.sayName();      //Nicholas
+
+//作为普通函数调用
+Person(&quot;Greg&quot;,27,&quot;Doctor&quot;);    //添加到window
+window.sayName();   //&quot;Greg&quot;
+
+//在另一个对象的作用域中调用
+var o = new Object();
+Person.call(o,&quot;Kristen&quot;,25,&quot;Nurse&quot;);
+o.sayName();   //&quot;Kristen&quot;
+</code></pre></li>
+<li><p>构造函数的问题</p>
+<ul>
+<li>使用构造函数的主要问题，就是每个方法都要在每个实例上重新创建一遍</li>
+<li><p>不同实例上的同名函数是不等价的</p>
+<pre><code>alert(person1.sayName == person2.sayName);   //false
+</code></pre></li>
+<li><p>创建两个完成同样任务的Function实例的确没有必要，所以可以把函数定义转移到构造函数外部，如下</p>
+<pre><code>function Person(name,age,job){
+    this.name = name;
+    this.age = age;
+    this.job = job;
+    this.sayName = sayName;
+}
+
+function sayName(){
+    alert(this.name);
+}
+
+var person1 = new Person(&quot;Nicholas&quot;,29,&quot;Software Engineer&quot;);
+var person2 = new Person(&quot;Greg&quot;,27,&quot;Doctor&quot;);
+</code></pre></li>
+<li><p>问题1：全局函数只能被某个对象调用</p>
+</li>
+<li>问题2：若需要很多方法，则要定义很多全局函数，就没有封装性可言了</li>
+<li>因此有了原型模式</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>6.2.3 原型模式</strong></p>
+<ul>
+<li>我们创建的每一个函数都有一个 prototype（原型）属性，这个属性是一个指针，指向一个对象，而这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法</li>
+<li>prototype就是通过调用构造函数而创建的那个对象实例的原型对象</li>
+<li>使用原型对象的好处是可以让所有对象实例共享它所包含的属性和方法</li>
+<li><p>即不必在欧早函数中定义对象实例的信息，而是可以将这些信息直接添加到原型对象中</p>
+<pre><code>function Person(){
+}
+
+Person.prototype.name = &quot;Nicholas&quot;;
+Person.prototype.age = 29;
+Person.prototype.job = &quot;Software Engineer&quot;;
+Person.prototype.sayName = function(){
+    alert(this.name);
+}
+
+var person1 = new Person();
+person1.sayName();   //Nicholas
+
+var person2 = new Person();
+person2.sayName();   //Nicholas
+
+alert(person1.sayName == person2.sayName);   //true
+</code></pre><ol>
+<li><p>理解原型对象    </p>
+<ul>
+<li>Person：一个空的构造函数</li>
+<li>Person.prototype：指向了原型对象</li>
+<li>Person1和Person2是Person的两个实例</li>
+<li><p>可以通过isPrototypeOf()方法来确定对象之间是否存在这种关系</p>
+<pre><code>alert(Person.prototype.isPrototypeOf(person1));   //true
+alert(Person.prototype.isPrototypeOf(person2));   //true
+//证明了person1和person2内部都有一个指向Person.prototype的指针
+</code></pre></li>
+<li><p>Object.getPrototypeOf():返回[[Prototype]]的值</p>
+<pre><code>alert(Object.getPrototypeOf(person1) == Person.prototype);  //true  返回的对象实际上就是这个对象的原型
+alert(Object.getPrototypeOf(person1).name);   //&quot;Nicholas&quot;  取得了原型对象中name属性的值
+</code></pre></li>
+<li><p>可以使用delete操作符删除实例属性，从而让我们能够重新访问原型中的属性</p>
+<pre><code>delete person1.name;
+</code></pre></li>
+<li><p>使用 hasOwnProperty 方法可以检测一个属性是存在于实例中，还是存在于原型中。这个方法只在给定属性存在于对象实例中时，才会返回true</p>
+<pre><code>person.name = &quot;Greg&quot;;
+alert(person1.name);   //&quot;Greg&quot; 来自实例
+alert(person1.hasOwnProperty(&quot;name&quot;));   //true
+
+delete person1.name;
+alert(person1.name);   //&quot;Nicholas&quot; 来自原型
+alert(person1.hasOwnProperty(&quot;name&quot;));   //false
+</code></pre></li>
+</ul>
+</li>
+<li><p>原型与in操作符</p>
+<ul>
+<li>有两种方式使用in操作符：单独使用和在for-in 循环中使用</li>
+<li>单独使用时：in 操作符会在通过对象能够访问给定属性时返回true,无论该属性存在于实例中还是原型中。</li>
+<li><p>同时使用 hasOwnProperty()方法和in操作符，就可以确定该属性到底是存在于对象中，还是存在于原型中</p>
+<pre><code>function hasPrototypeProperty(object,name){
+    return !object.hasOwnProperty(name)&amp;&amp;(name in object);
+}
+
+function Person(){
+}
+
+Person.prototype.name = &quot;Nicholas&quot;;
+Person.prototype.age = 29;
+Person.prototype.job = &quot;Software Engineer&quot;;
+Person.prototype.sayName = function(){
+    alert(this.name);
+}
+
+var person = new Person();
+alert(hasPrototypeProperty(person,&quot;name&quot;));    //true 存在于原型中
+
+person.name = &quot;Greg&quot;;
+alert(hasPrototypeProperty(person,&quot;name&quot;));    //false 存在于对象中
+</code></pre></li>
+<li><p>在使用for-in循环时，返回的是所有能够通过对象反问的、可枚举的属性，其中既包括存在于实例中的属性，也包括存在于原型中的属性。</p>
+</li>
+<li><p>Object.keys()方法取得对象上所有可枚举的实例属性。这个方法接受一个对象作为参数，返回一个包含所有可枚举属性的字符串数组。</p>
+<pre><code>function Person(){
+}
+
+Person.prototype.name = &quot;Nicholas&quot;;
+Person.prototype.age = 29;
+Person.prototype.job = &quot;Software Engineer&quot;;
+Person.prototype.sayName = function(){
+    alert(this.name);
+}
+
+var keys = Object.keys(Person.prototype);
+alert(keys);     //&quot;name,age,job,sayName&quot;
+
+var p1 = new Person();
+p1.name = &quot;Rob&quot;;
+p1.age = 31;
+var p1keys = Object.keys(p1);
+alert(p1keys);     //&quot;name,age&quot;
+</code></pre></li>
+<li><p>如果想要得到所有实例属性 ，无论他是否可以枚举，都可以使用Object.getOwnPropertyNames()方法</p>
+<pre><code>var keys = Object.getOwnPropertyNames(Person.prototype);
+alert(keys);     //&quot;consructor,name,age,job,sayName&quot;
+</code></pre></li>
+</ul>
+</li>
+<li><p>更简单的原型语法</p>
+<ul>
+<li><p>为减少不必要的输入，也为了从视觉上更好的封装原型的功能，更常见的做法是用一个包含所有属性和方法的对象字面量来重新写整个原型对象</p>
+<pre><code>function Person(){
+}
+
+Person.prototype = {
+    name:&quot;Nicholas&quot;,
+    age:29,
+    job:&quot;Software Engineer&quot;,
+    sayName = function(){
+        alert(this.name);
+    }
+};
+</code></pre></li>
+<li><p>此时，constructor 属性不在指向Person了，虽然用instanceof操作符测试Object和Person仍然返回true,但constructor属性则等于Object而不等于Person了。如果constructor 的值真的很重要，可以像下面这样特意将它设置回适当的值</p>
+<pre><code>function Person(){
+}
+
+Person.prototype = {
+    constructor:Person,
+    name:&quot;Nicholas&quot;,
+    age:29,
+    job:&quot;Software Engineer&quot;,
+    sayName: function(){
+        alert(this.name);
+    }
+};
+//以这种方式重设constructor属性会导致它的[[Enumerable]]特性被设置为true。
+</code></pre></li>
+</ul>
+</li>
+<li><p>原型的动态性</p>
+<ul>
+<li><p>原型中查找值的过程是一次搜索，因此我们对原型对象所做的任何修改都能够立即从实力上反映出来——即使是先创建了实例后修改原型也照样如此。</p>
+<pre><code>var friend = new Person();
+Person.prototype.sayHi = function(){
+    alert(&quot;Hi&quot;);
+};
+friend.sayHi();   //&quot;Hi&quot;  没有问题
+</code></pre></li>
+<li><p>如果重写整个原型对象，就等于切断了构造函数与最初原型之间的联系</p>
+</li>
+<li><p>谨记：实例中的指针仅指向原型，不指向构造函数</p>
+<pre><code>function Person(){
+}
+var friend = new Person();
+Person.prototype = {
+    constructor:Person,
+    name:&quot;Nicholas&quot;,
+    age:29,
+    job:&quot;Software Engineer&quot;,
+    sayName: function(){
+        alert(this.name);
+    }
+}
+friend.sayName();         //error
+</code></pre></li>
+<li><p>这个例子中，我们先创建了Person的一个实例，然后又重写了其原型对象，然后在调用friend.sayName()时发生率错误，因为friend指向的原型中不包含以该名字命名的属性</p>
+</li>
+</ul>
+</li>
+<li><p>原生对象的原型</p>
+<ul>
+<li>可以修改原生对象的原型，但是不推荐这样做</li>
+</ul>
+</li>
+<li><p>原型对象的问题</p>
+<ul>
+<li><p>他省略了为构造函数传递初始化参数这一环节，结果所有实例在默认情况下都将取得相同的属性值</p>
+<pre><code>function Person(){
+}
+Person.prototype = {
+    constructor:Person,
+    name:&quot;Nicholas&quot;,
+    age:29,
+    job:&quot;Software Engineer&quot;,
+    friend:[&quot;shelby&quot;,&quot;Court&quot;],
+    sayName: function(){
+        alert(this.name);
+    }
+}
+var person1 = new Person();
+var person2 = new Person();
+
+person1.friends.push(&quot;Van&quot;);
+
+alert(person1.friends);     //&quot;shelby&quot;,&quot;Court&quot;,&quot;Van&quot;
+alert(person2.friends);     //&quot;shelby&quot;,&quot;Court&quot;,&quot;Van&quot;
+alert(person1.friends === person2.friends);     //true
+</code></pre></li>
+<li><p>实例一般都是要有属于自己的全部属性的</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<p><strong>6.2.4 组合使用构造函数模式和原型模式</strong></p>
+<ul>
+<li><p>创建自定义类型最常见的方式：组合使用构造函数模式与原型模式</p>
+<pre><code>function Person(name,age,job){
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        this.friends = [&quot;Shelby&quot;,&quot;Court&quot;];
+}
+Person.prototype = {
+        constructor:Person,
+        sayName: function(){
+            alert(this.name);
+        }
+}
+
+var person1 = new Person(&quot;Nicholas&quot;,29,&quot;Software Engineer&quot;);
+var person2 = new Person(&quot;Greg&quot;,27,&quot;Doctor&quot;);
+
+person1.friends.push(&quot;Van&quot;);
+
+alert(person1.friends);     //&quot;shelby&quot;,&quot;Court&quot;,&quot;Van&quot;
+alert(person2.friends);     //&quot;shelby&quot;,&quot;Court&quot;
+alert(person1.friends === person2.friends);     //false
+alert(person1.sayName === person2.sayName);     //true
+</code></pre></li>
+<li><p>这个例子中实例属性都是在构造函数中定义的，而由所有实例共享的属性constructor和方法sayName()则是在原型中定义的。</p>
+</li>
+<li>修改了person1.friends，并不会影响到person2.friends，因为他们分别引用了不同的数组</li>
+</ul>
+<p><strong>6.2.5 动态原型模式</strong></p>
+<ul>
+<li><p>可以通过检查某个应该存在的方法是否有效，来决定是否需要初始化原型</p>
+<pre><code>function Person(name,age,job){
+
+    //属性
+    this.name = name;
+    this.age = age;
+    this.job = job;
+
+    //方法
+    if(typeof this.sayName != &quot;function&quot;){
+        Person.prototype.sayName = function(){
+            alert(this.name);
+        }
+    }
+}    
+
+var friend = new Person(&quot;Nicholas&quot;,29,&quot;Software Engineer&quot;);
+friend.sayName();
+</code></pre></li>
+<li><p>只有在sayName()方法不存在的情况下，才会将它添加到原型中。</p>
+</li>
+</ul>
+<p><strong>6.2.6 寄生构造函数模式</strong></p>
+<ul>
+<li><p>基本思想是创建一个函数，该函数的作用仅仅是封装创建对象的代码，然后再返回新创建的对象；但从表面上看，这个函数又很像是典型的构造函数</p>
+<pre><code>function Person(name,age,job){
+    var o = new Object();
+    o.name = name;
+    o.age = age;
+    o.job = job;
+    o.sayName = function(){
+        alert(this.name);
+    };
+    return o;
+}
+
+var friend = new Person(&quot;Nicholas&quot;,29,&quot;Software Engineer&quot;);
+friend.sayName();   //&quot;Nicholas&quot;
+</code></pre></li>
+<li><p>这个模式可以在特殊的情况下用来为对象创建构造函数。假设我们想创建一个具有额外方法的特殊数组。由于不能直接修改Array构造函数，因此可以使用这个模式。</p>
+<pre><code>function SpecialArray(){
+
+    //创建数组
+    var values = new Array();
+
+    //添加值
+    values.push.apply(values,arguments);
+
+    //添加方法
+    values.toPipedString = function(){
+        return this.join(&quot;|&quot;);
+    };
+
+    //返回数组
+    return values;
+}
+
+var colors = new SpecialArray(&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;);  //调用SpecialArray构造函数
+alert(colors.toPipedString());  //&quot;red|blue|green&quot;
+</code></pre></li>
+<li><p>构造函数返回的对象与构造函数外部创建的对象没有什么不同</p>
+</li>
+</ul>
+<p><strong>6.2.7 稳妥构造函数模式</strong></p>
+<ul>
+<li>稳妥对象：没有公共属性，而且其方法也不引用this的对象。</li>
+<li>稳妥对象最适合在一些安全的环境中（这些环境中会禁止使用this和new），或者在防止数据被其他应用程序改动时使用</li>
+<li><p>稳妥构造函数遵循与寄生构造函数类似的模式，但有两点不同：</p>
+<pre><code>1. 新创建对象的实例方法不引用this
+2. 不适用new操作符调用构造函数
+</code></pre></li>
+<li><p>按照稳妥构造函数的要求，可以将前面的Person构造函数重写如下：</p>
+<pre><code>function Person(name,age,job){
+
+    //创建要返回的对象
+    var o = new Object();
+    //可以在这里定义私有变量和函数
+
+    //添加方法
+    o.sayName = function(){
+        alert(name);
+    };
+
+    //返回对象
+    return o;
+}
+</code></pre></li>
+<li><p>注意：以这种模式创建的对象中，除了使用sayName()方法之外，没有其他方法访问name的值。可以像下面使用稳妥的Person构造函数。</p>
+<pre><code>var friend = new Person(&quot;Nicholas&quot;,29,&quot;Software Engineer&quot;);
+friend.sayName();   //&quot;Nicholas&quot;
+</code></pre></li>
+<li><p>与寄生构造函数模式类似，使用稳妥构造函数模式创建的对象与构造函数之间也没有什么关系，因此instanceof操作符对这种对象也没有意义。</p>
+</li>
+</ul>
+<p>##6.3 继承##</p>
+<ul>
+<li>ECMAScript只支持实现集成，而且其实现继承主要是依靠原型链来实现。</li>
+</ul>
+<p><strong>6.3.1 原型链</strong></p>
+<ul>
+<li>利用原型让一个引用类型继承另一个引用类型的属性和方法</li>
+<li>构造函数、原型和实例的关系：每个构造函数都有一个原型对象，原型对象都包含一个指向构造函数的指针，而实例都包含一个指向原型对象的内部指针</li>
+<li>如果让原型对象等于另一个类型的实例，此时的原型对象将包含一个指向另一个原型的指针，相应地，另一个原型中也包含着一个指向另一个构造函数的指针。假设另一个原型又是另一个类型的实例，那么上述关系依然成立，如此层层递进，就构成了实例与圆形的链条，这就是原型链的基本概念。</li>
+<li><p>实现原型链有一种基本模式，大致如下：</p>
+<pre><code>function SuperType(){
+    this.property = true;
+}
+
+SuperType.prototype.getSuperValue = function(){
+    return this.property;
+};
+
+function SubType(){
+    this.subproperty = false;
+}
+
+//SubType 继承了 SuperType
+SubType.prototype = new SuperType();
+
+SubType.prototype.getSubValue = function(){
+    return this.subproperty;
+};
+
+var instance = new SubType();
+alert(instance.getSuperValue());   //true
+</code></pre><ol>
+<li><p>别忘记默认的原型</p>
+<ul>
+<li>所有函数的默认原型都是Object的实例，因此默认原型都会包含一个内部指针，指向Object.prototype。这也正是所有自定义类型都会继承toString()、value()等默认方法的根本原因。</li>
+<li>一句话，SubType 继承了 SuperType,而SuperType继承了Object。当调用instance.toString()时，实际上调用的是保存在Object.prototype中的那个方法。</li>
+</ul>
+</li>
+<li><p>确定原型和实例的关系</p>
+<ul>
+<li><p>可以通过两种方式来确定原型和实例之间的关系</p>
+<ol>
+<li><p>方式一：使用 instanceof 操作符</p>
+<pre><code>alert(instance instanceof Object);        //true
+alert(instance instanceof SubType);       //true
+alert(instance instanceof SuperType);     //true
+//由于原型链的关系，我们可以说instance是Object、SuperType或SubType中任何一个类型的实例
+</code></pre></li>
+<li><p>方式二：使用 isPrototypeOf()方法。</p>
+<pre><code>alert(Object.prototype.isPrototypeOf(instance));    //true
+alert(SubType.prototype.isPrototypeOf(instance));   //true
+alert(SuperType.prototype.isPrototypeOf(instance)); //true
+//只要是原型链中出现过的原型，都可以说是该原型链所派生的实例的原型
+</code></pre></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>谨慎地定义方法</p>
+<ul>
+<li><p>给原型添加方法的代码一定要放在替换原型的语句之后。</p>
+<pre><code>function SuperType(){
+    this.property = true;
+}
+
+SuperType.prototype.getSuperValue = function(){
+    return this.property;
+};
+
+function SubType(){
+    this.subproperty = false;
+}
+
+//SubType 继承了 SuperType
+SubType.prototype = new SuperType();
+
+//添加新方法
+SubType.prototype.getSubValue = function(){
+    return this.subproperty;
+};
+
+//重写超类型中的方法
+SubType.prototype.getSuperValue = function(){
+    return false;
+};
+
+var instance = new SubType();
+alert(instance.getSuperValue());   //false
+</code></pre></li>
+<li><p>还有一点，在通过原型链实现继承是，不能使用对象字面量创建原型方法。因为这样做就会重写原型链</p>
+<pre><code>function SuperType(){
+    this.property = true;
+}
+
+SuperType.prototype.getSuperValue = function(){
+    return this.property;
+};
+
+function SubType(){
+    this.subproperty = false;
+}
+
+//SubType 继承了 SuperType
+SubType.prototype = new SuperType();
+
+//使用字面量添加新方法，会导致上一行代码无效
+SubType.prototype = {
+    getSubValue : function(){
+        return this.subproperty;
+    },
+    someOtherMethod : function(){
+        return false;
+    }
+};
+
+var instance = new SubType();
+alert(instance.getSuperValue());   //error!    
+</code></pre></li>
+<li><p>由于现在的原型包含的是一个Object实例，而非SuperType的实例，因此我们设想中的原型链已被切断——    SubType和SuperType之间已经没有关系了。</p>
+</li>
+</ul>
+</li>
+<li><p>原型链的问题</p>
+<ul>
+<li><p>问题一：包含引用类型值的原型属性会被所有实例共享（这也正是为什么要在构造函数中，而不是在原型对象中定义属性的原因）</p>
+<pre><code>function SuperType(){
+    this.colors = [&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;];
+}
+
+function SubType(){
+}
+
+//SubType 继承了 SuperType
+SubType.prototype = new SuperType();
+
+var instance1 = new SubType();
+instance1.colors.push(&quot;black&quot;);
+alert(instance1.colors);      //&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;,&quot;black&quot;
+
+var instance1 = new SubType();
+alert(instance2.colors);      //&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;,&quot;black&quot;
+</code></pre></li>
+<li><p>问题二：在创建子类型的实例时，不能向超类型的构造函数中传递参数。实际上，应该说是没有办法在不影响所有对象实例的情况下，给超类型的构造函数传递参数。</p>
+</li>
+<li>实例中很少会单独使用原型链。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<p><strong>6.3.2 借用构造函数</strong></p>
+<ul>
+<li>在子类型构造函数的内部调用超类型构造函数</li>
+<li><p>函数只不过是在特定环境中执行代码的对象，因此通过使用apply()和call()方法也可以在（将来）新创建的对象上执行构造函数</p>
+<pre><code>function SuperType(){
+    this.colors = [&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;];
+}
+
+function SubType(){
+    //继承了 SuperType
+    SuperType.call(this);
+}
+
+var instance1 = new SubType();
+instance1.colors.push(&quot;black&quot;);
+alert(instance1.colors);    //&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;,&quot;black&quot;
+
+var instance2 = new SubType();
+alert(instance2.colors);      //&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;
+</code></pre></li>
+<li><p>通过使用call()方法（或apply()方法），我们实际上是在新创建的SubType实例的环境下调用了SuperType构造函数。这样，就会在新SubType对象上执行SuperType()函数中定义的所有对象初始化代码。</p>
+<ol>
+<li><p>传递参数</p>
+<pre><code>function SuperType(){
+    this.name = name;
+}    
+
+function SubType(){
+    //继承了 SuperType,同事还传递了参数
+    SuperType.call(this,&quot;Nicholas&quot;);
+
+    //实例属性
+    this.age = 29;
+}
+
+var instance = new SubType();
+alert(insance.name);   //&quot;Nicholas&quot;
+alert(instance.age);   //29
+</code></pre></li>
+<li><p>借用构造函数的问题</p>
+<ul>
+<li>如果仅仅是借用构造函数，那么也将无法避免构造函数模式存在的问题——方法都在构造函数中定义，因此函数复用就无从谈起了。</li>
+<li>而且，在超类型的原型中定义的方法，对子类型而言也是不可见的，结果所有类型都只能使用构造函数模式</li>
+<li>因此，借用构造函数的技术也是很少单独使用的</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<p><strong>6.3.3 组合继承</strong></p>
+<ul>
+<li>也叫伪经典继承，指的是将原型链和借用构造函数的技术组合到一块，从而发挥二者之长的一种继承模式。</li>
+<li><p>思路：使用原型链四线对原型属性和方法的继承，而通过借用构造函数来实现对实例属性的继承。</p>
+<pre><code>function SuperType(){
+    this.name = name;
+    this.colors = [&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;];
+}
+
+SuperType.prototype.sayName = function(){
+    alert(this.name);
+};
+
+function SubType(name,age){
+
+    //继承属性
+    SuperType.call(this.name);
+    this.age = age;
+}
+
+//继承方法
+SubType.prototype = new SuperType();
+
+SubType.prototype.sayAge = function(){
+    alert(this.age);
+};
+
+var instance1 = new SubType(&quot;Nicholas&quot;,29);
+instance1.colors.push(&quot;black&quot;);
+alert(instance1.colors);    //&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;,&quot;black&quot;
+instance1.sayName();        //&quot;Nicholas&quot;
+instance1.sayAge();         //29
+
+var instance2 = new SubType(&quot;Greg&quot;,27);
+alert(instance2.colors);      //&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;
+instance2.sayName();        //&quot;Greg&quot;
+instance2.sayAge();         //27
+</code></pre></li>
+<li><p>组合继承避免了原型链和借用构造函数的缺陷，融合了他们的优点，成为JavaScript最常用的继承模式</p>
+</li>
+<li>instanceof 和 isPrototypeOf()也能够用于识别基于组合继承创建的对象</li>
+</ul>
+<p><strong>6.3.4 原型式继承</strong></p>
+<ul>
+<li><p>这种方法并没有严格意义上的构造函数，想法是借助原型可以基于已有的对象创建新对象，同时还不必因此创建自定义类型。为了达到这个目的，给出了如下函数：</p>
+<pre><code>function object(o){
+    function F(){}；
+    F.prototype = o;
+    return new F();
+}
+
+var person = {
+    name:&quot;Nicholas&quot;,
+    friends:[&quot;Shelby&quot;,&quot;Court&quot;,&quot;Van&quot;]
+};
+
+var anotherPerson = object(person);
+anotherPerson.name = &quot;Greg&quot;;
+anotherPerson.friends.push(&quot;Rob&quot;);
+
+var yetAnotherPerson = object(person);
+yetAnotherPerson.name = &quot;Linda&quot;;
+yetAnotherPerson.friends.push(&quot;Barbie&quot;);
+
+alert(person.friends);   //&quot;Shelby,Court,Van,Rob,Barbie&quot;
+</code></pre></li>
+<li><p>ECMAScript5 通过新增Object.create()方法规范化了原型式继承。这个方法接受两个参数：衣蛾用作新对象原型的对象和（可选的）一个为新对象定义额外属性的对象。在传入一个参数的情况下，Object.create()与Object()方法的行为相同。</p>
+<pre><code>var person = {
+    name:&quot;Nicholas&quot;,
+    friends:[&quot;Shelby&quot;,&quot;Court&quot;,&quot;Van&quot;]
+}
+
+var anotherPerson = object.create(person);
+anotherPerson.name = &quot;Greg&quot;;
+anotherPerson.friends.push(&quot;Rob&quot;);
+
+var yetAnotherPerson = object.create(person);
+yetAnotherPerson.name = &quot;Linda&quot;;
+yetAnotherPerson.friends.push(&quot;Barbie&quot;);
+
+alert(person.friends);   //&quot;Shelby,Court,Van,Rob,Barbie&quot;
+</code></pre></li>
+<li><p>Object.create()方法的第二个参数与Object.defineProperties()方法的第二个参数格式相同：每个属性都是通过自己的描述定义的。以这种方式指定的任何属性都会覆盖原型对象上的同名属性</p>
+<pre><code>var person = {
+    name:&quot;Nicholas&quot;,
+    friends:[&quot;Shelby&quot;,&quot;Court&quot;,&quot;Van&quot;]
+}
+
+var anotherPerson = object.create(person，{
+    name:{
+        value:&quot;Greg&quot;
+    }
+});
+
+alert(anotherPerson.name);   //&quot;Greg&quot;
+</code></pre></li>
+<li><p>在没有必要兴师动众的创建构造函数，而只是想让一个对象与另一个对象保持类似的情况下，原型继承是完全可以胜任的。不过，包含引用类型值的属性始终都会共享相应地值，就像使用原型模式一样。</p>
+</li>
+</ul>
+<p><strong>6.3.5 寄生式继承</strong></p>
+<ul>
+<li>与原型是继承紧密相关的一种思路。</li>
+<li><p>即创建一个仅用于封装继承过程的函数，该函数在内部以某种方式来增强对象，最后再像真的是他做了所有工作一样返回对象。</p>
+<pre><code>function createAnother(original){
+    var clone = object(original);   //通过调用函数创建一个新对象
+    clone.sayHi = function(){       //以某种方式来增强这个对象
+        alert(&quot;hi&quot;);
+    };
+    return clone;                   //返回这个对象
+}
+</code></pre></li>
+<li><p>可以像下面这样来使用createAnother()函数：</p>
+<pre><code>var person = {
+    name:&quot;Nicholas&quot;,
+    friends:[&quot;Shelby&quot;,&quot;Court&quot;,&quot;Van&quot;]
+};
+
+var anotherPerson = createAnother(person);
+anotherPerson.sayHi();   //&quot;hi&quot;
+</code></pre></li>
+<li><p>在主要考虑对象而不是自定义类型和构造函数的情况下，寄生式继承也是一种有用的模式</p>
+</li>
+<li>使用寄生式继承来为对象添加函数，会由于不能做到函数复用而降低效率；这一点与构造函数模式类似</li>
+</ul>
+<p><strong>6.3.6 寄生组合式继承</strong></p>
+<ul>
+<li><p>组合继承最大的问题：无论什么情况下，都会调用两次超类型构造函数：一次是在创建子类型原型的时候，另一次是在子类型构造函数内部。</p>
+<pre><code>function SuperType(){
+    this.name = name;
+    this.colors = [&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;];
+}
+
+SuperType.prototype.sayName = function(){
+    alert(this.name);
+};
+
+function SubType(name,age){
+    SuperType.call(this.name);   //第二次调用 SuperType()
+    this.age = age;
+}
+
+SubType.prototype = new SuperType();  //第一次调用 SuperType()
+SubType.prototype.constructor = SubType;
+SubType.prototype.sayAge = function(){
+    alert(this.age);
+}
+</code></pre></li>
+<li><p>有两组name和colors属性：一组在实例上，一组在SubType原型中。这就是调用两次SuperType构造函数的结果。解决办法——寄生组合式继承。</p>
+</li>
+<li>所谓寄生组合式继承，即通过借用构造函数来继承属性，通过原型链的混成形式来继承方法。</li>
+<li>思路：不必为了指定子类型的原型而调用超类型的构造函数，我们所需要的无非就是超类型原型的一个副本而已。</li>
+<li><p>本质上，就是使用寄生式继承来继承超类型的原型，然后再将结果指定给子类型的原型</p>
+<pre><code>function inheritPrototype(subType,superType){
+    var prototype = object(superType.prototype);   //创建对象
+    prototype.constructor = subType;               //增强对象
+    subType.prototype = prototype;                 //指定对象
+}
+
+function SuperType(name){
+    this.name = name;
+    this.colors = [&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;];
+}
+
+SuperType.prototype.sayName = function(){
+    alert(this.name);
+};
+
+function SubType(name,age){
+    SuperType.call(this.name);  
+    this.age = age;
+}
+
+inheritPrototype(SubType,SuperType);
+
+SubType.prototype.sayAge = function(){
+    alert(this.age);
+}
+</code></pre></li>
+<li><p>这个例子的高效率体现在它之调用了一次 SuperType 构造函数，并因此避免了在 SubType.prtotype 上面创建不必要的、多余的属性。</p>
+</li>
+<li>原型链还能保持不变</li>
+<li>还能正常使用 instanceof 和 isPrototypeOf()。</li>
+</ul>
+<blockquote>
+<p>开发人员普遍认为 寄生组合式继承是引用类型最理想的继承方式</p>
+</blockquote>
+<h1 id="u7B2C_u4E03_u7AE0__u51FD_u6570_u8868_u8FBE_u5F0F"><a href="#u7B2C_u4E03_u7AE0__u51FD_u6570_u8868_u8FBE_u5F0F" class="headerlink" title="第七章 函数表达式"></a>第七章 函数表达式</h1><p>##7.1 递归##</p>
+<p><strong>用arguments.callee可以解决函数被重定义导致的错误，arguments.callee是一个指向正在执行的函数的指针</strong></p>
+<pre><code>function factorial(num){
+    if(num &lt;= 1){
+        return 1;
+    }else{
+        return num * arguments.callee(num-1);
+    }
+}
+</code></pre><p><strong>但在严格模式下，不能通过脚本访问arguments.callee，访问这个属性会导致错误。不过，可以使用命名函数表达式来达成相同的结果</strong></p>
+<pre><code>function factorial = (function f(num){
+    if(num &lt;= 1){
+        return 1;
+    }else{
+        return num * f(num-1);
+    }
+});
+</code></pre><p>##7.2 闭包##</p>
+<p><strong>闭包是指有权访问另一个函数作用域中的变量的函数</strong></p>
+<p><strong>由于闭包会携带包含它的函数的作用域，因此会比其他函数占用更多的内存。过度使用闭包可能会导致内存占用过多，建议在绝对必要时再考虑使用闭包</strong></p>
+<p><strong>7.2.1 闭包与变量</strong></p>
+<p><strong>7.2.2 关于this 对象</strong></p>
+<p>-通过把外部作用域中的this对象保存在一个闭包能够访问到的变量里，就可以让闭包访问该对象了</p>
+<pre><code>var name = &quot;The Window&quot;;
+var object = {
+    name:&quot;My Object&quot;,
+    getNameFunc:function(){
+        var that = this;
+        return function(){
+            return that.name;
+        }
+    }
+}
+alert(object.getNameFunc()());  //&quot;My Object&quot;
+</code></pre><p><strong>7.2.3 内存泄漏</strong></p>
+<pre><code>function assignHandler(){
+    var element = document.getElementById(&quot;someElement&quot;);
+    element.onclick = function(){
+        alert(element.id);
+    };
+}
+
+//正确地写法
+function assignHandler(){
+    var element = document.getElementById(&quot;someElement&quot;);
+    var id = element.id;
+    element.onclick = function(){
+        alert(id);
+    };
+    element = null;
+}
+</code></pre><p>##7.3 模仿块级作用域##</p>
+<p><strong>用作块级作用域（通常称为私有作用域）的匿名函数的语法如下</strong></p>
+<pre><code>(function(){
+    //这里是块级作用域
+ })();
+</code></pre><p>##7.4 私有变量##</p>
+<p><strong>7.4.1 静态私有变量</strong></p>
+<p><strong>7.4.2 模块模式</strong></p>
+<p><strong>7.4.3 增强的模块模式</strong></p>
+<p>#第8章 BOM#</p>
+<p>##8.1 window对象##</p>
+<p><strong>8.1.1 全局作用域</strong></p>
+<ul>
+<li><p>全局变量不能通过delete操作符删除，而直接在window对象上定义的属性可以</p>
+<pre><code>var age = 29;
+window.color = &quot;red&quot;;
+delete window.age;
+delete window.color;
+console.log(&quot;window.age:&quot;+window.age);   //29
+console.log(&quot;window.color:&quot;+window.color);  //undefined
+</code></pre></li>
+</ul>
+<p><strong>8.1.2 窗口关系及框架</strong></p>
+<p><strong>8.1.3 窗口位置</strong></p>
+<ul>
+<li><p>跨浏览器取得窗口左边和上边的位置</p>
+<pre><code>var leftPos = (typeof window.screenLeft == &quot;number&quot;) ? window.screenLeft : window.screenX;
+var topPos = (typeof window.screenTop == &quot;number&quot;) ? window.screenTop : window.screenY;
+</code></pre></li>
+</ul>
+<p><strong>8.1.4 窗口大小</strong></p>
+<ul>
+<li>innerWidth</li>
+<li>innerHeight</li>
+<li>outerWidth</li>
+<li>outerHeight</li>
+<li><p>由于各浏览器之间的差异，虽然无法确定浏览器窗口本身大小，却可以取得页面视口的大小</p>
+<pre><code>var pageWidth = window.innerWidth,
+pageHeigth = window.innerHeight;
+
+if(typeof pageWidth != &quot;number&quot;){
+    if(document.compatMode == &quot;CSS1Compat&quot;){//检测页面是否处于标准模式
+        pageWidth = document.documentElement.clientWidth;
+        pageHeigth = document.documentElement.clentHeight;
+    } else{
+        pageWidth = document.body.clientWidth;
+        pageHeigth = document.body.clientHeight;
+    }
+}
+</code></pre></li>
+<li><p>由于与桌面浏览器间存在这些差异，最好是先检测一下用户是否在使用移动设备，然后再决定使用哪个属性</p>
+</li>
+<li>使用resizeTo()和resizeBy()方法可以调整浏览器窗口的大小，这两个方法都接受两个参数，其中resizeTo()接收浏览器窗口的新宽度和新高度，而resizeBy()接收新窗口与原创看的宽度和高度之差。</li>
+</ul>
+<p><strong>8.1.5 导航和打开窗口</strong></p>
+<ul>
+<li>window.open()接收4个参数：要加载的URL,窗口目标，一个特性字符串，一个表示新页面是否取代浏览器历史记录中当前加载页面的布尔值。</li>
+<li><p>通常只需传递第一个参数，最后一个参数只在不打开新窗口的情况下使用</p>
+<pre><code>window.open(&quot;http://www.xcar.com.cn/&quot;,&quot;topFrame&quot;);
+</code></pre></li>
+<li><p>调用上面的代码，就会在一个名叫“topFrame”的窗口或框架上加载这个URL。否则就会创建一个新窗口并将其命名为“topFrame”。</p>
+</li>
+<li><p>第二个参数也可以是任何一个特殊的窗口名称：_self,_parent,_top,_blank。</p>
+<ol>
+<li><p>弹出窗口</p>
+<ul>
+<li><p>第三个参数是一个逗号分隔的设置字符串，表示在新窗口中都显示哪些特性。</p>
+<p>window.open(“<a href="http://www.xcar.com.cn/&quot;,&quot;wroxWindow&quot;,&quot;height=400,width=400,top=10,left=10,resizable=yes" target="_blank" rel="external">http://www.xcar.com.cn/&quot;,&quot;wroxWindow&quot;,&quot;height=400,width=400,top=10,left=10,resizable=yes</a>“);</p>
+<p>//这行代码会打开一个新的可以调整大小的窗口，窗口的初始大小为400*400，并且距离屏幕上沿和左边各10像素</p>
+</li>
+</ul>
+</li>
+<li><p>安全限制</p>
+</li>
+<li>弹出窗口屏蔽程序</li>
+</ol>
+</li>
+</ul>
+<p><strong>8.1.6 间歇调用和超时调用</strong></p>
+<pre><code>var timeoutId = setTimeout(function(){
+    alert(&quot;Hello&quot;);
+},1000)
+
+clearTimeout(timeoutId);
+</code></pre><ul>
+<li><p>例子如下：</p>
+<pre><code>var num = 0;
+var max = 10;
+var intervalId =null;
+function incrementNumber(){
+    num++;
+    console.log(&quot;num:&quot;+num);
+    if(num == max){
+        clearInterval(intervalId);
+        alert(&quot;Done&quot;);
+    }
+}
+intervalId = setInterval(incrementNumber,500);
+</code></pre></li>
+<li><p>这个例子也可以用超时调用来实现</p>
+<pre><code>var num = 0;
+var max = 10;
+
+function incrementNumber(){
+    num++;
+    console.log(&quot;num:&quot;+num);
+    if(num &lt; max){
+        setTimeout(incrementNumber,500)
+    }else{
+        alert(&quot;Done&quot;);
+    }
+}
+setTimeout(incrementNumber,500);
+</code></pre></li>
+<li><p>因此最好不用使用间歇调用，以免发生冒泡事件。</p>
+</li>
+</ul>
+<p><strong>8.1.7 系统对话框</strong></p>
+<ul>
+<li>alert() 警告对话框</li>
+<li>confirm() 确认对话框，除了显示OK还会显示Cancel按钮</li>
+<li>prompt() 提示框，除了显示OK还会显示Cancel按钮外，还会显示一个文本输入域。该方法接受两个参数：要显示给用户的文本提示和文本输入域的默认值（可以是一个空字符串）</li>
+<li>window.print();显示打印对话框</li>
+<li>window.find();显示查找对话框</li>
+</ul>
+<p>##8.2 location对象##</p>
+<p><strong>8.2.1 查询字符串参数</strong></p>
+<pre><code>function getQueryStringArgs(){
+    var qs = (location.search.length &gt; 0 ? location.search.substring(1):&quot;&quot;),
+    args = {},
+    items = qs.length ? qs.split(&quot;&amp;&quot;) :[],
+    item = null,
+    name = null,
+    value = null,
+
+    i = 0,
+    len = items.length;
+
+    for(i=0;i&lt;len;i++){
+        item = items[i].split(&quot;=&quot;);
+        name = decodeURIComponent(item[0]);
+        value = decodeURIComponent(item[1]);
+
+        if(name.length){
+            args[name] = value;
+        }
+    }
+    return args;
+}
+
+//假设查询字符串是?q=javascript&amp;num=10
+var args = getQueryStringArgs();
+console.log(&quot;args[q]:&quot;+args[&quot;q&quot;]);       //args[q]:javascript
+console.log(&quot;args[num]:&quot;+args[&quot;num&quot;]);  //args[num]:10
+</code></pre><p><strong>8.2.2 位置操作</strong></p>
+<ul>
+<li><p>使用assign()方法并为其传递一个URL</p>
+<pre><code>location.assign(&quot;http://www.xcar.com.cn&quot;);
+</code></pre></li>
+<li><p>通过上述任何一种方式修改URL后，浏览器的历史记录中就会生成一条新纪录，因此用户通过单击“后退”按钮就会导航到前一个页面，要禁用这种行为，可以使用replace()方法，这个方法只接受一个参数，即要导航到的URL。</p>
+<pre><code>setTimeout(function(){
+    location.replace(&quot;http://www.xcar.com.cn&quot;);
+},1000)
+</code></pre></li>
+<li><p>reload()方法，重新加载当前显示的页面，如果调用reload()时不传递任何参数，页面就会以最有效的方式重新加载。即:如果页面自上次请求后并没有改变过，页面就会从浏览器缓存中重新加载。如果要强制从服务器重新加载，则需要像下面这样为该方法传递参数true。</p>
+<pre><code>location.reload();       //重新加载（有可能从缓存中加载）
+location.reload(true);   //重新加载（从服务器重新加载）
+</code></pre></li>
+<li><p>位于reload()调用之后的代码可能会也可能不会执行，这样取决于网络延迟或系统资源等因素。为此，最好将reload()放在代码的最后一行。</p>
+</li>
+</ul>
+<p>##8.3 navigator对象##</p>
+<ul>
+<li>navigator对象，现在已成为识别客户端浏览器的事实标准</li>
+</ul>
+<p><strong>8.3.1 检测插件</strong></p>
+<pre><code>//检测插件（在IE中无效）
+function hasPlugin(name){
+    name = name.toLowerCase();
+    for(var i = 0; i&lt;navigator.plugins.length;i++){
+        if(navigator.plugins[i].name.toLowerCase().indexOf(name) &gt; -1){
+            return true;
+        }
+    }
+    return false;
+}
+
+//检测IE中的插件
+function hasIEPlugin(name){
+    try{
+        new ActiveXObject(name);
+        return true;
+    }catch(ex){
+        return false;
+    }
+}
+
+//检测所有浏览器中的Flash
+function hasFlash(){
+    var result = hasPlugin(&quot;Flash&quot;);
+    if(!result){
+        result = hasIEPlugin(&quot;ShockwaveFlash.ShockwaveFlash&quot;);
+    }
+    return result;
+}
+
+//检测所有浏览器中的QuickTime
+function hasQuickTime(){
+    var result = hasPlugin(&quot;QuickTime&quot;);
+    if(!result){
+        result = hasIEPlugin(&quot;QuickTime.QuickTime&quot;)
+    }
+    return result;
+}
+
+console.log(hasFlash());
+console.log(hasQuickTime());
+</code></pre><p><strong>8.3.2 注册处理程序</strong></p>
+<p>##8.4 screen对象##</p>
+<ul>
+<li>用来表明客户端的能力，其中包括浏览器窗口外部的显示器的信息，如像素宽度和高度等</li>
+</ul>
+<p>##8.5 history对象##</p>
+<ul>
+<li>保存着用户的上网记录，从窗口被打开的那一刻算起。</li>
+</ul>
+<p>#第九章 客户端检测#</p>
+<ul>
+<li>检测web客户端的手段很多，而且各有利弊。但不到万不得已，就不要使用客户端检测。只要找到更通用的方法，就应该优先采用更通用的方法。</li>
+</ul>
+<p>##9.1 能力检测##</p>
+<ul>
+<li><p>能力检测的目标不是识别特定的浏览器，而是识别浏览器的能力。采用这种方式不必顾及特定的浏览器如何如何，只要确定连蓝旗支持特定的能力，就可以给出解决方案。</p>
+<pre><code>function getElement(id){
+    if(document.getElementById){
+        return document.getElementById(id);
+    }else if(document.all){
+        return document.all[id];
+    }else{
+        throw new Error(&quot;No way to retrieve element!&quot;);
+    }
+}
+</code></pre></li>
+<li><p>要理解能力检测，首先必须理解两个重要的概念：1.先检测达成目的的最常用特性。2. 必须测试实际要用到的特性</p>
+</li>
+</ul>
+<p><strong>9.1.1 更可靠的能力检测</strong></p>
+<pre><code>//作者：Peter Michaux
+var xhr = new ActiveXObject(&quot;Microsoft.XMLHttp&quot;);
+function isHostMethod(object,property){
+    var t = typeof object[property];
+    return t== &apos;function&apos; || (!!(t==&apos;object&apos;&amp;&amp; object[property]))|| t==&apos;unknow&apos;;
+}
+
+
+result = isHostMethod(xhr,&quot;open&quot;);   //true
+result = isHostMethod(xhr,&quot;foo&quot;);    //false
+</code></pre><p><strong>9.1.2 能力检测，不是浏览器检测</strong></p>
+<ul>
+<li><p>在实际开发中，应该将能力检测作为确定下一步解决方案的依据，而不是用它来判断用户使用的是什么浏览器。</p>
+<pre><code>//确定浏览器是否支持Netscape风格的插件
+var hasNSPlugins = !!(navigator.plugins&amp;&amp; navigator.plugins.length);
+
+//确定浏览器是否具有DOM1级规定的能力
+var hasDOM1 = !!(document.getElementById&amp;&amp; document.createElement &amp;&amp; document.getElementsByTagName);
+</code></pre></li>
+</ul>
+<p>##9.2 怪癖检测##</p>
+<ul>
+<li>目标是识别浏览器的特殊行为。但与能力检测确认浏览器支持什么能力不同，怪癖检测是要知道浏览器存在什么缺陷（“怪癖”也就是bug）</li>
+</ul>
+<p>##9.3 用户代理检测##</p>
+<ul>
+<li>通过检测用户代理字符串来确定实际使用的浏览器</li>
+</ul>
+<p><strong>9.3.1 用户代理字符串的历史</strong><br><strong>9.3.2 用户代理字符串检测技术</strong><br><strong>9.3.3 完整的代码</strong><br><strong>9.3.4 使用方法</strong></p>
+<p>#第10章 DOM#</p>
+<p>##10.1 节点层次##</p>
+<p><strong>10.1.1 Node 类型</strong></p>
+<ul>
+<li><p>节点nodeType属性：</p>
+<ol>
+<li>Node.ELEMENT_NODE(1);</li>
+<li>Node.ATTRIBUTE_NODE(2);</li>
+<li>Node.TEXT_NODE(3);</li>
+<li>Node.CDATA_SECTION_NODE(4);</li>
+<li>Node.ENTITY_REFERENCE_NODE(5);</li>
+<li>Node.ENTITY_NODE(6);</li>
+<li>Node.PROCESSING_INSTRUCTION_NODE(7);</li>
+<li>Node.COMMENT_NODE(8);</li>
+<li>Node.DOCUMENT_NODE(9);</li>
+<li>Node.DOCUMENT_TYPE_NODE(10);</li>
+<li>Node_DOCUMENT_FRAGMENT_NODE(11);</li>
+<li>Node.NOTATION_NODE(12).</li>
+</ol>
+</li>
+<li><p>确定节点类型</p>
+<pre><code>if(some.nodeType == Node.ELEMENT_NODE){ //在IE中无效
+    alert(&quot;Node is an element.&quot;);
+}
+</code></pre></li>
+<li><p>为了确保跨浏览器兼容，还是将nodeType与数值比较</p>
+<pre><code>if(some.nodeType == 1){ 
+    alert(&quot;Node is an element.&quot;);
+}
+</code></pre><ol>
+<li><p>nodeName 和 nodeValue属性</p>
+<ul>
+<li>对于元素节点，nodeName 中保存的始终都是元素的标签名，而nodeValue 的值则始终为null。</li>
+</ul>
+</li>
+<li><p>节点关系</p>
+<ul>
+<li>每个节点都有一个childNodes属性，其中保存着一个NodeList对象。</li>
+<li><p>访问NodeList中的节点——可以通过方括号，也可以使用item()方法</p>
+<pre><code>var firstChild = someNode.childNodes[0];
+var senondChild = someNode.childNodes.item(1);
+var count = someNode.childNodes.length;
+</code></pre></li>
+<li><p>每个节点都有一个parentNode属性，该属性指向文档树中的父节点。</p>
+</li>
+<li>通过使用列表中每个节点的previousSibling属性和nextSibling属性，可以访问同一列表中的其他节点。</li>
+</ul>
+</li>
+<li><p>操作节点</p>
+<ul>
+<li><p>appendChild(),向childNodes列表的末尾添加一个节点</p>
+<pre><code>var returnedNode = someNode.appendChild(newNode);
+alert(returnedNode == newNode);        //true
+alert(someNode.lastChild == newNode);  //true
+</code></pre></li>
+<li><p>insertBefore()这个方法接受两个参数：要插入的节点和作为参照的节点。如果参照节点是null,则insertBefore()与appendChild()执行相同的操作</p>
+<pre><code>var returnedNode = someNode.insertBefore(newNode,null);
+alert(newNode == someNode.lastChild);   //true
+</code></pre></li>
+<li><p>replaceChild()方法接受两个参数：要插入的节点和要替换的节点</p>
+<pre><code>//替换第一个子节点
+var returnedNode = someNode.replaceChild(newNode,someNode.firstChild);
+</code></pre></li>
+<li><p>removeChild()方法只是移除节点，接受一个参数，即要移除的节点</p>
+<pre><code>//移除第一个子节点
+var formerFirstChild = someNode.removeChild(someNode.firstChild);
+</code></pre></li>
+</ul>
+</li>
+<li><p>其他方法</p>
+<ul>
+<li>cloneNode()用于创建调用这个方法的节点的一个完全相同的副本。该方法接受一个布尔值参数，表示是否执行深复制。深复制：复制节点及其整个子节点树。复制后返回的节点副本属于文档所有，但并没有为他指定父节点，因此，整个节点副本就成了一个“孤儿”。</li>
+<li>normalize()处理文档树中的文本节点。如果找到了空文本节点，则删除它；如果找到相邻的文本节点，则将它们合并为一个文本节点。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<p><strong>10.1.2 Document 类型</strong></p>
+<pre><code>1. 文档的子节点
+2. 文档信息
+
+    - document.title 包含着&lt;title&gt;元素中的文本
+    - document.URL 包含页面完整的URL(即地址栏中显示的URL)
+    - document.domain 包含页面的域名
+    - document.referrer 保存着连接到当前页面的那个页面的URL
+
+3. 查找元素
+
+    - document.getElementById()为了避免兼容性问题，最好的办法是不让表单字段的name特性与其他元素的ID相同
+    - document.getElementsByTagName()
+    - namedItem()这个方法可以通过元素的name特性取得集合中的项
+    - document.getElementsByName()返回带有给定name特性的所有元素，经常用来取得单选按钮
+
+4. 特殊集合
+5. DOM 一致性检测
+6. 文档写入
+
+    - write() 原样写入
+    - writeln() 在字符串的末尾添加一个换行符（\n）
+    - open()和close()分别用于打开和关闭网页的输出流
+</code></pre><p><strong>10.1.3 Element 类型</strong></p>
+<ul>
+<li><p>标签名在不同的文档模式中，区分大小写，所以，最好在比较之前将标签名转换为相同的大小写形式</p>
+<pre><code>if(element.tagName.toLowerCase() == &quot;div&quot;){
+    //在此执行某些操作
+}
+</code></pre><ol>
+<li>HTML 元素</li>
+<li><p>取得特性 getAttribute() 自定义特性应该加上data-前缀以便验证</p>
+<ul>
+<li>只有公认的（非自定义的）特性才会以属性的形式添加到DOM对象中（ie除外）</li>
+<li>由于一些差别，在通过JavaScript以编程方式操作DOM时，开发人员不经常使用getAttribute(),而是只使用对象的属性。只有在取得自定义特性值得情况下，才会使用getAttribute()方法。、</li>
+</ul>
+</li>
+<li><p>设置特性 setAttribute()，这个方法接受两个参数：要设置的特性名和值。</p>
+<ul>
+<li>通过这个方法设置的特性名会被统一转换为小写形式，即“ID”最终会变成“id”</li>
+<li><p>为DOM元素添加一个自定义的属性，该属性不会自动成为元素的特性</p>
+<pre><code>div.mycolor = &quot;red&quot;;
+alert(div.getAttribute(&quot;mycolor&quot;));    //null(IE除外)
+</code></pre></li>
+<li><p>removeAttribute()用于彻底删除元素的特性，这个方法不仅会清除特性的值，而且也会从元素中完全删除特性。（ie6不支持）</p>
+</li>
+</ul>
+</li>
+<li><p>attributes 属性</p>
+</li>
+<li><p>创建元素</p>
+<ul>
+<li>使用 document.createElement()方法可以创建新元素。这个方法接受一个参数，原色的标签名。    </li>
+<li>把新元素添加到文档树，可以使用appendChild(),insertBefore(),replaceChild()</li>
+<li><p>兼容低版本ie的写法</p>
+<pre><code>if(client.browser.ie &amp;&amp; client.browser.ie &lt;=7){
+var iframe = document.createElement(&quot;&lt;iframe name=&apos;myframe&apos;&gt;&lt;/frame&gt;&quot;);
+var input = document.createElement(&quot;&lt;input type=&apos;checkbox&apos;&gt;&quot;);
+var button = document.createElement(&quot;&lt;button type=&apos;reset&apos;&gt;&lt;/button&gt;&quot;);
+var radio1 = document.createElement(&quot;&lt;input type=&apos;radio&apos; name=&apos;choice&apos; value=&apos;1&apos;&gt;&quot;);
+var radio2 = document.createElement(&quot;&lt;input type=&apos;radio&apos; name=&apos;choice&apos; value=&apos;2&apos;&gt;&quot;);
+}    
+</code></pre></li>
+</ul>
+</li>
+<li><p>元素的子节点</p>
+<ul>
+<li><p>不同浏览器对子节点的计算不一样，基于这个差别，在执行某项操作前，通常都要先检查一下nodeType属性</p>
+<pre><code>for(var i=0,len=element.childNodes.length;i&lt;len;i++){
+    if(element.childNodes[i].nodeType == 1){
+        //执行某些操作
+    }
+}
+</code></pre></li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<p><strong>10.1.4 Text 类型</strong></p>
+<ol>
+<li><p>创建文本节点</p>
+<pre><code>- document.createTextNode()创建文本节点，该方法接受一个参数——要插入节点中的文本
+
+    var element = document.createElement(&quot;div&quot;);
+    element.className = &quot;message&quot;;
+
+    var textNode = document.createTextNode(&quot;Hello world!&quot;);
+    element.appendChild(textNode);
+
+    document.body.appendChild(element);
+</code></pre></li>
+<li><p>规范化文本节点</p>
+<pre><code>- normalize()方法，能够将相邻文本节点合并的方法
+
+    var element = document.createElement(&quot;div&quot;);
+    element.className = &quot;message&quot;;
+
+    var textNode = document.createTextNode(&quot;Hello world!&quot;);
+    element.appendChild(textNode);
+
+    var anotherTextNode = document.createTextNode(&quot;Yippee!&quot;);
+    element.appendChild(anotherTextNode);
+
+    document.body.appendChild(element);
+
+    alert(element.childNodes.length);   //2
+
+    element.normalize();
+    alert(element.childNodes.length);   //1
+    alert(element.firstChild.nodeValue);  //&quot;Hello world!Yippee!&quot;
+</code></pre></li>
+<li><p>分割文本节点</p>
+<ul>
+<li><p>splitText()方法将一个文本节点分成两个文本节点，即按照指定的位置分割nodeValue值。</p>
+<pre><code>var element = document.createElement(&quot;div&quot;);
+element.className = &quot;message&quot;;
+
+var textNode = document.createTextNode(&quot;Hello world!&quot;);
+element.appendChild(textNode);
+
+document.body.appendChild(element);
+
+var newNode = element.firstChild.splitText(5);
+alert(element.firstChild.nodeValue);   //&quot;Hello&quot;
+alert(newNode.nodeValue);              //&quot; world!&quot;
+alert(element.childNodes.length);      //2
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<p><strong>10.1.5 Comment 类型</strong></p>
+<ul>
+<li>注释在DOM中是通过Comment类型来表示的</li>
+</ul>
+<p><strong>10.1.6 CDATASection 类型</strong></p>
+<ul>
+<li>CDATASection类型只针对基于XML的文档，表示的是CDATA区域。</li>
+</ul>
+<p><strong>10.1.7 DocumentType 类型</strong></p>
+<ul>
+<li>DocumentType包含着与文档的doctype有关的所有信息。</li>
+</ul>
+<p><strong>10.1.8 DocumentFragment 类型</strong></p>
+<ul>
+<li><p>DOM规定文档片段（document fragment）是一种“轻量级”的文档。可以将它作为一个“仓库”来使用，即可以在里面保存将来可能会添加到文档中的节点</p>
+<pre><code>var fragment = document.createDocumentFragment(); 
+var ul = document.getElementById(&quot;myList&quot;);
+var li = null;
+
+for(var i=0; i&lt;3; i++){
+    li = document.createElement(&quot;li&quot;);
+    li.appendChild(document.createTextNode(&quot;item&quot; + (i+1)));
+    fragment.appendChild(li);
+}
+
+ul.appendChild(fragment);
+</code></pre></li>
+</ul>
+<p><strong>10.1.9 Attr 类型</strong></p>
+<ul>
+<li>元素的特性在DOM中以Attr类型来表示。</li>
+</ul>
+<p>##10.2 DOM操作技术##</p>
+<p><strong>10.2.1 动态脚本</strong></p>
+<ul>
+<li><p>动态加载外部JavaScript文件</p>
+<pre><code>function loadScript(url){
+    var script = document.createElement(&quot;script&quot;);
+    script.type = &quot;text/javascript&quot;;
+    script.src = url;
+    document.body.appendChild(script);
+} 
+
+loadScript(&quot;client.js&quot;);
+</code></pre></li>
+<li><p>行内方式，兼容各个浏览器的写法如下：</p>
+<pre><code>function loadScriptString(code){
+    var script = document.createElement(&quot;script&quot;);
+    script.type = &quot;text/javascript&quot;;
+    try{
+        script.appendChild(document.createTextNode(code));
+    }catch(ex){
+        script.text = code;
+    }
+    document.body.appendChild(script);
+}
+
+loadScriptString(&quot;function sayHi(){alert(&apos;hello&apos;); } sayHi();&quot;);
+</code></pre></li>
+</ul>
+<p><strong>10.2.2 动态样式</strong></p>
+<ul>
+<li><p>动态加载外部样式</p>
+<pre><code>function loadStyles(url){
+    var link = document.createElement(&quot;link&quot;);
+    link.rel = &quot;stylesheet&quot;;
+    link.type = &quot;text/css&quot;;
+    link.href = url;
+    var head = document.getElementsByTagName(&quot;head&quot;)[0];
+    head.appendChild(link);
+}
+
+loadStyles(&quot;styles.css&quot;);
+</code></pre></li>
+<li><p>行内方式</p>
+<pre><code>function loadStylesString(css){
+    var style = document.createElement(&quot;style&quot;);
+    style.type = &quot;text/css&quot;;
+    try{
+        style.appendChild(document.createTextNode(css));
+    }catch(ex){
+        style.stylesheet.cssText = css; //ie中小心使用stylesheet.cssText
+    }
+    var head = document.getElementsByTagName(&quot;head&quot;)[0];
+    head.appendChild(style);
+}
+
+loadStylesString(&quot;body{background-color:red}&quot;);
+</code></pre></li>
+</ul>
+<p><strong>10.2.3 操作表格</strong></p>
+<ul>
+<li><p>为table元素添加的属性和方法如下：</p>
+<pre><code>- caption: 保存着对&lt;caption&gt;元素（如果有）的指针。
+- tBodies: 是一个&lt;tbody&gt;元素的HTMLCollection。
+- tFoot: 保存着对&lt;tfoot&gt;元素（如果有）的指针。
+- tHead: 保存着对&lt;thead&gt;元素（如果有）的指针。
+- rows: 是一个表格中所有行的元素的HTMLCollection。
+- createTHead(): 创建&lt;thead&gt;元素，将其放到表格中，返回引用。
+- createTFoot(): 创建&lt;tfoot&gt;元素，将其放到表格中，返回引用。
+- createCaption(): 创建&lt;caption&gt;元素，将其放到表格中，返回引用。
+- deleteTHead(): 删除&lt;thead&gt;元素。
+- deleteTFoot(): 删除&lt;tfoot&gt;元素。
+- deleteCaption(): 删除&lt;caption&gt;元素。
+- deleteRow(pos): 删除指定位置的行。
+- insertRow(pos): 向rows集合中的指定位置插入一行。
+</code></pre></li>
+<li><p>为tbody元素添加的属性和方法如下：</p>
+<pre><code>- rows: 保存着&lt;tbody&gt;元素中行的HTMLCollection。
+- deletesRow(pos): 删除指定位置的行。
+- insertRow(pos): 向rows集合中的指定位置插入一行，返回对新插入行的引用。
+</code></pre></li>
+<li><p>为tr元素添加的属性和方法如下：</p>
+<pre><code>- cells: 保存着&lt;tr&gt; 元素中单元格的HTMLCollection。
+- deleteCell(pos): 删除指定为的单元格。
+- insertCell(pos): 向cells集合中的指定位置插入一个单元格，返回对新插入单元格的引用。
+</code></pre></li>
+<li><p>用这些属性和方法可以将代码简化</p>
+<pre><code>var table = document.createElement(&quot;table&quot;);
+table.border = 1;
+table.width = &quot;100%&quot;;
+
+var tbody = document.createElement(&quot;tbody&quot;);
+table.appendChild(tbody);
+
+tbody.insertRow(0);
+tbody.rows[0].insertCell(0);
+tbody.rows[0].cells[0].appendChild(document.createTextNode(&quot;Cell 1,1&quot;));
+tbody.rows[0].insertCell(1);
+tbody.rows[0].cells[1].appendChild(document.createTextNode(&quot;Cell 2,1&quot;));
+
+tbody.insertRow(1);
+tbody.rows[1].insertCell(0);
+tbody.rows[1].cells[0].appendChild(document.createTextNode(&quot;Cell 1,1&quot;));
+tbody.rows[1].insertCell(1);
+tbody.rows[1].cells[1].appendChild(document.createTextNode(&quot;Cell 2,1&quot;));
+
+document.body.appendChild(table);
+</code></pre></li>
+</ul>
+<p><strong>10.2.4 使用NodeList</strong>    </p>
+<ul>
+<li><p>如果想要迭代一个NodeList，最好是使用length属性初始化第二个变量，然后将迭代器与该变量进行比较</p>
+<pre><code>var divs = document.getElementByTagName(&quot;div&quot;),
+    i,
+    len,
+    div;
+
+for(i=0, len=divs.length; i&lt;len; i++){
+    div = document.createElement(&quot;div&quot;);
+    document.body.appendChild(div);
+}
+</code></pre></li>
+<li><p>初始化第二个变量len。由于len保存着对divs.length在循环开始时的一个快照，因此避免了divs.length不停地变化的问题。</p>
+</li>
+</ul>
+<p>#第11章 DOM扩展#</p>
+<p>##11.1 选择符API##</p>
+<p><strong>11.1.1 querySelector()方法</strong></p>
+<p><strong>11.1.2 querySelectorAll()方法</strong></p>
+<p><strong>11.1.3 matchesSelector()方法</strong></p>
+<p>##11.2 元素遍历##</p>
+<p>##11.3 HTML5##</p>
+<p><strong>11.3.1 与类相关的扩充</strong></p>
+<p><strong>11.3.2 焦点管理</strong></p>
+<p><strong>11.3.3 HTMLDocument的变化</strong></p>
+<p><strong>11.3.4 字符集属性</strong></p>
+<p><strong>11.3.5 自定义数据属性</strong></p>
+<p><strong>11.3.6 插入标记</strong></p>
+<p><strong>11.3.7 scrollIntoView()方法</strong></p>
+<p>##11.4 专有扩展##</p>
+<p><strong>11.4.1 文档模式</strong></p>
+<p><strong>11.4.2 children属性</strong></p>
+<p><strong>11.4.3 contains()方法</strong></p>
+<p><strong>11.4.4 插入文本</strong></p>
+<p><strong>11.4.5 滚动</strong></p>
+<p>#第12章 DOM2和DOM3#</p>
+<p>##12.1 DOM变化##</p>
+<p><strong>12.1.1 针对XML命名空间的变化</strong></p>
+<p><strong>12.1.2 其他方面的变化</strong></p>
+<p>##12.2 样式##</p>
+<p><strong>12.2.1 访问元素的样式</strong></p>
+<p><strong>12.2.2 操作样式表</strong></p>
+<p><strong>12.2.3 元素大小</strong></p>
+<p>##12.3 遍历##</p>
+<p><strong>12.3.1 NodeIterator</strong></p>
+<p><strong>12.3.2 TreeWalker</strong></p>
+<p>##12.4 范围##</p>
+<p><strong>12.4.1 DOM中的范围</strong></p>
+<p><strong>12.4.2 IE8及更早版本中的范围</strong></p>
+<p>#第13章 事件#</p>
+<p>##13.1 事件流##</p>
+<ul>
+<li>事件流描述的是从页面中接收时间的顺序</li>
+</ul>
+<p><strong>13.1.1 事件冒泡</strong></p>
+<ul>
+<li>IE的事件流叫做事件冒泡</li>
+<li>click事件在div上发生，然后click事件沿DOM树向上传播，直至传播到document对象</li>
+</ul>
+<p><strong>13.1.2 事件捕获</strong></p>
+<ul>
+<li>事件捕获的思想是不太具体的节点应该更早接收到事件，而最具体的节点应该最后接收到事件。</li>
+<li>事件捕获过程中document对象先接收到click事件，然后事件沿DOM树依次向下，一直传播到实际目标，即div元素。</li>
+<li>由于老版本浏览器不支持，因此不建议使用事件捕获</li>
+</ul>
+<p><strong>13.1.3 DOM事件流</strong></p>
+<ul>
+<li>事件流包括三个阶段:事件捕获阶段，处于目标阶段和事件冒泡阶段</li>
+<li>在捕获阶段：事件从document到html再到body就停止了；</li>
+<li>在目标阶段：事件在div上发生，并在事件处理中被看成冒泡阶段的一部分</li>
+<li>冒泡阶段发生：事件又传播回文档</li>
+</ul>
+<p>##13.2 事件处理程序##</p>
+<p><strong>13.2.1 HTML事件处理程序</strong></p>
+<ul>
+<li>缺点：HTML与JavaScript代码紧密耦合</li>
+<li>应用JavaScript指定时间处理程序代替</li>
+</ul>
+<p><strong>13.2.2 DOM0级事件处理程序</strong></p>
+<ul>
+<li><p>使用DOM0级方法指定的事件处理程序被认为是元素的方法。因此，事件处理程序是在元素的作用域中运行的</p>
+<pre><code>var btn = document.getElementById(&quot;myBtn&quot;);
+btn.onclick = function(){
+    alert(this.id);    //&quot;myBtn&quot;
+}
+</code></pre></li>
+<li><p>删除事件处理程序</p>
+<pre><code>btn.onclick = null;
+</code></pre></li>
+</ul>
+<p><strong>13.2.3 DOM2级事件处理程序</strong></p>
+<ul>
+<li>addEventListener(要处理的事件名，作为事件处理程序的函数，一个布尔值): 指定事件处理程序</li>
+<li>removeEventListener(要处理的事件名，作为事件处理程序的函数，一个布尔值)： 删除事件处理程序</li>
+<li>最后布尔值参数如果是true：表示在捕获阶段调用事件处理程序；false:表示 在冒泡阶段调用事件处理程序</li>
+<li><p>使用DOM2级方法添加事件处理程序的主要好处是可以添加多个事件处理程序</p>
+<pre><code>var btn = document.getElementById(&quot;myBtn&quot;);
+btn.addEventListener(&quot;click&quot;,function(){
+    alert(this.id);
+},false);
+btn.addEventListener(&quot;click&quot;,function(){
+    alert(&quot;hello&quot;);
+},false);
+</code></pre></li>
+<li><p>通过addEventListener()添加的匿名函数无法移除，必须起个名字</p>
+<pre><code>var btn = document.getElementById(&quot;myBtn&quot;);
+var handler = function(){
+    alert(this.id);
+};
+btn.addEventListener(&quot;click&quot;,handler,false);
+
+btn.removeEventListener(&quot;click&quot;,handler,false);  //有效
+</code></pre></li>
+<li><p>大多数情况下，事件处理程序都是添加到冒泡阶段，可以最大限度的兼容各种浏览器</p>
+</li>
+</ul>
+<p><strong>13.2.4 IE事件处理程序</strong></p>
+<ul>
+<li>attachEvent(事件处理程序名称，事件处理程序函数)</li>
+<li>detachEvent(事件处理程序名称，事件处理程序函数)</li>
+<li><p>由于ie8及更早版本只支持事件冒泡，所以通过attachEvent()添加的事件处理程序都会被添加到冒泡阶段</p>
+<pre><code>var btn = document.getElementById(&quot;myBtn&quot;);
+btn.attachEvent(&quot;onclick&quot;,function(){
+    alert(&quot;Clicked&quot;);
+});
+</code></pre></li>
+<li><p>在IE中使用attachEvent()与使用DOM0级方法的主要区别在于事件处理程序的作用域。</p>
+<pre><code>var btn = document.getElementById(&quot;myBtn&quot;);
+btn.attachEvent(&quot;onclick&quot;,function(){
+    alert(this === window);   //true
+});
+</code></pre></li>
+<li><p>与addEventListener()类似，attachEvent()方法也可以用来为一个元素添加多个事件处理程序。</p>
+<pre><code>var btn = document.getElementById(&quot;myBtn&quot;);
+btn.attachEvent(&quot;onclick&quot;,function(){
+    alert(this === window);   //true
+});
+btn.attachEvent(&quot;onclick&quot;,function(){
+    alert(&quot;hello&quot;);   
+});
+</code></pre></li>
+<li><p>与DOM方法一样，添加的匿名函数将不能被移除</p>
+<pre><code>var btn = document.getElementById(&quot;myBtn&quot;);
+var handler = function(){
+    alert(this === window);   //true
+};
+btn.attachEvent(&quot;onclick&quot;,handler);
+
+btn.detachEvent(&quot;onclick&quot;,handler);
+</code></pre></li>
+</ul>
+<p><strong>13.2.5 跨浏览器的事件处理程序</strong></p>
+<pre><code>    function addHandler(a, c, b) {
+    if (a == null) return;
+    if (a.addEventListener) {
+        addHandler = function(d, f, e) {
+            if (d == null) return;
+            d.addEventListener(f, e, false)
+        }
+    } else {
+        if (a.attachEvent) {
+            addHandler = function(d, f, e) {
+                if (d == null) return;
+                d.attachEvent(&quot;on&quot; + f, e)
+            }
+        } else {
+            addHandler = function(d, f, e) {
+                if (d == null) return;
+                d[&quot;on&quot; + f] = e
+            }
+        }
+    }
+    addHandler(a, c, b)
+}
+
+function removeHandler(a, c, b) {
+    if (a == null) return;
+    if (a.removeEventListener) {
+        removeHandler = function(d, f, e) {
+            if (d == null) return;
+            d.removeEventListener(f, e, false)
+        }
+    } else {
+        if (a.detachEvent) {
+            addHandler = function(d, f, e) {
+                if (d == null) return;
+                d.detachEvent(&quot;on&quot; + f, e)
+            }
+        } else {
+            addHandler = function(d, f, e) {
+                if (d == null) return;
+                d[&quot;on&quot; + f] = e
+            }
+        }
+    }
+    removeHandler(a, c, b)
+}
+
+ addHandler(btn, &apos;mouseover&apos;, handler);    
+ removeHandler(btn, &apos;mouseover&apos;, handler);    
+</code></pre><p>##13.3 事件对象##</p>
+<p><strong>13.3.1 DOM中的事件对象</strong></p>
+<ul>
+<li>无论指定事件处理程序时使用什么方法（DOM0级或DOM2级），都会传入event对象</li>
+<li>在事件处理程序内部，对象this始终等于currentTarget的值，而target则只包含事件的实际目标</li>
+<li><p>如果直接将事件处理程序指定给了目标元素，则this、currentTarget和target包含相同的值</p>
+<pre><code>var btn = document.getElementById(&quot;myBtn&quot;);
+btn.onclick = function(event){
+    alert(event.currentTarget === this);   //true
+    alert(event.target === this);           //true
+};    
+
+document.body.onclick = function(event){
+    alert(event.currentTarget === document.body);   //true
+    alert(this === document.body);
+    alert(event.target === document.getElementById(&quot;myBtn&quot;));           //true
+};    
+</code></pre></li>
+<li><p>在需要通过一个函数处理多个事件时，可以使用type属性</p>
+<pre><code>var btn = document.getElementById(&quot;myBtn&quot;);
+var handler = function(event){
+    switch(event.type){
+        case &quot;click&quot;:
+            alert(&quot;Clicked&quot;);
+            break;
+
+        case &quot;mouseover&quot;:
+            event.target.style.backgroundColor = &quot;red&quot;;
+            break;
+
+        case &quot;mouseout&quot;:
+            event.target.style.backgroundColor = &quot;&quot;;
+            break;
+        }
+}
+
+btn.onclick = handler;
+btn.onmouseover = handler;
+btn.onmouseout = handler;
+</code></pre></li>
+<li><p>阻止特定事件的默认行为，可以使用preventDefault()方法</p>
+</li>
+<li><p>立即停止事件在DOM层次中的传播，可以使用 stopPropagation()方法，即取消进一步的事件捕获或冒泡</p>
+<pre><code>var btn = document.getElementById(&quot;myBtn&quot;);
+btn.onclick = function(event){
+    alert(&quot;Clicked&quot;);
+    event.stopPropagation();
+   }
+
+   document.body.onclick = function(event){
+    alert(&quot;Body clicked&quot;);//不会执行，因为已被event.stopPropagation();阻止
+}
+</code></pre></li>
+<li><p>事件对象的 eventPhase 属性，可以用来确定事件当前正位于事件流的哪个阶段</p>
+</li>
+<li>捕获阶段：eventPhase=1</li>
+<li>事件处理程序处于目标对象上：eventPhase=2</li>
+<li>冒泡阶段调用的事件处理程序：eventPhase=3</li>
+<li><p>注意：尽管“处于目标”发生在冒泡阶段，但eventPhase一直等于2</p>
+<pre><code>var btn = document.getElementById(&quot;myBtn&quot;);
+btn.onclick = function(event){
+    alert(event.eventPhase);//2
+};
+
+document.body.addEventListener(&quot;click&quot;,function(event){
+    alert(event.eventPhase);//1
+},true);//为true时是捕获阶段
+
+document.body.onclick = function(event){
+    alert(event.eventPhase);//3
+};
+</code></pre></li>
+</ul>
+<p><strong>13.3.2 IE中的事件对象</strong></p>
+<ul>
+<li>IE中的event对象同样也包含与创建它的事件相关的属性和方法</li>
+<li><p>因为事件处理程序的作用域是根据指定它的方式来确定的，所以不能认为this会始终等于事件目标，所以最好还是使用event.srcElement比较保险</p>
+<pre><code>var btn = document.getElementById(&quot;myBtn&quot;);
+btn.onclick = function(){
+    alert(window.event.srcElement === this);  //true
+}
+
+btn.attachEvent(&quot;onclick&quot;, function(event){
+    alert(event.srcElement === this);  //false
+})
+</code></pre></li>
+<li><p>returnValue 属性相当于DOM中的preventDefault()方法，他们的作用都是取消给定事件的默认行为,与DOM不同的是，在此没有办法确定时间是否能被取消</p>
+<pre><code>var btn = document.getElementById(&quot;myBtn&quot;);
+btn.onclick = function(){
+    window.event.returnValue = false;
+}
+</code></pre></li>
+<li><p>cancelBubble 属性与DOM中的 stopPropagation()方法作用相同，都是用来停止事件冒泡的。由于IE不支持事件捕获，因而只能取消事件冒泡</p>
+<pre><code>var btn = document.getElementById(&quot;myBtn&quot;);
+btn.onclick = function(event){
+    alert(&quot;Clicked&quot;);
+    window.event.cancelBubble = true;
+   }
+
+   document.body.onclick = function(event){
+    alert(&quot;Body clicked&quot;);//不会执行，因为已被window.event.cancelBubble = true;阻止
+}
+</code></pre></li>
+</ul>
+<p><strong>13.3.3 跨浏览器的事件对象</strong></p>
+<pre><code>var EventUtil = {
+    addHandler: function(element,type,handler){
+        //省略
+    },
+    getEvent: function(event){
+        return event ? event : window.event;
+    },
+    getTarget: function(event){
+        return event.target || event.srcElement;
+    },
+    preventDefault: function(event){
+        if(event.preventDefault){
+            event.preventDefault();
+        } else{
+            event.returnValue = false;
+        }
+    },
+    removeHandler: function(element,type,handler){
+        //省略
+    },
+    stopPropagation: function(event){
+        if(event.stopPropagation){
+            event.stopPropagation();
+        } else{
+            event.cancelBubble = true;
+        }
+    }
+};
+
+btn.onclick = function(event){
+    event = EventUtil.getEvent(event);
+    var target = EventUtil.getTarget(event);
+    EventUtil.preventDefault(event);
+    EventUtil.stopPropagation(event);
+};
+</code></pre><p>##13.4 事件类型##</p>
+<p><strong>13.4.1 UI事件</strong></p>
+<ol>
+<li><p>load事件</p>
+<pre><code>EventUtil.addHandler(window, &quot;load&quot;, function() {
+    var image = document.createElement(&apos;img&apos;);
+    EventUtil.addHandler(image, &quot;load&quot;, function() {
+        event = EventUtil.getEvent(event);
+        alert(EventUtil.getTarget(event).src);
+       });
+    document.body.appendChild(image);
+    image.src = &quot;http://img1.xcarimg.com/news/14201/14934/608_20150602085635274371.jpg&quot;
+})
+</code></pre></li>
+<li><p>unload事件</p>
+<ul>
+<li><p>这个事件是在文档被完全卸载后触发，只要用户从一个页面切换到另一个页面，就会发生unload事件</p>
+<pre><code>EventUtil.addHandler(window, &quot;unload&quot;, function() {
+    alert(&quot;Unloaded&quot;);
+  })        
+</code></pre></li>
+</ul>
+</li>
+<li><p>resize </p>
+<ul>
+<li><p>当浏览器窗口被调整到一个新的高度或宽度时，就会触发resize事件。</p>
+<pre><code>EventUtil.addHandler(window, &quot;resize&quot;, function() {
+    alert(&quot;Resized&quot;);
+  })    
+</code></pre></li>
+</ul>
+</li>
+<li><p>scroll</p>
+<ul>
+<li><p>表示页面中相应元素的变化</p>
+<pre><code>EventUtil.addHandler(window, &quot;scroll&quot;, function() {
+    if(document.compatMode == &quot;CSS1Compat&quot;){
+        alert(document.documentElement.scrollTop);
+    }else{
+        alert(document.body.scrollTop);
+    }
+  });
+</code></pre></li>
+<li><p>document.compatMode 表示文档渲染方式，它有两种可能的返回值：BackCompat 标准兼容模式关闭 和CSS1Compat 标准兼容模式开启。</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>13.4.2 焦点事件</strong></p>
+<ul>
+<li><p>焦点事件会在页面获得或失去焦点时触发。利用这些事件并与document.hasFocus()方法及document.activeElement属性配合，可以知晓用户在页面上的行踪。</p>
+<ol>
+<li>blur:在元素失去焦点时触发</li>
+<li>focus:在元素获得焦点时触发</li>
+</ol>
+</li>
+</ul>
+<p><strong>13.4.3 鼠标与滚轮事件</strong></p>
+<ol>
+<li>click:在用户单击主鼠标按钮或者按下回车键时触发。</li>
+<li>dbclick:在用户双击鼠标按钮时触发。</li>
+<li>mousedown:在用户按下了任意鼠标按钮时触发。不能通过键盘触发这个事。</li>
+<li>mouseenter:在鼠标光标从元素外部首次移动到元素范围之内时触发。</li>
+<li>mouseleave:在位于元素上方的鼠标光标移动到元素范围之外时触发。</li>
+<li>mousemove:当鼠标指针在元素内部移动时重复的触发。不能通过键盘触发这个事件</li>
+<li>mouseout:在鼠标指针位于一个元素上方，然后用户将其移入另一个元素时触发。</li>
+<li>mouseover:在鼠标指针位于一个元素外部，然后用户将其首次移入另一个元素边界之内时触发。</li>
+<li><p>mouseup:在用户释放鼠标按钮时触发。</p>
+<ul>
+<li>除了mouseenter和mouseleave，所有鼠标事件都会冒泡，也可以被取消，而取消鼠标事件将会影响浏览器的默认行为。</li>
+<li><p>鼠标事件中还有一类滚轮事件。其实就是mousewheel事件。这个时间跟踪鼠标滚轮，类似于Mac的触控板。</p>
+<ol>
+<li><p>客户区坐标位置</p>
+<ul>
+<li><p>clientX和clientY表示事件发生时鼠标指针在视口中的水平和垂直坐标</p>
+<pre><code>var btn = document.getElementById(&quot;myBtn&quot;);                
+EventUtil.addHandler(btn, &quot;click&quot;, function(event) {
+    event = EventUtil.getEvent(event);
+    alert(&quot;坐标是：&quot; + event.clientX + &quot;,&quot; + event.clientY);
+   })
+</code></pre></li>
+</ul>
+</li>
+<li><p>页面坐标位置</p>
+<ul>
+<li><p>页面坐标通过事件对象的pageX和pageY</p>
+<pre><code>var btn = document.getElementById(&quot;myBtn&quot;);                
+EventUtil.addHandler(btn, &quot;click&quot;, function(event) {
+    event = EventUtil.getEvent(event);
+    alert(&quot;坐标是：&quot; + event.pageX + &quot;,&quot; + event.pageY);
+   })
+</code></pre></li>
+<li><p>在页面没有滚动的情况下，pageX和pageY的值与clientX和clientY的值相等</p>
+</li>
+<li><p>ie8及早期版本不支持事件对象上的页面坐标，兼容性写法如下</p>
+<pre><code>EventUtil.addHandler(btn, &quot;click&quot;, function(event) {
+    event = EventUtil.getEvent(event);
+    var pageX = event.pageX,
+        pageY = event.pageY;
+
+       if(pageX === undefined){
+        pageX = event.clientX + (document.body.scrollLeft || document.documentElement.scrollLeft);
+       }
+
+    if(pageY === undefined){
+        pageY = event.clientY + (document.body.scrollTop|| document.documentElement.scrollTop);
+    }
+
+        console.log(&quot;Page coordinates:&quot;+ pageX +&quot;,&quot;+pageY);
+})
+</code></pre></li>
+</ul>
+</li>
+<li><p>屏幕坐标位置</p>
+<ul>
+<li><p>通过 screenX 和 screenY 属性就可以确定鼠标事件发生时鼠标指针相对于整个屏幕的坐标信息。</p>
+<pre><code>var btn = document.getElementById(&quot;myBtn&quot;);                
+EventUtil.addHandler(btn, &quot;click&quot;, function(event) {
+    event = EventUtil.getEvent(event);
+    alert(&quot;屏幕坐标是：&quot; + event.screenX + &quot;,&quot; + event.screenY);
+   })
+</code></pre></li>
+</ul>
+</li>
+<li><p>修改键</p>
+<ul>
+<li>虽然鼠标事件主要是使用鼠标来触发的，但在按下鼠标时键盘上的某些键的状态也可以影响到所要采取的操作。这些修改键是Shift,Ctrl,Alt和Meta，他们经常被用来修改鼠标事件的行为。</li>
+<li>DOM规定了四个属性，表示这些修改键的状态：shiftKey,ctrlKey,altKey和metaKey</li>
+<li><p>这些属性中包含的都是布尔值，如果相应地键被按下了，值为true，否则值为false</p>
+<pre><code>EventUtil.addHandler(btn, &quot;click&quot;, function(event) {
+    event = EventUtil.getEvent(event);
+    var keys = new Array();
+       if(event.shiftKey){
+        keys.push(&quot;shift&quot;);
+    }
+    if(event.ctrlKey){
+        keys.push(&quot;ctrl&quot;);
+    }
+       if(event.altKey){
+        keys.push(&quot;alt&quot;);
+    }
+    if(event.metaKey){
+        keys.push(&quot;meta&quot;);
+    }
+    console.log(&quot;Keys:&quot;+keys.join(&quot;.&quot;));
+})
+</code></pre></li>
+</ul>
+</li>
+<li><p>相关元素</p>
+<ul>
+<li>对于 mouseover 事件而言，事件的主目标是获得光标的元素，而相关元素就是那个失去光标的元素</li>
+<li>对于 mouseout 事件而言，事件的主目标是失去光标的元素，而相关元素是获得光标的元素</li>
+<li><p>兼容性方法取得相关元素：</p>
+<pre><code>var EventUtil = {
+    //省略了其他代码
+    getRelatedTarget:function(event){
+        if(event.relatedTarget){
+            return event.relatedTarget;
+        }else if(event.toElement){
+            return event.toElement;
+        }else if(event.fromElement){
+            return event.fromElement;
+        }else{
+            return null;
+        }
+    }
+    //省略了其他代码
+}
+
+EventUtil.addHandler(btn, &quot;click&quot;, function(event) {
+       event = EventUtil.getEvent(event);
+    var target = EventUtil.getTarget(event);
+    var relatedTarget = EventUtil.getRelatedTarget(event);
+    console.log(&quot;Mouse out of&quot; + target.tagName + &quot;to&quot;+ relatedTarget.tagName);
+)}
+</code></pre></li>
+</ul>
+</li>
+<li><p>鼠标按钮</p>
+<pre><code>var EventUtil = {
+    //省略了其他代码
+getButton: function(event){
+    if(document.implementation.hasFeature(&quot;MouseEvents&quot;,&quot;2.0&quot;)){
+        return event.button;
+    } else{
+    switch(event.button){
+        case 0:
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+            return 0;
+        case 2:
+        case 6:
+            return 2;
+        case 4:
+            return 1;
+        }
+    }
+}
+//省略了其他代码
+}
+
+EventUtil.addHandler(btn, &quot;mousedown&quot;, function(event) {
+       event = EventUtil.getEvent(event);
+    console.log(EventUtil.getButton(event));
+)}
+</code></pre></li>
+<li><p>更多的事件信息</p>
+</li>
+<li><p>鼠标滚轮事件</p>
+<ul>
+<li><p>跨浏览器的解决方案，创建一个能够取得鼠标滚轮增量值得方法</p>
+<pre><code>var EventUtil = {
+    //省略了其他代码
+    getWheelDelta: function(event){
+        if(event.wheelDelta){
+            return (client.engine.opera&amp;&amp;client.engine.opera &lt; 9.5 ? -event.wheelDelta : event.wheelDelta);
+        }else{
+            return -event.detail * 40;
+        }
+    }
+}
+
+function handleMouseWheel(event){
+    event = EventUtil.getEvent(event);
+    var delta = EventUtil.getWheelDelta(event);
+    console.log(&quot;delta:&quot;+delta);
+}
+
+EventUtil.addHandler(document,&quot;mousewheel&quot;, handleMouseWheel);
+EventUtil.addHandler(document,&quot;DOMMouseScroll&quot;, handleMouseWheel);
+</code></pre></li>
+</ul>
+</li>
+<li><p>触摸设备</p>
+</li>
+<li><p>无障碍性问题</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>13.4.4 键盘与文本事件</strong></p>
+<ul>
+<li>keydown:当用户按下键盘上的任意键触发。</li>
+<li>keypress：当用户按下键盘上的字符键触发。</li>
+<li>KeyPress主要用来捕获字符键包括：<ol>
+<li>数字(注意：包括Shift+数字的符号)、</li>
+<li>字母（注意：包括大小写）、</li>
+<li>小键盘等除了F1-12、SHIFT、Alt、Ctrl、Insert、Home、PgUp、Delete、End、PgDn、ScrollLock、Pause、NumLock、{菜单键}、{开始键}和方向键外的ANSI字符</li>
+</ol>
+</li>
+<li>keyup:当用户释放键盘上的键时触发</li>
+</ul>
+<p><strong>13.4.5 复合事件</strong></p>
+<p><strong>13.4.6 变动事件</strong></p>
+<p><strong>13.4.7 HTML5事件</strong></p>
+<p><strong>13.4.8 设备事件</strong></p>
+<p><strong>13.4.9 触摸与手势事件</strong></p>
+<p>##13.5 内存和性能##</p>
+<p><strong>13.5.1 事件委托</strong></p>
+<ul>
+<li>对“事件处理程序过多”问题的解决方案就是事件委托</li>
+<li><p>我们可以为整个页面指定一个onclick事件处理程序，而不必给每一个可单击的元素分别添加事件处理程序</p>
+<pre><code>&lt;ul id=&quot;myLinks&quot;&gt;
+    &lt;li id=&quot;goSomewhere&quot;&gt;Go somewhere&lt;/li&gt;
+    &lt;li id=&quot;doSomething&quot;&gt;Do something&lt;/li&gt;
+    &lt;li id=&quot;sayHi&quot;&gt;Say hi&lt;/li&gt;
+   &lt;/ul&gt;
+</code></pre></li>
+<li><p>按照传统的做法，需要为他们添加3个事件处理程序</p>
+<pre><code>var item1 = document.getElementById(&quot;goSomewhere&quot;);
+   var item2 = document.getElementById(&quot;doSomething&quot;);
+var item3 = document.getElementById(&quot;sayHi&quot;);
+
+EventUtil.addHandler(item1,&quot;click&quot;,function(event){
+    location.href = &quot;http://www.xcar.com.cn&quot;;
+})
+
+EventUtil.addHandler(item2,&quot;click&quot;,function(event){
+    document.title = &quot;I changed the document&apos;s title&quot;;
+})
+
+EventUtil.addHandler(item3,&quot;click&quot;,function(event){
+    console.log(&quot;hi~&quot;);
+})
+</code></pre></li>
+<li><p>使用事件委托，只需要在DOM树中尽量最高的层次上添加一个事件处理程序</p>
+<pre><code>var list = document.getElementById(&quot;myLinks&quot;);
+
+EventUtil.addHandler(list,&quot;click&quot;,function(event){
+event = EventUtil.getEvent(event);
+var target = EventUtil.getTarget(event);
+
+switch(target.id){
+    case &quot;doSomething&quot;:
+        document.title = &quot;I changed the document&apos;s title&quot;;
+        break;
+
+    case &quot;goSomewhere&quot;:
+        location.href = &quot;http://www.xcar.com.cn&quot;;
+        break;
+
+    case &quot;sayHi&quot;:
+        console.log(&quot;hi~&quot;);
+        break;
+}
+})
+</code></pre></li>
+<li><p>这里，只委托了ul元素添加了一个onclick事件处理程序，由于所有列表项都是这个元素的子节点，而且他们的事件会冒泡，所以单击事件最终会被这个函数处理</p>
+</li>
+</ul>
+<p><strong>13.5.2 移除事件处理程序</strong></p>
+<pre><code>btn.onclick = function(){
+    btn.onclick = null;
+    //其他操作
+}
+</code></pre><p>##13.6 模拟事件##</p>
+<p><strong>13.6.1 DOM中的事件模拟</strong></p>
+<p><strong>13.6.2 IE中的事件模拟</strong></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/JavaScript/">JavaScript</a><a href="/tags/高级程序设计/">高级程序设计</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2016/01/11/JavaScript高级程序设计笔记-1/" data-title="JavaScript高级程序设计笔记 | Hexo" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/01/11/JavaScript高级程序设计笔记/" title="">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  (no title)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/01/05/chrome的癖好/"  title="chrome的癖好">
+ <strong>NEXT:</strong><br/> 
+ <span>chrome的癖好
+</span>
+</a>
+</div>
+
+</nav>
+
+	    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'nntt'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u7B2C_u4E8C_u7AE0__u5728HTMl_u4E2D_u4F7F_u7528JavaScript"><span class="toc-number">1.</span> <span class="toc-text">第二章 在HTMl中使用JavaScript</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1__26lt_3Bscript_26gt_3B_u5143_u7D20"><span class="toc-number">1.1.</span> <span class="toc-text">2.1 <script>元素</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u7B2C_u4E09_u7AE0__u57FA_u672C_u6982_u5FF5"><span class="toc-number">2.</span> <span class="toc-text">第三章 基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1__u8BED_u6CD5"><span class="toc-number">2.1.</span> <span class="toc-text">3.1 语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2__u5173_u952E_u5B57_u548C_u4FDD_u7559_u5B57"><span class="toc-number">2.2.</span> <span class="toc-text">3.2 关键字和保留字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3__u53D8_u91CF"><span class="toc-number">2.3.</span> <span class="toc-text">3.3 变量</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u7B2C_u4E03_u7AE0__u51FD_u6570_u8868_u8FBE_u5F0F"><span class="toc-number">3.</span> <span class="toc-text">第七章 函数表达式</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分類</p>
+		<ul>
+		
+			<li><a href="/categories/2014D2/" title="2014D2">2014D2<sup>1</sup></a></li>
+		
+			<li><a href="/categories/前端小记/" title="前端小记">前端小记<sup>2</sup></a></li>
+		
+			<li><a href="/categories/小结/" title="小结">小结<sup>1</sup></a></li>
+		
+			<li><a href="/categories/小结/第一天/" title="第一天">第一天<sup>1</sup></a></li>
+		
+			<li><a href="/categories/邮箱设置/" title="邮箱设置">邮箱设置<sup>1</sup></a></li>
+		
+			<li><a href="/categories/2014D2/阿里巴巴西溪园区/" title="阿里巴巴西溪园区">阿里巴巴西溪园区<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">標簽</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>1</sup></a></li>
+		
+			<li><a href="/tags/iframe/" title="iframe">iframe<sup>1</sup></a></li>
+		
+			<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
+		
+			<li><a href="/tags/mail/" title="mail">mail<sup>1</sup></a></li>
+		
+			<li><a href="/tags/node/" title="node">node<sup>1</sup></a></li>
+		
+			<li><a href="/tags/兼容性/" title="兼容性">兼容性<sup>1</sup></a></li>
+		
+			<li><a href="/tags/函数/" title="函数">函数<sup>1</sup></a></li>
+		
+			<li><a href="/tags/分页/" title="分页">分页<sup>1</sup></a></li>
+		
+			<li><a href="/tags/前后端分离/" title="前后端分离">前后端分离<sup>1</sup></a></li>
+		
+			<li><a href="/tags/前端工业化/" title="前端工业化">前端工业化<sup>1</sup></a></li>
+		
+			<li><a href="/tags/博客/" title="博客">博客<sup>1</sup></a></li>
+		
+			<li><a href="/tags/开始/" title="开始">开始<sup>1</sup></a></li>
+		
+			<li><a href="/tags/我/" title="我">我<sup>1</sup></a></li>
+		
+			<li><a href="/tags/跨域/" title="跨域">跨域<sup>1</sup></a></li>
+		
+			<li><a href="/tags/邮件/" title="邮件">邮件<sup>1</sup></a></li>
+		
+			<li><a href="/tags/链接/" title="链接">链接<sup>1</sup></a></li>
+		
+			<li><a href="/tags/高度自适应/" title="高度自适应">高度自适应<sup>1</sup></a></li>
+		
+			<li><a href="/tags/高级程序设计/" title="高级程序设计">高级程序设计<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+      
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2016 
+		
+		<a href="http://yoursite.com" target="_blank" title="John Doe">John Doe</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>
