@@ -4,29 +4,16 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>2014D2小结 | 玖牛一毛的博客</title>
+    <title>神奇的ie6与文档编码的仇恨 | 玖牛一毛的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="JIUTOU">
     
-    <meta name="description" content="##支付宝前后端分离——思考与实践  ##
+    <meta name="description" content="最近两天再整个bug,一个广告在ie6下根本都不露头，好神奇的bug
+##走的弯路
 
-目前现在
-
-
-设计离技术远，产品用户体验不佳
-职责不清晰，前后端研发体验不好
-
-
-Why
-
-
-提高研发效率
-更清晰的职责划分
-工程化：开发，单元测试，自动化集成测试，自动化UI测试
-预期性能提升
-
-http://2014.jsconf.cn/slides">
+开始把重心放在了ie6不支持fixed上面，试了很多方法，css的js的，结果都不出来，而且卡的要死。PS:ie6是在测试机上测试，弄起来很麻烦，所以比较耽误时间而且容易心情烦躁
+把问题拆开弄，一会好了，一会又不行">
     
     
     
@@ -83,15 +70,15 @@ http://2014.jsconf.cn/slides">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/TinyFractionBlog/2014/10/31/2014D2小结/" title="2014D2小结" itemprop="url">2014D2小结</a>
+      <a href="/TinyFractionBlog/2016/02/04/ie6与文档编码/" title="神奇的ie6与文档编码的仇恨" itemprop="url">神奇的ie6与文档编码的仇恨</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://mmww1024.github.io/TinyFractionBlog" title="JIUTOU">JIUTOU</a>
     </p>
   <p class="article-time">
-    <time datetime="2014-10-31T01:54:23.000Z" itemprop="datePublished">Oct 31 2014</time>
-    更新日期:<time datetime="2014-10-31T09:49:01.000Z" itemprop="dateModified">Oct 31 2014</time>
+    <time datetime="2016-02-04T03:38:28.000Z" itemprop="datePublished">Feb 4 2016</time>
+    更新日期:<time datetime="2016-02-04T03:57:28.265Z" itemprop="dateModified">Feb 4 2016</time>
     
   </p>
 </header>
@@ -100,181 +87,45 @@ http://2014.jsconf.cn/slides">
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u65B0_u7684_u8FDB_u5C55"><span class="toc-number">1.</span> <span class="toc-text">新的进展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u95EE_u9898_u6240_u5728"><span class="toc-number">2.</span> <span class="toc-text">问题所在</span></a></li></ol>
 		</div>
 		
-		<p>##支付宝前后端分离——思考与实践  ##</p>
-<blockquote>
-<p>目前现在</p>
-</blockquote>
+		<p>最近两天再整个bug,一个广告在ie6下根本都不露头，好神奇的bug</p>
+<p>##走的弯路</p>
 <ol>
-<li>设计离技术远，产品用户体验不佳</li>
-<li>职责不清晰，前后端研发体验不好</li>
+<li>开始把重心放在了ie6不支持fixed上面，试了很多方法，css的js的，结果都不出来，而且卡的要死。<br><code>PS:ie6是在测试机上测试，弄起来很麻烦，所以比较耽误时间而且容易心情烦躁</code></li>
+<li>把问题拆开弄，一会好了，一会又不行，还是不知道问题出在哪了</li>
+<li>ie6报的错是某行某个字符是‘未结束的字符串’，表示查看源代码半天看不出个所以然来</li>
 </ol>
+<h2 id="u65B0_u7684_u8FDB_u5C55"><a href="#u65B0_u7684_u8FDB_u5C55" class="headerlink" title="新的进展"></a>新的进展</h2><p>实在不知道问题出在哪了，问问度娘吧，结果一搜，真的有了灵感。我搜的是“ie6未结束的字符串常量”，我搜的是这个哥们的一篇文章<br><a href="http://www.jb51.net/article/25356.htm" target="_blank" rel="external">http://www.jb51.net/article/25356.htm</a></p>
 <blockquote>
-<p>Why</p>
+<p>在此真的很感谢博主，感谢度娘，解了困扰我两天的问题</p>
 </blockquote>
-<ul>
-<li>提高研发效率</li>
-<li>更清晰的职责划分</li>
-<li>工程化：开发，单元测试，自动化集成测试，自动化UI测试</li>
-<li>预期性能提升</li>
-</ul>
-<p><a href="http://2014.jsconf.cn/slides/herman-taobaoweb/index.html" target="_blank" rel="external">http://2014.jsconf.cn/slides/herman-taobaoweb/index.html</a></p>
-<hr>
-<p>##nodejs一小步 前端开发一大步</p>
+<h2 id="u95EE_u9898_u6240_u5728"><a href="#u95EE_u9898_u6240_u5728" class="headerlink" title="问题所在"></a>问题所在</h2><p>公司的网站用的是GB2312的编码，我的js是utf-8的编码，结果一到ie6下就卡的要死，甚至于我的js都没有加载进来，哎悲哀啊，原来是编码不一致也会引起ie6的不满。</p>
 <blockquote>
-<p>讨论</p>
+<p>只有ie6这样，ie7,8,9,10都好使，哎，霸道的ie6你真是神一样的存在啊！</p>
 </blockquote>
-<ul>
-<li>前端的团队是专注于前端领域，还是独立承担起整个项目，大家有什么想法？</li>
-<li>有利于项目闭环</li>
-<li>团队得到锻炼，让前端了解后台的世界</li>
-<li>推动NODEJS在实践中更多应用</li>
-<li>激情根本停不下来….</li>
-</ul>
-<p><a href="http://vdisk.weibo.com/s/C30SUspJtfe4O" target="_blank" rel="external">http://vdisk.weibo.com/s/C30SUspJtfe4O</a></p>
-<hr>
-<p>##企业级 NPM 服务在阿里的实践</p>
-<blockquote>
-<p>NPM</p>
-</blockquote>
-<ul>
-<li>模块管理工具</li>
-<li>模块中心仓库</li>
-<li>模块查询网站</li>
-</ul>
-<blockquote>
-<p>为什么需要私有NPM</p>
-</blockquote>
-<ul>
-<li>快速稳定的中心仓库服务</li>
-<li>共享私有模块</li>
-<li>保证对所有模块的可控性</li>
-<li>文档的集中展示</li>
-</ul>
-<blockquote>
-<p>git?</p>
-</blockquote>
-<ul>
-<li>需要开放多有仓库的访问权限</li>
-<li>不支持semver版本化区间</li>
-<li>代码可能随意被覆盖</li>
-</ul>
-<blockquote>
-<p>总结，我们到底需要什么</p>
-</blockquote>
-<ul>
-<li>一个快速、稳定，可以发布私有模块的中心仓库</li>
-<li>模块查询，文档浏览的网站</li>
-<li>定制化、更友好的客户端</li>
-</ul>
-<p><a href="http://vdisk.weibo.com/s/C30SUspJtfe20" target="_blank" rel="external">http://vdisk.weibo.com/s/C30SUspJtfe20</a></p>
-<hr>
-<p>##面向多端的蘑菇街前端技术架构</p>
-<blockquote>
-<p>目前的技术架构</p>
-</blockquote>
-<pre><code>Webdemo - 本地开发环境
-    Magpie - MOGU-FE 底层
-    Walkman - 前端自动化工具
-
-Lotus - 数据模拟系统
-
-JsBridge - js 与 App 开发环境
-</code></pre><blockquote>
-<p>关于选型</p>
-</blockquote>
-<ul>
-<li>小而美，可替换</li>
-<li>拥抱开源</li>
-</ul>
-<blockquote>
-<p>效率</p>
-</blockquote>
-<ul>
-<li>视团队而定，视规模而定</li>
-</ul>
-<blockquote>
-<p>前后端分离</p>
-</blockquote>
-<ul>
-<li>面向全端、面向全栈</li>
-<li>前端只是写前端的</li>
-</ul>
-<p><a href="http://vdisk.weibo.com/s/C30SUspJtfdi5" target="_blank" rel="external">http://vdisk.weibo.com/s/C30SUspJtfdi5</a></p>
-<hr>
-<p>##京东前端工业化实践之路</p>
-<blockquote>
-<p>关于讲师</p>
-</blockquote>
-<ul>
-<li>刘威</li>
-<li>现就职于京东⽤用户体验部（JDC），负责前端架构组</li>
-<li>曾工作于百度-百科、新浪-云计算</li>
-</ul>
-<blockquote>
-<p>为什么要工业化</p>
-</blockquote>
-<ul>
-<li>支持的业务线众多</li>
-<li>电商：交付速度要快</li>
-<li>人力资源往往有限</li>
-</ul>
-<blockquote>
-<p>工业化后</p>
-</blockquote>
-<ul>
-<li>项目代码可复用，易扩展</li>
-<li>开发流程统一，标准化，工业化</li>
-</ul>
-<blockquote>
-<p>前端开发流程</p>
-</blockquote>
-<ul>
-<li>涉及到开发流程为构建、编译、输出、联调、上线、辅助等开发流程，以及模块的预览，安装，下载，发布</li>
-</ul>
-<blockquote>
-<p>前端基础设施</p>
-</blockquote>
-<ul>
-<li>前端框架</li>
-<li>前端规范</li>
-<li>前端文档</li>
-<li>组件demo</li>
-<li>组件API</li>
-<li>任务系统</li>
-</ul>
-<blockquote>
-<p>未来展望</p>
-</blockquote>
-<ul>
-<li>丰富模块云平台上模块数量，形成前端⻚页⾯面构建平台</li>
-<li>命令⾏行⼯工具（JDF）对Mobile，WebApp个性化⽀支持</li>
-<li>完善前端基础设施</li>
-<li>…</li>
-</ul>
-<p><a href="http://vdisk.weibo.com/s/C30SUspJtf4sv" target="_blank" rel="external">http://vdisk.weibo.com/s/C30SUspJtf4sv</a></p>
+<p><img src="https://c2.staticflickr.com/6/5649/23441095690_5b1ab57a3b_z.jpg" alt="西湖美景" title="西湖美景"></p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/TinyFractionBlog/tags/node/">node</a><a href="/TinyFractionBlog/tags/前后端分离/">前后端分离</a><a href="/TinyFractionBlog/tags/前端工业化/">前端工业化</a>
+  <span></span> <a href="/TinyFractionBlog/tags/ie6/">ie6</a><a href="/TinyFractionBlog/tags/文档编码/">文档编码</a>
   </div>
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/TinyFractionBlog/categories/2014D2/">2014D2</a>►<a class="article-category-link" href="/TinyFractionBlog/categories/2014D2/阿里巴巴西溪园区/">阿里巴巴西溪园区</a>
+  <a class="article-category-link" href="/TinyFractionBlog/categories/兼容性/">兼容性</a>
 </div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://mmww1024.github.io/TinyFractionBlog/2014/10/31/2014D2小结/" data-title="2014D2小结 | 玖牛一毛的博客" data-tsina="null" class="share clearfix">
+  <div data-url="http://mmww1024.github.io/TinyFractionBlog/2016/02/04/ie6与文档编码/" data-title="神奇的ie6与文档编码的仇恨 | 玖牛一毛的博客" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -283,19 +134,11 @@ JsBridge - js 与 App 开发环境
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/TinyFractionBlog/2014/11/04/透过分页的思考/" title="透过分页的思考">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  透过分页的思考</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/TinyFractionBlog/2014/10/17/myfirst/"  title="我的第一篇博客">
+<a href="/TinyFractionBlog/2016/01/12/JavaScript高级程序设计笔记/"  title="JavaScript高级程序设计笔记">
  <strong>NEXT:</strong><br/> 
- <span>我的第一篇博客
+ <span>JavaScript高级程序设计笔记
 </span>
 </a>
 </div>
@@ -321,7 +164,7 @@ JsBridge - js 与 App 开发环境
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u65B0_u7684_u8FDB_u5C55"><span class="toc-number">1.</span> <span class="toc-text">新的进展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u95EE_u9898_u6240_u5728"><span class="toc-number">2.</span> <span class="toc-text">问题所在</span></a></li></ol>
   </div>
 
 <div id="asidepart">
