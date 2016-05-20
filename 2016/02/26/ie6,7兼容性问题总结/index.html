@@ -4,13 +4,14 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>chrome的癖好 | 玖牛一毛的博客</title>
+    <title>玖牛一毛的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="JIUTOU">
     
-    <meta name="description" content="chrome的癖好这篇想写chrome的一些特点，想到哪写哪，一点一点累计吧
-一、chrome默认最小字体为12px站在用户体验的角度，太小的字体对于视力不好的用户很不友好，所以任凭你设9px，10px的字体，chrome都默认显示为12px，但是有的时候小像素的字体不是给用户看的，只是起到装饰作用">
+    <meta name="description" content="对于position:absolute/relative/fixed; 默认是0层，其他浏览器：默认是auto;
+编写html时，高尽量用padding,不用margin;宽尽量用margin,不用padding。
+支持负边距值，需要触发haslayout(通过zoom:1;position:rel">
     
     
     
@@ -67,15 +68,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/TinyFractionBlog/2015/01/05/chrome的癖好/" title="chrome的癖好" itemprop="url">chrome的癖好</a>
+      <a href="/TinyFractionBlog/2016/02/26/ie6,7兼容性问题总结/" title="" itemprop="url"></a>
   </h1>
   <p class="article-author">By
     
       <a href="http://mmww1024.github.io/TinyFractionBlog" title="JIUTOU">JIUTOU</a>
     </p>
   <p class="article-time">
-    <time datetime="2015-01-05T08:37:30.000Z" itemprop="datePublished">Jan 5 2015</time>
-    更新日期:<time datetime="2015-01-08T08:06:39.000Z" itemprop="dateModified">Jan 8 2015</time>
+    <time datetime="2016-02-26T08:53:31.020Z" itemprop="datePublished">Feb 26 2016</time>
+    更新日期:<time datetime="2016-02-26T08:53:31.020Z" itemprop="dateModified">Feb 26 2016</time>
     
   </p>
 </header>
@@ -84,43 +85,31 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#chrome_u7684_u7656_u597D"><span class="toc-number">1.</span> <span class="toc-text">chrome的癖好</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u4E00_u3001chrome_u9ED8_u8BA4_u6700_u5C0F_u5B57_u4F53_u4E3A12px"><span class="toc-number">1.1.</span> <span class="toc-text">一、chrome默认最小字体为12px</span></a></li></ol></li></ol>
+		
 		</div>
 		
-		<h1 id="chrome_u7684_u7656_u597D"><a href="#chrome_u7684_u7656_u597D" class="headerlink" title="chrome的癖好"></a>chrome的癖好</h1><p><em>这篇想写chrome的一些特点，想到哪写哪，一点一点累计吧</em></p>
-<h2 id="u4E00_u3001chrome_u9ED8_u8BA4_u6700_u5C0F_u5B57_u4F53_u4E3A12px"><a href="#u4E00_u3001chrome_u9ED8_u8BA4_u6700_u5C0F_u5B57_u4F53_u4E3A12px" class="headerlink" title="一、chrome默认最小字体为12px"></a>一、chrome默认最小字体为12px</h2><p>站在用户体验的角度，太小的字体对于视力不好的用户很不友好，所以任凭你设9px，10px的字体，chrome都默认显示为12px，但是有的时候小像素的字体不是给用户看的，只是起到装饰作用，比如下面这张图,英文单词只是起到了装饰作用，所以小一点也无妨嘛</p>
-<p><img src="/TinyFractionBlog/img/01.jpg" alt="example01"></p>
-<p>在网上搜了下解决办法，可以用-webkit-text-size-adjust：none属性，但是Chrome27正式取消了此属性，有别的办法吗？<br>找到这个</p>
-<pre><code>.webkit {
-font-size: 9px;
--webkit-transform: scale(0.75);
-}
-</code></pre><p>通过把div整个缩小，实现了字体的变小，12×0.75=9，对于其它浏览器来说，9px默认识别，仅需要对于webkit浏览器进行缩放。我在web端的ie,ff,opera上测试都通过了，移动端没有管，毕竟做的网页不是给移动端看的。</p>
-<p>##二、chrome专有的hack##</p>
-<p>针对Chrome和Safari等Webkit核心浏览器的CSS hack代码：</p>
-<pre><code>/* Webkit*/ 
-@media screen and (-webkit-min-device-pixel-ratio:0) {.font1 {color:#f00} .border1 {border:1px solid #f00;} .bg3 {background:#f00;}} 
-</code></pre><p>同时，针对Opera浏览器的写法：</p>
-<pre><code>/*Opera*/ 
-@media all and (-webkit-min-device-pixel-ratio:10000),not and all (-webkit-min-device-pixel-ratio:0) { .font1 {color:red;} }
-</code></pre><p>针对Firefox浏览器的写法： </p>
-<pre><code>/*Firefox*/
-@-moz-document url-prefix() { .font1 {color:red} } 
-</code></pre>  
+		<ol>
+<li>对于position:absolute/relative/fixed; 默认是0层，其他浏览器：默认是auto;</li>
+<li>编写html时，高尽量用padding,不用margin;宽尽量用margin,不用padding。</li>
+<li>支持负边距值，需要触发haslayout(通过zoom:1;position:relative触发)</li>
+<li>慎用width：100%</li>
+<li>层级有时候不是本身高就高，还要看整个DOM tree的第一个relative属性的父标签的层级</li>
+<li>对块级元素设定display:inline-block时，要{<em>display:inline;</em>zoom:1;}否则无效，对行内元素正常</li>
+<li>当元素使用float:right;时，ie6,7会换行。解决办法：1，右浮动元素前置 2，设置左右浮动 3，绝对定位 4，负边距</li>
+<li>使用table时，最好加上宽度，否则可能对不齐</li>
+<li>ie6下用相对定位和绝对定位时，要给相对元素定高宽，否则会错位</li>
+<li>图片在ie下显示不出来，很有可能是图片有问题</li>
+</ol>
+  
 	</div>
 		<footer class="article-footer clearfix">
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/TinyFractionBlog/tags/兼容性/">兼容性</a>
-  </div>
 
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://mmww1024.github.io/TinyFractionBlog/2015/01/05/chrome的癖好/" data-title="chrome的癖好 | 玖牛一毛的博客" data-tsina="null" class="share clearfix">
+  <div data-url="http://mmww1024.github.io/TinyFractionBlog/2016/02/26/ie6,7兼容性问题总结/" data-title="玖牛一毛的博客" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -130,18 +119,18 @@ font-size: 9px;
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/TinyFractionBlog/2016/01/12/JavaScript高级程序设计笔记/" title="JavaScript高级程序设计笔记">
+ <a href="/TinyFractionBlog/2016/05/20/requirejs学习笔记/" title="">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  JavaScript高级程序设计笔记</span>
+  (no title)</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/TinyFractionBlog/2014/12/10/跨域的iframe高度自适应/"  title="跨域的iframe高度自适应">
+<a href="/TinyFractionBlog/2016/02/15/AngularJs菜鸟教程笔记/"  title="AngularJs">
  <strong>NEXT:</strong><br/> 
- <span>跨域的iframe高度自适应
+ <span>AngularJs
 </span>
 </a>
 </div>
@@ -167,7 +156,7 @@ font-size: 9px;
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#chrome_u7684_u7656_u597D"><span class="toc-number">1.</span> <span class="toc-text">chrome的癖好</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u4E00_u3001chrome_u9ED8_u8BA4_u6700_u5C0F_u5B57_u4F53_u4E3A12px"><span class="toc-number">1.1.</span> <span class="toc-text">一、chrome默认最小字体为12px</span></a></li></ol></li></ol>
+  
   </div>
 
 <div id="asidepart">

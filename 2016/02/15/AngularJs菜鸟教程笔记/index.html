@@ -1,0 +1,944 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>AngularJs | 玖牛一毛的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="JIUTOU">
+    
+    <meta name="description" content="AngularJs简介AngularJS 扩展了 HTML1&amp;#60;div ng-app=&amp;#34;&amp;#34;&amp;#62;&amp;#10; &amp;#9;&amp;#60;p&amp;#62;&amp;#21517;&amp;#23383; : &amp;#60;input type=&amp;#34;text&amp;#34; ng-model=&amp;#34;name">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/TinyFractionBlog/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/TinyFractionBlog/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/TinyFractionBlog/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/TinyFractionBlog/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/TinyFractionBlog/"><img src="/TinyFractionBlog/img/logo.png" alt="玖牛一毛的博客" title="玖牛一毛的博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/TinyFractionBlog/" title="玖牛一毛的博客">玖牛一毛的博客</a></h1>
+				<h2 class="blog-motto">多出两天思考</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/TinyFractionBlog">首页</a></li>
+					
+						<li><a href="/TinyFractionBlog/archives">所有日志</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:mmww1024.github.io/TinyFractionBlog">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/TinyFractionBlog/2016/02/15/AngularJs菜鸟教程笔记/" title="AngularJs" itemprop="url">AngularJs</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://mmww1024.github.io/TinyFractionBlog" title="JIUTOU">JIUTOU</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-02-15T08:16:28.000Z" itemprop="datePublished">Feb 15 2016</time>
+    更新日期:<time datetime="2016-02-17T09:41:58.897Z" itemprop="dateModified">Feb 17 2016</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJs_u7B80_u4ECB"><span class="toc-number">1.</span> <span class="toc-text">AngularJs简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AngularJS__u6269_u5C55_u4E86_HTML"><span class="toc-number">1.1.</span> <span class="toc-text">AngularJS 扩展了 HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4EC0_u4E48_u662F_AngularJS_uFF1F"><span class="toc-number">1.2.</span> <span class="toc-text">什么是 AngularJS？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AngularJS__u6307_u4EE4"><span class="toc-number">1.3.</span> <span class="toc-text">AngularJS 指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AngularJS__u8868_u8FBE_u5F0F"><span class="toc-number">1.4.</span> <span class="toc-text">AngularJS 表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AngularJS__u5E94_u7528"><span class="toc-number">1.5.</span> <span class="toc-text">AngularJS 应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS__u8868_u8FBE_u5F0F-1"><span class="toc-number">2.</span> <span class="toc-text">AngularJS 表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AngularJS__u5BF9_u8C61"><span class="toc-number">2.1.</span> <span class="toc-text">AngularJS 对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AngularJS__u6570_u7EC4"><span class="toc-number">2.2.</span> <span class="toc-text">AngularJS 数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AngularJS__u8868_u8FBE_u5F0F__u4E0E_JavaScript__u8868_u8FBE_u5F0F"><span class="toc-number">2.3.</span> <span class="toc-text">AngularJS 表达式 与 JavaScript 表达式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS__u6307_u4EE4-1"><span class="toc-number">3.</span> <span class="toc-text">AngularJS 指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u91CD_u590D_HTML__u5143_u7D20"><span class="toc-number">3.1.</span> <span class="toc-text">重复 HTML 元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ng-app__u6307_u4EE4"><span class="toc-number">3.2.</span> <span class="toc-text">ng-app 指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ng-init__u6307_u4EE4"><span class="toc-number">3.3.</span> <span class="toc-text">ng-init 指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ng-model__u6307_u4EE4"><span class="toc-number">3.4.</span> <span class="toc-text">ng-model 指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ng-repeat__u6307_u4EE4"><span class="toc-number">3.5.</span> <span class="toc-text">ng-repeat 指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u521B_u5EFA_u81EA_u5B9A_u4E49_u7684_u6307_u4EE4"><span class="toc-number">3.6.</span> <span class="toc-text">创建自定义的指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u9650_u5236_u4F7F_u7528"><span class="toc-number">3.7.</span> <span class="toc-text">限制使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ng-model__u6307_u4EE4-1"><span class="toc-number">3.8.</span> <span class="toc-text">ng-model 指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u9A8C_u8BC1_u7528_u6237_u8F93_u5165"><span class="toc-number">3.9.</span> <span class="toc-text">验证用户输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5E94_u7528_u72B6_u6001"><span class="toc-number">3.10.</span> <span class="toc-text">应用状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS__u7C7B"><span class="toc-number">3.11.</span> <span class="toc-text">CSS 类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS_Scope_28_u4F5C_u7528_u57DF_29"><span class="toc-number">4.</span> <span class="toc-text">AngularJS Scope(作用域)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u5982_u4F55_u4F7F_u7528_Scope"><span class="toc-number">4.1.</span> <span class="toc-text">如何使用 Scope</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scope__u6982_u8FF0"><span class="toc-number">4.2.</span> <span class="toc-text">Scope 概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scope__u4F5C_u7528_u8303_u56F4"><span class="toc-number">4.3.</span> <span class="toc-text">Scope 作用范围</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6839_u4F5C_u7528_u57DF_3F_3F_3F"><span class="toc-number">4.4.</span> <span class="toc-text">根作用域???</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS__u63A7_u5236_u5668"><span class="toc-number">5.</span> <span class="toc-text">AngularJS 控制器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AngularJS__u63A7_u5236_u5668-1"><span class="toc-number">5.1.</span> <span class="toc-text">AngularJS 控制器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u63A7_u5236_u5668_u65B9_u6CD5"><span class="toc-number">5.2.</span> <span class="toc-text">控制器方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5916_u90E8_u6587_u4EF6_u4E2D_u7684_u63A7_u5236_u5668"><span class="toc-number">5.3.</span> <span class="toc-text">外部文件中的控制器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS__u8FC7_u6EE4_u5668"><span class="toc-number">6.</span> <span class="toc-text">AngularJS 过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AngularJS__u8FC7_u6EE4_u5668-1"><span class="toc-number">6.1.</span> <span class="toc-text">AngularJS 过滤器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u8868_u8FBE_u5F0F_u4E2D_u6DFB_u52A0_u8FC7_u6EE4_u5668"><span class="toc-number">6.2.</span> <span class="toc-text">表达式中添加过滤器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#currency__u8FC7_u6EE4_u5668"><span class="toc-number">6.3.</span> <span class="toc-text">currency 过滤器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5411_u6307_u4EE4_u6DFB_u52A0_u8FC7_u6EE4_u5668"><span class="toc-number">6.4.</span> <span class="toc-text">向指令添加过滤器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u8FC7_u6EE4_u8F93_u5165"><span class="toc-number">6.5.</span> <span class="toc-text">过滤输入</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS__u670D_u52A1_28Service_29"><span class="toc-number">7.</span> <span class="toc-text">AngularJS 服务(Service)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u4EC0_u4E48_u662F_u670D_u52A1_uFF1F"><span class="toc-number">7.1.</span> <span class="toc-text">什么是服务？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E3A_u4EC0_u4E48_u4F7F_u7528_u670D_u52A1_3F"><span class="toc-number">7.2.</span> <span class="toc-text">为什么使用服务?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24http__u670D_u52A1"><span class="toc-number">7.3.</span> <span class="toc-text">$http 服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24timeout__u670D_u52A1"><span class="toc-number">7.4.</span> <span class="toc-text">$timeout 服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24interval__u670D_u52A1"><span class="toc-number">7.5.</span> <span class="toc-text">$interval 服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u521B_u5EFA_u81EA_u5B9A_u4E49_u670D_u52A1"><span class="toc-number">7.6.</span> <span class="toc-text">创建自定义服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u8FC7_u6EE4_u5668_u4E2D_uFF0C_u4F7F_u7528_u81EA_u5B9A_u4E49_u670D_u52A1"><span class="toc-number">7.7.</span> <span class="toc-text">过滤器中，使用自定义服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS_XMLHttpRequest"><span class="toc-number">8.</span> <span class="toc-text">AngularJS XMLHttpRequest</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u8BFB_u53D6_JSON__u6587_u4EF6"><span class="toc-number">8.1.</span> <span class="toc-text">读取 JSON 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AngularJS__24http"><span class="toc-number">8.2.</span> <span class="toc-text">AngularJS $http</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS_Select_28_u9009_u62E9_u6846_29"><span class="toc-number">9.</span> <span class="toc-text">AngularJS Select(选择框)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u4F7F_u7528_ng-options__u521B_u5EFA_u9009_u62E9_u6846"><span class="toc-number">9.1.</span> <span class="toc-text">使用 ng-options 创建选择框</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ng-options__u4E0E_ng-repeat"><span class="toc-number">9.2.</span> <span class="toc-text">ng-options 与 ng-repeat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5E94_u8BE5_u7528_u54EA_u4E2A_u66F4_u597D_3F"><span class="toc-number">9.3.</span> <span class="toc-text">应该用哪个更好?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6570_u636E_u6E90_u4E3A_u5BF9_u8C61"><span class="toc-number">9.4.</span> <span class="toc-text">数据源为对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS__u8868_u683C"><span class="toc-number">10.</span> <span class="toc-text">AngularJS 表格</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u5728_u8868_u683C_u4E2D_u663E_u793A_u6570_u636E"><span class="toc-number">10.1.</span> <span class="toc-text">在表格中显示数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4F7F_u7528_CSS__u6837_u5F0F"><span class="toc-number">10.2.</span> <span class="toc-text">使用 CSS 样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4F7F_u7528_orderBy__u8FC7_u6EE4_u5668"><span class="toc-number">10.3.</span> <span class="toc-text">使用 orderBy 过滤器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4F7F_u7528_uppercase__u8FC7_u6EE4_u5668"><span class="toc-number">10.4.</span> <span class="toc-text">使用 uppercase 过滤器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u663E_u793A_u5E8F_u53F7__28_24index_29"><span class="toc-number">10.5.</span> <span class="toc-text">显示序号 ($index)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS_HTML_DOM"><span class="toc-number">11.</span> <span class="toc-text">AngularJS HTML DOM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ng-disabled__u6307_u4EE4"><span class="toc-number">11.1.</span> <span class="toc-text">ng-disabled 指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ng-show__u6307_u4EE4"><span class="toc-number">11.2.</span> <span class="toc-text">ng-show 指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ng-hide__u6307_u4EE4"><span class="toc-number">11.3.</span> <span class="toc-text">ng-hide 指令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS__u4E8B_u4EF6"><span class="toc-number">12.</span> <span class="toc-text">AngularJS 事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ng-click__u6307_u4EE4"><span class="toc-number">13.</span> <span class="toc-text">ng-click 指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u9690_u85CF_HTML__u5143_u7D20"><span class="toc-number">13.1.</span> <span class="toc-text">隐藏 HTML 元素</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS__u6A21_u5757"><span class="toc-number">14.</span> <span class="toc-text">AngularJS 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u521B_u5EFA_u6A21_u5757"><span class="toc-number">14.1.</span> <span class="toc-text">创建模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6DFB_u52A0_u63A7_u5236_u5668"><span class="toc-number">14.2.</span> <span class="toc-text">添加控制器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6DFB_u52A0_u6307_u4EE4"><span class="toc-number">14.3.</span> <span class="toc-text">添加指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u51FD_u6570_u4F1A_u5F71_u54CD_u5230_u5168_u5C40_u547D_u540D_u7A7A_u95F4"><span class="toc-number">14.4.</span> <span class="toc-text">函数会影响到全局命名空间</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS__u8868_u5355"><span class="toc-number">15.</span> <span class="toc-text">AngularJS 表单</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML__u8868_u5355"><span class="toc-number">15.1.</span> <span class="toc-text">HTML 表单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AngularJS__u8868_u5355_u5B9E_u4F8B"><span class="toc-number">15.2.</span> <span class="toc-text">AngularJS 表单实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5B9E_u4F8B_u89E3_u6790"><span class="toc-number">15.3.</span> <span class="toc-text">实例解析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS__u8F93_u5165_u9A8C_u8BC1"><span class="toc-number">16.</span> <span class="toc-text">AngularJS 输入验证</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u8F93_u5165_u9A8C_u8BC1"><span class="toc-number">16.1.</span> <span class="toc-text">输入验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5B9E_u4F8B_u89E3_u6790-1"><span class="toc-number">16.2.</span> <span class="toc-text">实例解析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS_API"><span class="toc-number">17.</span> <span class="toc-text">AngularJS API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS__u52A8_u753B"><span class="toc-number">18.</span> <span class="toc-text">AngularJS 动画</span></a></li></ol>
+		</div>
+		
+		<h2 id="AngularJs_u7B80_u4ECB"><a href="#AngularJs_u7B80_u4ECB" class="headerlink" title="AngularJs简介"></a>AngularJs简介</h2><h3 id="AngularJS__u6269_u5C55_u4E86_HTML"><a href="#AngularJS__u6269_u5C55_u4E86_HTML" class="headerlink" title="AngularJS 扩展了 HTML"></a>AngularJS 扩展了 HTML</h3><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;&#34;&#62;&#10; &#9;&#60;p&#62;&#21517;&#23383; : &#60;input type=&#34;text&#34; ng-model=&#34;name&#34;&#62;&#60;/p&#62;&#10; &#9;&#60;h1&#62;Hello &#123;&#123;name&#125;&#125;&#60;/h1&#62;&#10;&#60;/div&#62;</span><br></pre></td></tr></table></figure>
+</code></pre><ul>
+<li><p>ng-app </p>
+<blockquote>
+<p>指令告诉 AngularJS，&lt;div&gt; 元素是 AngularJS 应用程序 的”所有者”。</p>
+</blockquote>
+</li>
+<li><p>ng-model </p>
+<blockquote>
+<p>指令把输入域的值绑定到应用程序变量 name</p>
+</blockquote>
+</li>
+<li><p>ng-bind </p>
+<blockquote>
+<p>指令把应用程序变量 name 绑定到某个段落的 innerHTML。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="u4EC0_u4E48_u662F_AngularJS_uFF1F"><a href="#u4EC0_u4E48_u662F_AngularJS_uFF1F" class="headerlink" title="什么是 AngularJS？"></a>什么是 AngularJS？</h3><p>AngularJS 使得开发现代的单一页面应用程序（SPAs：Single Page Applications）变得更加容易。</p>
+<ul>
+<li>AngularJS 把应用程序数据绑定到 HTML 元素。</li>
+<li>AngularJS 可以克隆和重复 HTML 元素。</li>
+<li>AngularJS 可以隐藏和显示 HTML 元素。</li>
+<li>AngularJS 可以在 HTML 元素”背后”添加代码。</li>
+<li>AngularJS 支持输入验证。</li>
+</ul>
+<h3 id="AngularJS__u6307_u4EE4"><a href="#AngularJS__u6307_u4EE4" class="headerlink" title="AngularJS 指令"></a>AngularJS 指令</h3><p>AngularJS 指令是以 ng 作为前缀的 HTML 属性。例如：</p>
+<ul>
+<li>ng-init <blockquote>
+<p>指令初始化 AngularJS 应用程序变量。</p>
+</blockquote>
+</li>
+</ul>
+<p><em>HTML5 允许扩展的（自制的）属性，以 data- 开头。<br>AngularJS 属性以 ng- 开头，但是您可以使用 data-ng- 来让网页对 HTML5 有效。</em></p>
+<pre><code>&lt;div data-ng-app=&quot;&quot; data-ng-init=&quot;firstName=&apos;John&apos;&quot;&gt;
+    &lt;p&gt;姓名为 &lt;span data-ng-bind=&quot;firstName&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+</code></pre><h3 id="AngularJS__u8868_u8FBE_u5F0F"><a href="#AngularJS__u8868_u8FBE_u5F0F" class="headerlink" title="AngularJS 表达式"></a>AngularJS 表达式</h3><ul>
+<li>AngularJS 表达式写在双大括号内：</li>
+<li>{ expression }}。</li>
+<li>AngularJS 表达式把数据绑定到 HTML，这与 ng-bind 指令有异曲同工之妙。</li>
+<li>AngularJS 将在表达式书写的位置”输出”数据。</li>
+<li>AngularJS 表达式 很像 JavaScript 表达式：它们可以包含文字、运算符和变量。</li>
+</ul>
+<p><em>实例： 10 或 undefined undefined</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;!DOCTYPE html&#62;&#10;&#9;&#60;html&#62;&#10;&#9;&#60;head&#62;&#10;&#9;&#60;meta charset=&#34;utf-8&#34;&#62;&#10;&#9;&#60;script src=&#34;http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js&#34;&#62;&#60;/script&#62; &#10;&#9;&#60;/head&#62;&#10;&#9;&#60;body&#62;&#10;&#9;&#60;div ng-app=&#34;&#34;&#62;&#10;&#9;  &#60;p&#62;&#25105;&#30340;&#31532;&#19968;&#20010;&#34920;&#36798;&#24335;&#65306; &#123;&#123; 5 + 5 &#125;&#125;&#60;/p&#62;&#10;&#9;&#60;/div&#62;&#10;&#9;&#60;/body&#62;&#10;&#60;/html&#62;</span><br></pre></td></tr></table></figure>
+<h3 id="AngularJS__u5E94_u7528"><a href="#AngularJS__u5E94_u7528" class="headerlink" title="AngularJS 应用"></a>AngularJS 应用</h3><ul>
+<li>AngularJS 模块（Module） 定义了 AngularJS 应用。</li>
+<li>AngularJS 控制器（Controller） 用于控制 AngularJS 应用。</li>
+<li>ng-app指令定义了应用, ng-controller 定义了控制器。</li>
+</ul>
+<p><em>AngularJS 实例</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;myApp&#34; ng-controller=&#34;myCtrl&#34;&#62;&#10;&#21517;: &#60;input type=&#34;text&#34; ng-model=&#34;firstName&#34;&#62;&#60;br&#62;&#10;&#22995;: &#60;input type=&#34;text&#34; ng-model=&#34;lastName&#34;&#62;&#60;br&#62;&#10;&#60;br&#62;&#10;&#22995;&#21517;: &#123;&#123;firstName + &#34; &#34; + lastName&#125;&#125;&#10;&#60;/div&#62;&#10;&#60;script&#62;&#10;//AngularJS &#27169;&#22359;&#23450;&#20041;&#24212;&#29992;:&#10;var app = angular.module(&#39;myApp&#39;, []);&#10;//AngularJS &#25511;&#21046;&#22120;&#25511;&#21046;&#24212;&#29992;:&#10;app.controller(&#39;myCtrl&#39;, function($scope) &#123;&#10;    $scope.firstName= &#34;John&#34;;&#10;    $scope.lastName= &#34;Doe&#34;;&#10;&#125;);&#10;&#60;/script&#62;</span><br></pre></td></tr></table></figure>
+<h2 id="AngularJS__u8868_u8FBE_u5F0F-1"><a href="#AngularJS__u8868_u8FBE_u5F0F-1" class="headerlink" title="AngularJS 表达式"></a>AngularJS 表达式</h2><h3 id="AngularJS__u5BF9_u8C61"><a href="#AngularJS__u5BF9_u8C61" class="headerlink" title="AngularJS 对象"></a>AngularJS 对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;&#34; ng-init=&#34;person=&#123;firstName:&#39;John&#39;,lastName:&#39;Doe&#39;&#125;&#34;&#62;&#10;&#9;&#60;p&#62;&#22995;&#20026; &#123;&#123; person.lastName &#125;&#125;&#60;/p&#62;&#9;&#10;&#60;/div&#62;</span><br></pre></td></tr></table></figure>
+<h3 id="AngularJS__u6570_u7EC4"><a href="#AngularJS__u6570_u7EC4" class="headerlink" title="AngularJS 数组"></a>AngularJS 数组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;&#34; ng-init=&#34;points=[1,15,19,2,40]&#34;&#62;&#10;&#9;&#60;p&#62;&#31532;&#19977;&#20010;&#20540;&#20026; &#123;&#123; points[2] &#125;&#125;&#60;/p&#62;&#9;&#10;&#60;/div&#62;</span><br></pre></td></tr></table></figure>
+<h3 id="AngularJS__u8868_u8FBE_u5F0F__u4E0E_JavaScript__u8868_u8FBE_u5F0F"><a href="#AngularJS__u8868_u8FBE_u5F0F__u4E0E_JavaScript__u8868_u8FBE_u5F0F" class="headerlink" title="AngularJS 表达式 与 JavaScript 表达式"></a>AngularJS 表达式 与 JavaScript 表达式</h3><ul>
+<li>类似于 JavaScript 表达式，AngularJS 表达式可以包含字母，操作符，变量。</li>
+<li>与 JavaScript 表达式不同，AngularJS 表达式可以写在 HTML 中。</li>
+<li>与 JavaScript 表达式不同，AngularJS 表达式不支持条件判断，循环及异常。</li>
+<li>与 JavaScript 表达式不同，AngularJS 表达式支持过滤器。</li>
+</ul>
+<h2 id="AngularJS__u6307_u4EE4-1"><a href="#AngularJS__u6307_u4EE4-1" class="headerlink" title="AngularJS 指令"></a>AngularJS 指令</h2><ul>
+<li>AngularJS 通过被称为 指令 的新属性来扩展 HTML。</li>
+<li>AngularJS 通过内置的指令来为应用添加功能。</li>
+<li>AngularJS 允许你自定义指令。</li>
+</ul>
+<p>###AngularJS 指令###</p>
+<ul>
+<li>AngularJS 指令是扩展的 HTML 属性，带有前缀 ng-。</li>
+<li>ng-app 指令初始化一个 AngularJS 应用程序。</li>
+<li>ng-init 指令初始化应用程序数据。</li>
+<li>ng-model 指令把元素值（比如输入域的值）绑定到应用程序。</li>
+</ul>
+<p><em>完整的指令内容可以参阅 <a href="http://www.runoob.com/angularjs/angularjs-reference.html" target="_blank" rel="external">AngularJS 参考手册</a>。</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;&#34; ng-init=&#34;firstName=&#39;John&#39;&#34;&#62;&#10;&#9;  &#60;p&#62;&#22312;&#36755;&#20837;&#26694;&#20013;&#23581;&#35797;&#36755;&#20837;&#65306;&#60;/p&#62;&#10;&#9;  &#60;p&#62;&#22995;&#21517;&#65306;&#60;input type=&#34;text&#34; ng-model=&#34;firstName&#34;&#62;&#60;/p&#62;&#10;&#9;  &#60;p&#62;&#20320;&#36755;&#20837;&#30340;&#20026;&#65306; &#123;&#123; firstName &#125;&#125;&#60;/p&#62;&#9;&#10;&#60;/div&#62;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>ng-app 指令告诉 AngularJS，div 元素是 AngularJS 应用程序 的”所有者”。</p>
+</blockquote>
+<p><em>一个网页可以包含多个运行在不同元素中的 AngularJS 应用程序。</em></p>
+<h3 id="u91CD_u590D_HTML__u5143_u7D20"><a href="#u91CD_u590D_HTML__u5143_u7D20" class="headerlink" title="重复 HTML 元素"></a>重复 HTML 元素</h3><p>ng-repeat 指令会重复一个 HTML 元素：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;&#34; ng-init=&#34;names=[&#39;Jani&#39;,&#39;Hege&#39;,&#39;Kai&#39;]&#34;&#62;&#10;&#9;  &#60;p&#62;&#20351;&#29992; ng-repeat &#26469;&#24490;&#29615;&#25968;&#32452;&#60;/p&#62;&#10;&#9;  &#60;ul&#62;&#10;&#9;    &#60;li ng-repeat=&#34;x in names&#34;&#62;&#10;&#9;      &#123;&#123; x &#125;&#125;&#10;&#9;    &#60;/li&#62;&#10;&#9;  &#60;/ul&#62;&#10;&#60;div&#62;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>ng-repeat 指令用在一个对象数组上：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;&#34; ng-init=&#34;names=[&#10;&#9;&#123;name:&#39;Jani&#39;,country:&#39;Norway&#39;&#125;,&#10;&#9;&#123;name:&#39;Hege&#39;,country:&#39;Sweden&#39;&#125;,&#10;&#9;&#123;name:&#39;Kai&#39;,country:&#39;Denmark&#39;&#125;]&#34;&#62;&#9;&#10;&#9;&#60;p&#62;&#24490;&#29615;&#23545;&#35937;&#65306;&#60;/p&#62;&#10;&#9;&#60;ul&#62;&#10;&#9;  &#60;li ng-repeat=&#34;x in names&#34;&#62;&#10;&#9;    &#123;&#123; x.name + &#39;, &#39; + x.country &#125;&#125;&#10;&#9;  &#60;/li&#62;&#10;&#9;&#60;/ul&#62;&#9;&#10;&#60;/div&#62;</span><br></pre></td></tr></table></figure>
+<p><em>AngularJS 完美支持数据库的 CRUD（增加Create、读取Read、更新Update、删除Delete）应用程序。<br>把实例中的对象想象成数据库中的记录。</em></p>
+<h3 id="ng-app__u6307_u4EE4"><a href="#ng-app__u6307_u4EE4" class="headerlink" title="ng-app 指令"></a>ng-app 指令</h3><ul>
+<li><strong>ng-app</strong> 指令定义了 AngularJS 应用程序的 根元素。</li>
+<li><strong>ng-app</strong> 指令在网页加载完毕时会自动引导（自动初始化）应用程序。</li>
+</ul>
+<h3 id="ng-init__u6307_u4EE4"><a href="#ng-init__u6307_u4EE4" class="headerlink" title="ng-init 指令"></a>ng-init 指令</h3><ul>
+<li><strong>ng-init</strong> 指令为 AngularJS 应用程序定义了 <strong>初始值</strong>。</li>
+</ul>
+<p><em>通常情况下，不使用 ng-init。您将使用一个控制器或模块来代替它。</em></p>
+<h3 id="ng-model__u6307_u4EE4"><a href="#ng-model__u6307_u4EE4" class="headerlink" title="ng-model 指令"></a>ng-model 指令</h3><p><strong>ng-model</strong> 指令 绑定 HTML 元素 到应用程序数据。</p>
+<p><strong>ng-model</strong> 指令也可以：</p>
+<ul>
+<li>为应用程序数据提供类型验证（number、email、required）。</li>
+<li>为应用程序数据提供状态（invalid、dirty、touched、error）。</li>
+<li>为 HTML 元素提供 CSS 类。</li>
+<li>绑定 HTML 元素到 HTML 表单。</li>
+</ul>
+<h3 id="ng-repeat__u6307_u4EE4"><a href="#ng-repeat__u6307_u4EE4" class="headerlink" title="ng-repeat 指令"></a>ng-repeat 指令</h3><p><strong>ng-repeat</strong> 指令对于集合中（数组中）的每个项会 <strong>克隆一次 HTML 元素</strong>。</p>
+<h3 id="u521B_u5EFA_u81EA_u5B9A_u4E49_u7684_u6307_u4EE4"><a href="#u521B_u5EFA_u81EA_u5B9A_u4E49_u7684_u6307_u4EE4" class="headerlink" title="创建自定义的指令"></a>创建自定义的指令</h3><p>除了 AngularJS 内置的指令外，我们还可以创建自定义指令。</p>
+<p>你可以使用 <strong>.directive</strong> 函数来添加自定义的指令。</p>
+<p>要调用自定义指令，HTMl 元素上需要添加自定义指令名。</p>
+<p>使用驼峰法来命名一个指令， <strong>runoobDirective</strong>, 但在使用它时需要以 - 分割, <strong>runoob-directive</strong>:</p>
+<pre><code>&lt;body ng-app=&quot;myApp&quot;&gt;
+
+&lt;runoob-directive&gt;&lt;/runoob-directive&gt;
+
+&lt;script&gt;
+var app = angular.module(&quot;myApp&quot;, []);
+app.directive(&quot;runoobDirective&quot;, function() {
+    return {
+        template : &quot;&lt;h1&gt;自定义指令!&lt;/h1&gt;&quot;
+    };
+});
+&lt;/script&gt;
+
+&lt;/body&gt;
+</code></pre><p>可以通过以下方式来调用指令：</p>
+<ol>
+<li>元素名</li>
+<li>属性</li>
+<li>类名</li>
+<li>注释</li>
+</ol>
+<blockquote>
+<p>元素名</p>
+</blockquote>
+<pre><code>&lt;runoob-directive&gt;&lt;/runoob-directive&gt;
+</code></pre><blockquote>
+<p>属性</p>
+</blockquote>
+<pre><code>&lt;div runoob-directive&gt;&lt;/div&gt;
+</code></pre><blockquote>
+<p>类名</p>
+</blockquote>
+<pre><code>&lt;div class=&quot;runoob-directive&quot;&gt;&lt;/div&gt;
+</code></pre><blockquote>
+<p>注释</p>
+</blockquote>
+<pre><code>&lt;!-- 指令: runoob-directive --&gt;
+</code></pre><h3 id="u9650_u5236_u4F7F_u7528"><a href="#u9650_u5236_u4F7F_u7528" class="headerlink" title="限制使用"></a>限制使用</h3><p>你可以限制你的指令只能通过特定的方式来调用。</p>
+<blockquote>
+<p>通过添加 restrict 属性,并设置只值为 “A”, 来设置指令只能通过属性的方式来调用:</p>
+</blockquote>
+<pre><code>var app = angular.module(&quot;myApp&quot;, []);
+app.directive(&quot;runoobDirective&quot;, function() {
+    return {
+        restrict : &quot;A&quot;,
+        template : &quot;&lt;h1&gt;自定义指令!&lt;/h1&gt;&quot;
+    };
+});
+</code></pre><p>restrict 值可以是以下几种:</p>
+<ul>
+<li>E 只限元素名使用</li>
+<li>A 只限属性使用</li>
+<li>C 只限类名使用</li>
+<li>M 只限注释使用</li>
+</ul>
+<p><em>restrict 默认值为 EA, 即可以通过元素名和属性名来调用指令。</em></p>
+<p>##AngularJS ng-model 指令##<br>ng-model 指令用于绑定应用程序数据到 HTML 控制器(input, select, textarea)的值。</p>
+<h3 id="ng-model__u6307_u4EE4-1"><a href="#ng-model__u6307_u4EE4-1" class="headerlink" title="ng-model 指令"></a>ng-model 指令</h3><p><strong>ng-model 指定可以将输入域的值与 AngularJS 创建的变量绑定。</strong></p>
+<pre><code>&lt;div ng-app=&quot;myApp&quot; ng-controller=&quot;myCtrl&quot;&gt;
+    名字: &lt;input ng-model=&quot;name&quot;&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+var app = angular.module(&apos;myApp&apos;, []);
+app.controller(&apos;myCtrl&apos;, function($scope) {
+    $scope.name = &quot;John Doe&quot;;
+});
+&lt;/script&gt;
+</code></pre><h3 id="u9A8C_u8BC1_u7528_u6237_u8F93_u5165"><a href="#u9A8C_u8BC1_u7528_u6237_u8F93_u5165" class="headerlink" title="验证用户输入"></a>验证用户输入</h3><pre><code>&lt;form ng-app=&quot;&quot; name=&quot;myForm&quot;&gt;
+Email:
+&lt;input type=&quot;email&quot; name=&quot;myAddress&quot; ng-model=&quot;text&quot;&gt;
+&lt;span ng-show=&quot;myForm.myAddress.$error.email&quot;&gt;不是一个合法的邮箱地址&lt;/span&gt;
+&lt;/form&gt;
+</code></pre><p><em>以上实例中，提示信息会在 ng-show 属性返回 true 的情况下显示。</em></p>
+<h3 id="u5E94_u7528_u72B6_u6001"><a href="#u5E94_u7528_u72B6_u6001" class="headerlink" title="应用状态"></a>应用状态</h3><p><strong>ng-model 指令可以为应用数据提供状态值(invalid, dirty, touched, error):</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;form ng-app=&#34;&#34; name=&#34;myForm&#34; ng-init=&#34;myText = &#39;test@runoob.com&#39;&#34;&#62;&#10;&#9;Email:&#10;&#9;&#60;input type=&#34;email&#34; name=&#34;myAddress&#34; ng-model=&#34;myText&#34; required&#62;&#10;&#9;&#60;p&#62;&#32534;&#36753;&#37038;&#31665;&#22320;&#22336;&#65292;&#26597;&#30475;&#29366;&#24577;&#30340;&#25913;&#21464;&#12290;&#60;/p&#62;&#10;&#9;&#60;h1&#62;&#29366;&#24577;&#60;/h1&#62;&#10;&#9;&#60;p&#62;Valid: &#123;&#123;myForm.myAddress.$valid&#125;&#125; (&#22914;&#26524;&#36755;&#20837;&#30340;&#20540;&#26159;&#21512;&#27861;&#30340;&#21017;&#20026; true)&#12290;&#60;/p&#62;&#10;&#9;&#60;p&#62;Dirty: &#123;&#123;myForm.myAddress.$dirty&#125;&#125; (&#22914;&#26524;&#20540;&#25913;&#21464;&#21017;&#20026; true)&#12290;&#60;/p&#62;&#10;&#9;&#60;p&#62;Touched: &#123;&#123;myForm.myAddress.$touched&#125;&#125; (&#22914;&#26524;&#36890;&#36807;&#35302;&#23631;&#28857;&#20987;&#21017;&#20026; true)&#12290;&#60;/p&#62;&#9;&#10;&#60;/form&#62;</span><br></pre></td></tr></table></figure>
+<h3 id="CSS__u7C7B"><a href="#CSS__u7C7B" class="headerlink" title="CSS 类"></a>CSS 类</h3><p><strong>ng-model 指令基于它们的状态为 HTML 元素提供了 CSS 类：</strong></p>
+<pre><code>&lt;style&gt;
+input.ng-invalid {
+    background-color: lightblue;
+}
+&lt;/style&gt;
+&lt;body&gt;
+
+&lt;form ng-app=&quot;&quot; name=&quot;myForm&quot;&gt;
+    输入你的名字:
+    &lt;input name=&quot;myAddress&quot; ng-model=&quot;text&quot; required&gt;
+&lt;/form&gt;
+</code></pre><p>ng-model 指令根据表单域的状态添加/移除以下类：</p>
+<ul>
+<li>ng-empty</li>
+<li>ng-not-empty</li>
+<li>ng-touched</li>
+<li>ng-untouched</li>
+<li>ng-valid</li>
+<li>ng-invalid</li>
+<li>ng-dirty</li>
+<li>ng-pending</li>
+<li>ng-pristine</li>
+</ul>
+<h2 id="AngularJS_Scope_28_u4F5C_u7528_u57DF_29"><a href="#AngularJS_Scope_28_u4F5C_u7528_u57DF_29" class="headerlink" title="AngularJS Scope(作用域)"></a>AngularJS Scope(作用域)</h2><ul>
+<li>Scope(作用域) 是应用在 HTML (视图) 和 JavaScript (控制器)之间的纽带。</li>
+<li>Scope 是一个对象，有可用的方法和属性。</li>
+<li>Scope 可应用在视图和控制器上。</li>
+</ul>
+<h3 id="u5982_u4F55_u4F7F_u7528_Scope"><a href="#u5982_u4F55_u4F7F_u7528_Scope" class="headerlink" title="如何使用 Scope"></a>如何使用 Scope</h3><p><strong>当你在 AngularJS 创建控制器时，你可以将 $scope 对象当作一个参数传递:</strong></p>
+<p><em>控制器中的属性对应了视图上的属性：</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;myApp&#34; ng-controller=&#34;myCtrl&#34;&#62;&#10;&#60;h1&#62;&#123;&#123;carname&#125;&#125;&#60;/h1&#62;&#9;&#10;&#60;/div&#62;&#9;&#10;&#60;script&#62;&#10;var app = angular.module(&#39;myApp&#39;, []);&#9;&#10;app.controller(&#39;myCtrl&#39;, function($scope) &#123;&#10;    $scope.carname = &#34;Volvo&#34;;&#10;&#125;);&#10;&#60;/script&#62;</span><br></pre></td></tr></table></figure>
+<p><em>当在控制器中添加 $scope 对象时，视图 (HTML) 可以获取了这些属性。<br>视图中，你不需要添加 $scope 前缀, 只需要添加属性名即可，如： 。</em></p>
+<h3 id="Scope__u6982_u8FF0"><a href="#Scope__u6982_u8FF0" class="headerlink" title="Scope 概述"></a>Scope 概述</h3><p>AngularJS 应用组成如下：</p>
+<ul>
+<li>View(视图), 即 HTML。</li>
+<li>Model(模型), 当前视图中可用的数据。</li>
+<li>Controller(控制器), 即 JavaScript 函数，可以添加或修改属性。</li>
+</ul>
+<p>scope 是模型。</p>
+<p><strong>scope 是一个 JavaScript 对象，带有属性和方法，这些属性和方法可以在视图和控制器中使用。</strong><br><em>如果你修改了视图，模型和控制器也会相应更新：</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;myApp&#34; ng-controller=&#34;myCtrl&#34;&#62;&#9;&#10;&#60;input ng-model=&#34;name&#34;&#62;&#9;&#10;&#60;h1&#62;&#25105;&#30340;&#21517;&#23383;&#26159; &#123;&#123;name&#125;&#125;&#60;/h1&#62;&#9;&#10;&#60;/div&#62;&#9;&#10;&#60;script&#62;&#10;var app = angular.module(&#39;myApp&#39;, []);&#9;&#10;app.controller(&#39;myCtrl&#39;, function($scope) &#123;&#10;    $scope.name = &#34;John Dow&#34;;&#10;&#125;);&#10;&#60;/script&#62;</span><br></pre></td></tr></table></figure>
+<h3 id="Scope__u4F5C_u7528_u8303_u56F4"><a href="#Scope__u4F5C_u7528_u8303_u56F4" class="headerlink" title="Scope 作用范围"></a>Scope 作用范围</h3><p>了解你当前使用的 scope 是非常重要的。</p>
+<p>在以上两个实例中，只有一个作用域 scope，所以处理起来比较简单，但在大型项目中， HTML DOM 中有多个作用域，这时你就需要知道你使用的 scope 对应的作用域是哪一个。</p>
+<p><em>当我们使用 ng-repeat 指令时，每个重复项都访问了当前的重复对象:</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;myApp&#34; ng-controller=&#34;myCtrl&#34;&#62;&#9;&#10;&#60;ul&#62;&#10;    &#60;li ng-repeat=&#34;x in names&#34;&#62;&#123;&#123;x&#125;&#125;&#10;&#60;/ul&#62;&#9;&#10;&#60;/div&#62;&#9;&#10;&#60;script&#62;&#10;var app = angular.module(&#39;myApp&#39;, []);&#9;&#10;app.controller(&#39;myCtrl&#39;, function($scope) &#123;&#10;    $scope.names = [&#34;Emil&#34;, &#34;Tobias&#34;, &#34;Linus&#34;];&#10;&#125;);&#10;&#60;/script&#62;</span><br></pre></td></tr></table></figure>
+<p><em>每个 li 元素可以访问当前的重复对象，这里对应的是一个字符串， 并使用变量 x 表示。</em></p>
+<h3 id="u6839_u4F5C_u7528_u57DF_3F_3F_3F"><a href="#u6839_u4F5C_u7528_u57DF_3F_3F_3F" class="headerlink" title="根作用域???"></a>根作用域???</h3><p>所有的应用都有一个 $rootScope，它可以作用在 ng-app 指令包含的所有 HTML 元素中。</p>
+<p>$rootScope 可作用于整个应用中。是各个 controller 中 scope 的桥梁。用 rootscope 定义的值，可以在各个 controller 中使用。</p>
+<p><strong>创建控制器时，将 $rootScope 作为参数传递，可在应用中使用：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;myApp&#34; ng-controller=&#34;myCtrl&#34;&#62;&#9;&#10;&#60;h1&#62;&#123;&#123;lastname&#125;&#125; &#23478;&#26063;&#25104;&#21592;:&#60;/h1&#62;&#9;&#10;&#60;ul&#62;&#10;    &#60;li ng-repeat=&#34;x in names&#34;&#62;&#123;&#123;x&#125;&#125; &#123;&#123;lastname&#125;&#125;&#10;&#60;/ul&#62;&#10;&#60;/div&#62;&#9;&#10;&#60;script&#62;&#10;var app = angular.module(&#39;myApp&#39;, []);&#9;&#10;app.controller(&#39;myCtrl&#39;, function($scope, $rootScope) &#123;&#10;    $scope.names = [&#34;Emil&#34;, &#34;Tobias&#34;, &#34;Linus&#34;];&#10;    $rootScope.lastname = &#34;Refsnes&#34;;&#10;&#125;);&#10;&#60;/script&#62;</span><br></pre></td></tr></table></figure>
+<h2 id="AngularJS__u63A7_u5236_u5668"><a href="#AngularJS__u63A7_u5236_u5668" class="headerlink" title="AngularJS 控制器"></a>AngularJS 控制器</h2><p> AngularJS 控制器 控制 AngularJS 应用程序的数据。</p>
+<p> AngularJS 控制器是常规的 JavaScript 对象。</p>
+<h3 id="AngularJS__u63A7_u5236_u5668-1"><a href="#AngularJS__u63A7_u5236_u5668-1" class="headerlink" title="AngularJS 控制器"></a>AngularJS 控制器</h3><p> AngularJS 应用程序被控制器控制。</p>
+<p> ng-controller 指令定义了应用程序控制器。</p>
+<p> 控制器是 JavaScript 对象，由标准的 JavaScript 对象的构造函数 创建。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;myApp&#34; ng-controller=&#34;myCtrl&#34;&#62;&#10;&#21517;: &#60;input type=&#34;text&#34; ng-model=&#34;firstName&#34;&#62;&#60;br&#62;&#10;&#21517;: &#60;input type=&#34;text&#34; ng-model=&#34;lastName&#34;&#62;&#60;br&#62;&#10;&#60;br&#62;&#10;&#22995;&#21517;: &#123;&#123;firstName + &#34; &#34; + lastName&#125;&#125;&#9;&#10;&#60;/div&#62;&#9;&#10;&#60;script&#62;&#10;var app = angular.module(&#39;myApp&#39;, []);&#10;app.controller(&#39;myCtrl&#39;, function($scope) &#123;&#10;    $scope.firstName = &#34;John&#34;;&#10;    $scope.lastName = &#34;Doe&#34;;&#10;&#125;);&#10;&#60;/script&#62;</span><br></pre></td></tr></table></figure>
+<p><em>应用解析：<br>AngularJS 应用程序由 ng-app 定义。应用程序在 div 内运行。<br>ng-controller=”myCtrl” 属性是一个 AngularJS 指令。用于定义一个控制器。<br>myCtrl 函数是一个 JavaScript 函数。<br>AngularJS 使用$scope 对象来调用控制器。<br>在 AngularJS 中， $scope 是一个应用象(属于应用变量和函数)。<br>控制器的 $scope （相当于作用域、控制范围）用来保存AngularJS Model(模型)的对象。<br>控制器在作用域中创建了两个属性 (firstName 和 lastName)。<br>ng-model 指令绑定输入域到控制器的属性（firstName 和 lastName）。</em></p>
+<h3 id="u63A7_u5236_u5668_u65B9_u6CD5"><a href="#u63A7_u5236_u5668_u65B9_u6CD5" class="headerlink" title="控制器方法"></a>控制器方法</h3><p>上面的实例演示了一个带有 lastName 和 firstName 这两个属性的控制器对象。<br>控制器也可以有方法（变量和函数）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;myApp&#34; ng-controller=&#34;personCtrl&#34;&#62;&#10;&#21517;: &#60;input type=&#34;text&#34; ng-model=&#34;firstName&#34;&#62;&#60;br&#62;&#10;&#22995;: &#60;input type=&#34;text&#34; ng-model=&#34;lastName&#34;&#62;&#60;br&#62;&#10;&#60;br&#62;&#10;&#22995;&#21517;: &#123;&#123;fullName()&#125;&#125;&#9;&#10;&#60;/div&#62;&#10;&#60;script&#62;&#10;var app = angular.module(&#39;myApp&#39;, []);&#10;app.controller(&#39;personCtrl&#39;, function($scope) &#123;&#10;    $scope.firstName = &#34;John&#34;;&#10;    $scope.lastName = &#34;Doe&#34;;&#10;    $scope.fullName = function() &#123;&#10;        return $scope.firstName + &#34; &#34; + $scope.lastName;&#10;    &#125;&#10;&#125;);&#10;&#60;/script&#62;</span><br></pre></td></tr></table></figure>
+<h3 id="u5916_u90E8_u6587_u4EF6_u4E2D_u7684_u63A7_u5236_u5668"><a href="#u5916_u90E8_u6587_u4EF6_u4E2D_u7684_u63A7_u5236_u5668" class="headerlink" title="外部文件中的控制器"></a>外部文件中的控制器</h3><p>在大型的应用程序中，通常是把控制器存储在外部文件中。</p>
+<p>只需要把 script 标签中的代码复制到名为 personController.js 的外部文件中即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;myApp&#34; ng-controller=&#34;personCtrl&#34;&#62;&#9;&#10;&#9;First Name: &#60;input type=&#34;text&#34; ng-model=&#34;firstName&#34;&#62;&#60;br&#62;&#10;&#9;Last Name: &#60;input type=&#34;text&#34; ng-model=&#34;lastName&#34;&#62;&#60;br&#62;&#10;&#9;&#60;br&#62;&#10;&#9;Full Name: &#123;&#123;firstName + &#34; &#34; + lastName&#125;&#125;&#9;&#10;&#9;&#60;/div&#62;&#10;&#9;&#60;script src=&#34;personController.js&#34;&#62;&#60;/script&#62;</span><br></pre></td></tr></table></figure>
+<h2 id="AngularJS__u8FC7_u6EE4_u5668"><a href="#AngularJS__u8FC7_u6EE4_u5668" class="headerlink" title="AngularJS 过滤器"></a>AngularJS 过滤器</h2><p><strong>过滤器可以使用一个管道字符（|）添加到表达式和指令中。</strong></p>
+<h3 id="AngularJS__u8FC7_u6EE4_u5668-1"><a href="#AngularJS__u8FC7_u6EE4_u5668-1" class="headerlink" title="AngularJS 过滤器"></a>AngularJS 过滤器</h3><p>AngularJS 过滤器可用于转换数据：</p>
+<table class="reference"> <tbody><tr> <th style="width:20%">过滤器</th> <th>描述</th> </tr> <tr> <td>currency</td> <td>格式化数字为货币格式。</td> </tr> <tr> <td>filter</td> <td>从数组项中选择一个子集。</td> </tr> <tr> <td>lowercase</td> <td>格式化字符串为小写。</td> </tr> <tr> <td>orderBy</td> <td>根据某个表达式排列数组。</td> </tr> <tr> <td>uppercase</td> <td>格式化字符串为大写。</td> </tr> </tbody></table>
+
+<h3 id="u8868_u8FBE_u5F0F_u4E2D_u6DFB_u52A0_u8FC7_u6EE4_u5668"><a href="#u8868_u8FBE_u5F0F_u4E2D_u6DFB_u52A0_u8FC7_u6EE4_u5668" class="headerlink" title="表达式中添加过滤器"></a>表达式中添加过滤器</h3><p>过滤器可以通过一个管道字符（|）和一个过滤器添加到表达式中。</p>
+<p><strong>uppercase</strong> 过滤器将字符串格式化为大写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;myApp&#34; ng-controller=&#34;personCtrl&#34;&#62;&#10;&#9;&#60;p&#62;&#22995;&#21517;&#20026; &#123;&#123; lastName | uppercase &#125;&#125;&#60;/p&#62;&#9;&#10;&#9;&#60;/div&#62;</span><br></pre></td></tr></table></figure>
+<p><strong>lowercase</strong> 过滤器将字符串格式化为小写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;myApp&#34; ng-controller=&#34;personCtrl&#34;&#62;&#10;&#9;&#60;p&#62;&#22995;&#21517;&#20026; &#123;&#123; lastName | lowercase &#125;&#125;&#60;/p&#62;&#9;&#10;&#9;&#60;/div&#62;</span><br></pre></td></tr></table></figure>
+<h3 id="currency__u8FC7_u6EE4_u5668"><a href="#currency__u8FC7_u6EE4_u5668" class="headerlink" title="currency 过滤器"></a>currency 过滤器</h3><p><strong>currency</strong> 过滤器将数字格式化为货币格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;myApp&#34; ng-controller=&#34;costCtrl&#34;&#62;&#10;&#9;&#60;input type=&#34;number&#34; ng-model=&#34;quantity&#34;&#62;&#10;&#9;&#60;input type=&#34;number&#34; ng-model=&#34;price&#34;&#62;&#10;&#9;&#60;p&#62;&#24635;&#20215; = &#123;&#123; (quantity * price) | currency &#125;&#125;&#60;/p&#62;&#10;&#9;&#60;/div&#62;</span><br></pre></td></tr></table></figure>
+<h3 id="u5411_u6307_u4EE4_u6DFB_u52A0_u8FC7_u6EE4_u5668"><a href="#u5411_u6307_u4EE4_u6DFB_u52A0_u8FC7_u6EE4_u5668" class="headerlink" title="向指令添加过滤器"></a>向指令添加过滤器</h3><p><strong>orderBy</strong> 过滤器根据表达式排列数组：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;myApp&#34; ng-controller=&#34;namesCtrl&#34;&#62;&#9;&#10;&#9;&#60;ul&#62;&#10;&#9;  &#60;li ng-repeat=&#34;x in names | orderBy:&#39;country&#39;&#34;&#62;&#10;&#9;    &#123;&#123; x.name + &#39;, &#39; + x.country &#125;&#125;&#10;&#9;  &#60;/li&#62;&#10;&#9;&#60;/ul&#62;&#9;&#10;&#9;&#60;div&#62;</span><br></pre></td></tr></table></figure>
+<h3 id="u8FC7_u6EE4_u8F93_u5165"><a href="#u8FC7_u6EE4_u8F93_u5165" class="headerlink" title="过滤输入"></a>过滤输入</h3><p>输入过滤器可以通过一个管道字符（|）和一个过滤器添加到指令中，该过滤器后跟一个冒号和一个模型名称。</p>
+<p><strong>filter</strong> 过滤器从数组中选择一个子集：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;myApp&#34; ng-controller=&#34;namesCtrl&#34;&#62;&#9;&#10;&#9;&#60;p&#62;&#60;input type=&#34;text&#34; ng-model=&#34;test&#34;&#62;&#60;/p&#62;&#9;&#10;&#9;&#60;ul&#62;&#10;&#9;  &#60;li ng-repeat=&#34;x in names | filter:test | orderBy:&#39;country&#39;&#34;&#62;&#10;&#9;    &#123;&#123; (x.name | uppercase) + &#39;, &#39; + x.country &#125;&#125;&#10;&#9;  &#60;/li&#62;&#10;&#9;&#60;/ul&#62;&#9;&#10;&#9;&#60;/div&#62;</span><br></pre></td></tr></table></figure>
+<h2 id="AngularJS__u670D_u52A1_28Service_29"><a href="#AngularJS__u670D_u52A1_28Service_29" class="headerlink" title="AngularJS 服务(Service)"></a>AngularJS 服务(Service)</h2><p>AngularJS 中你可以创建自己的服务，或使用内建服务。</p>
+<h3 id="u4EC0_u4E48_u662F_u670D_u52A1_uFF1F"><a href="#u4EC0_u4E48_u662F_u670D_u52A1_uFF1F" class="headerlink" title="什么是服务？"></a>什么是服务？</h3><p>在 AngularJS 中，服务是一个函数或对象，可在你的 AngularJS 应用中使用。<br>AngularJS 内建了30 多个服务。</p>
+<p>有个 <strong>$location</strong> 服务，它可以返回当前页面的 URL 地址。</p>
+<pre><code>var app = angular.module(&apos;myApp&apos;, []);
+app.controller(&apos;customersCtrl&apos;, function($scope, $location) {
+    myUrl = $location.absUrl();
+});
+</code></pre><p><em>注意 $location 服务是作为一个参数传递到 controller 中。如果要使用它，需要在 controller 中定义。</em></p>
+<h3 id="u4E3A_u4EC0_u4E48_u4F7F_u7528_u670D_u52A1_3F"><a href="#u4E3A_u4EC0_u4E48_u4F7F_u7528_u670D_u52A1_3F" class="headerlink" title="为什么使用服务?"></a>为什么使用服务?</h3><p><strong>$http</strong> 是 AngularJS 应用中最常用的服务。服务向服务器发送请求，应用响应服务器传送过来的数据。</p>
+<p>AngularJS 会一直监控应用，处理事件变化， AngularJS 使用 <strong>$location</strong> 服务比使用 <strong>window.location</strong> 对象更好。</p>
+<h3 id="24http__u670D_u52A1"><a href="#24http__u670D_u52A1" class="headerlink" title="$http 服务"></a>$http 服务</h3><p><strong>$http</strong> 是 AngularJS 应用中最常用的服务。 服务向服务器发送请求，应用响应服务器传送过来的数据。</p>
+<p>使用 <strong>$http</strong> 服务向服务器请求数据:</p>
+<pre><code>var app = angular.module(&apos;myApp&apos;, []);
+app.controller(&apos;myCtrl&apos;, function($scope, $http) {
+    $http.get(&quot;welcome.htm&quot;).then(function (response) {
+        $scope.myWelcome = response.data;
+    });
+});
+</code></pre><h3 id="24timeout__u670D_u52A1"><a href="#24timeout__u670D_u52A1" class="headerlink" title="$timeout 服务"></a>$timeout 服务</h3><p>AngularJS <strong>$timeout</strong> 服务对应了 JS <strong>window.setTimeout</strong> 函数。</p>
+<p>两秒后显示信息:</p>
+<pre><code>var app = angular.module(&apos;myApp&apos;, []);
+app.controller(&apos;myCtrl&apos;, function($scope, $timeout) {
+    $scope.myHeader = &quot;Hello World!&quot;;
+    $timeout(function () {
+        $scope.myHeader = &quot;How are you today?&quot;;
+    }, 2000);
+});
+</code></pre><h3 id="24interval__u670D_u52A1"><a href="#24interval__u670D_u52A1" class="headerlink" title="$interval 服务"></a>$interval 服务</h3><p>AngularJS <strong>$interval</strong> 服务对应了 JS <strong>window.setInterval</strong> 函数。</p>
+<pre><code>var app = angular.module(&apos;myApp&apos;, []);
+app.controller(&apos;myCtrl&apos;, function($scope, $interval) {
+    $scope.theTime = new Date().toLocaleTimeString();
+    $interval(function () {
+        $scope.theTime = new Date().toLocaleTimeString();
+    }, 1000);
+});
+</code></pre><h3 id="u521B_u5EFA_u81EA_u5B9A_u4E49_u670D_u52A1"><a href="#u521B_u5EFA_u81EA_u5B9A_u4E49_u670D_u52A1" class="headerlink" title="创建自定义服务"></a>创建自定义服务</h3><p>你可以创建自定义的访问，链接到你的模块中：</p>
+<p>创建名为hexafy 的访问:</p>
+<pre><code>app.service(&apos;hexafy&apos;, function() {
+    this.myFunc = function (x) {
+        return x.toString(16);
+    }
+});
+</code></pre><p>要使用自定义的访问，需要在定义过滤器的时候独立添加:</p>
+<p>使用自定义的的服务 hexafy 将一个数字转换为16进制数:</p>
+<pre><code>app.controller(&apos;myCtrl&apos;, function($scope, hexafy) {
+    $scope.hex = hexafy.myFunc(255);
+});
+</code></pre><h3 id="u8FC7_u6EE4_u5668_u4E2D_uFF0C_u4F7F_u7528_u81EA_u5B9A_u4E49_u670D_u52A1"><a href="#u8FC7_u6EE4_u5668_u4E2D_uFF0C_u4F7F_u7528_u81EA_u5B9A_u4E49_u670D_u52A1" class="headerlink" title="过滤器中，使用自定义服务"></a>过滤器中，使用自定义服务</h3><p>当你创建了自定义服务，并连接到你的应用上后，你可以在控制器，指令，过滤器或其他服务中使用它。</p>
+<p>在过滤器 myFormat 中使用服务 hexafy:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;myApp&#34;&#62;&#10;&#9;&#22312;&#36807;&#28388;&#22120;&#20013;&#20351;&#29992;&#26381;&#21153;:&#9;&#10;&#9;&#60;h1&#62;&#123;&#123;255 | myFormat&#125;&#125;&#60;/h1&#62;&#9;&#10;&#9;&#60;/div&#62;&#10;&#9;&#60;script&#62;&#10;&#9;var app = angular.module(&#39;myApp&#39;, []);&#10;&#9;app.service(&#39;hexafy&#39;, function() &#123;&#10;&#9;&#9;this.myFunc = function (x) &#123;&#10;&#9;        return x.toString(16);&#10;&#9;    &#125;&#10;&#9;&#125;);&#10;&#9;app.filter(&#39;myFormat&#39;,[&#39;hexafy&#39;, function(hexafy) &#123;&#10;&#9;    return function(x) &#123;&#10;&#9;        return hexafy.myFunc(x);&#10;&#9;    &#125;;&#10;&#9;&#125;]);&#10;&#9;&#60;/script&#62;</span><br></pre></td></tr></table></figure>
+<p>在从对象会数组中获取值时你可以使用过滤器：</p>
+<p>创建服务 hexafy:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;myApp&#34; ng-controller=&#34;myCtrl&#34;&#62;&#10;&#9;&#60;p&#62;&#22312;&#33719;&#21462;&#25968;&#32452; [255, 251, 200] &#20540;&#26102;&#20351;&#29992;&#36807;&#28388;&#22120;:&#60;/p&#62;&#9;&#10;&#9;&#60;ul&#62;&#10;&#9;  &#60;li ng-repeat=&#34;x in counts&#34;&#62;&#123;&#123;x | myFormat&#125;&#125;&#60;/li&#62;&#10;&#9;&#60;/ul&#62;&#9;&#10;&#9;&#60;p&#62;&#36807;&#28388;&#22120;&#20351;&#29992;&#26381;&#21153;&#23558;10&#36827;&#21046;&#36716;&#25442;&#20026;16&#36827;&#21046;&#12290;&#60;/p&#62;&#10;&#9;&#60;/div&#62;&#9;&#10;&#9;&#60;script&#62;&#10;&#9;var app = angular.module(&#39;myApp&#39;, []);&#10;&#9;app.service(&#39;hexafy&#39;, function() &#123;&#10;&#9;&#9;this.myFunc = function (x) &#123;&#10;&#9;        return x.toString(16);&#10;&#9;    &#125;&#10;&#9;&#125;);&#10;&#9;app.filter(&#39;myFormat&#39;,[&#39;hexafy&#39;, function(hexafy) &#123;&#10;&#9;    return function(x) &#123;&#10;&#9;        return hexafy.myFunc(x);&#10;&#9;    &#125;;&#10;&#9;&#125;]);&#10;&#9;app.controller(&#39;myCtrl&#39;, function($scope) &#123;&#10;&#9;    $scope.counts = [255, 251, 200];&#10;&#9;&#125;);&#10;&#9;&#60;/script&#62;</span><br></pre></td></tr></table></figure>
+<h2 id="AngularJS_XMLHttpRequest"><a href="#AngularJS_XMLHttpRequest" class="headerlink" title="AngularJS XMLHttpRequest"></a>AngularJS XMLHttpRequest</h2><p><strong>$http</strong> 是 AngularJS 中的一个核心服务，用于读取远程服务器的数据。</p>
+<h3 id="u8BFB_u53D6_JSON__u6587_u4EF6"><a href="#u8BFB_u53D6_JSON__u6587_u4EF6" class="headerlink" title="读取 JSON 文件"></a>读取 JSON 文件</h3><p>存储在web服务器上的 <a href="http://www.runoob.com/try/angularjs/data/Customers_JSON.php" target="_blank" rel="external">JSON 文件</a></p>
+<h3 id="AngularJS__24http"><a href="#AngularJS__24http" class="headerlink" title="AngularJS $http"></a>AngularJS $http</h3><p>AngularJS $http 是一个用于读取web服务器上数据的服务。</p>
+<p>$http.get(url) 是用于读取服务器数据的函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;myApp&#34; ng-controller=&#34;customersCtrl&#34;&#62; &#9;&#10;&#9;&#60;ul&#62;&#10;&#9;  &#60;li ng-repeat=&#34;x in names&#34;&#62;&#10;&#9;    &#123;&#123; x.Name + &#39;, &#39; + x.Country &#125;&#125;&#10;&#9;  &#60;/li&#62;&#10;&#9;&#60;/ul&#62;&#10;&#9;&#60;/div&#62;&#10;&#9;&#60;script&#62;&#10;&#9;var app = angular.module(&#39;myApp&#39;, []);&#10;&#9;app.controller(&#39;customersCtrl&#39;, function($scope, $http) &#123;&#10;&#9;    $http.get(&#34;http://www.runoob.com/try/angularjs/data/Customers_JSON.php&#34;)&#10;&#9;    .success(function(response) &#123;$scope.names = response.records;&#125;);&#10;&#9;&#125;);&#10;&#9;&#60;/script&#62;</span><br></pre></td></tr></table></figure>
+<p>应用解析:</p>
+<p>注意：以上代码的 get 请求是本站的服务器，你不能直接拷贝到你本地运行，会存在跨域问题，解决办法就是将 Customers_JSON.php 的数据拷贝到你自己的服务器上，附：<a href="http://www.runoob.com/w3cnote/php-ajax-cross-border.html" target="_blank" rel="external">PHP Ajax 跨域问题最佳解决方案。</a></p>
+<p>函数 <strong>customersController</strong> 是一个标准的 JavaScript <strong>对象构造器</strong>。</p>
+<p>控制器对象有一个属性: <strong>$scope.names</strong>。</p>
+<p><strong>$http.get()</strong> 从web服务器上读取静态 <strong>JSON 数据</strong>。</p>
+<p>当从服务端载入 JSON 数据时，<strong>$scope.names</strong> 变为一个数组。</p>
+<p><em>以上代码也可以用于读取数据库数据。</em></p>
+<h2 id="AngularJS_Select_28_u9009_u62E9_u6846_29"><a href="#AngularJS_Select_28_u9009_u62E9_u6846_29" class="headerlink" title="AngularJS Select(选择框)"></a>AngularJS Select(选择框)</h2><p>AngularJS 可以使用数组或对象创建一个下拉列表选项。</p>
+<h3 id="u4F7F_u7528_ng-options__u521B_u5EFA_u9009_u62E9_u6846"><a href="#u4F7F_u7528_ng-options__u521B_u5EFA_u9009_u62E9_u6846" class="headerlink" title="使用 ng-options 创建选择框"></a>使用 ng-options 创建选择框</h3><p>在 AngularJS 中我们可以使用 ng-option 指令来创建一个下拉列表，列表项通过对象和数组循环输出，如下实例:</p>
+<pre><code>&lt;div ng-app=&quot;myApp&quot; ng-controller=&quot;myCtrl&quot;&gt;
+
+&lt;select ng-model=&quot;selectedName&quot; ng-options=&quot;x for x in names&quot;&gt;
+&lt;/select&gt;
+
+&lt;/div&gt;
+
+&lt;script&gt;
+var app = angular.module(&apos;myApp&apos;, []);
+app.controller(&apos;myCtrl&apos;, function($scope) {
+    $scope.names = [&quot;Google&quot;, &quot;Runoob&quot;, &quot;Taobao&quot;];
+});
+&lt;/script&gt;
+</code></pre><h3 id="ng-options__u4E0E_ng-repeat"><a href="#ng-options__u4E0E_ng-repeat" class="headerlink" title="ng-options 与 ng-repeat"></a>ng-options 与 ng-repeat</h3><p>我们也可以使用ng-repeat 指令来创建下拉列表：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;select&#62;&#10;&#9;&#60;option ng-repeat=&#34;x in names&#34;&#62;&#123;&#123;x&#125;&#125;&#60;/option&#62;&#10;&#9;&#60;/select&#62;</span><br></pre></td></tr></table></figure>
+<p><em>ng-repeat 指令是通过数组来循环 HTML 代码来创建下拉列表，但 ng-options 指令更适合创建下拉列表，它有以下优势：<br>使用 ng-options 的选项的一个对象， ng-repeat 是一个字符串。</em></p>
+<h3 id="u5E94_u8BE5_u7528_u54EA_u4E2A_u66F4_u597D_3F"><a href="#u5E94_u8BE5_u7528_u54EA_u4E2A_u66F4_u597D_3F" class="headerlink" title="应该用哪个更好?"></a>应该用哪个更好?</h3><p>假设我们使用以下对象:</p>
+<pre><code>$scope.sites = [
+    {site : &quot;Google&quot;, url : &quot;http://www.google.com&quot;},
+    {site : &quot;Runoob&quot;, url : &quot;http://www.runoob.com&quot;},
+    {site : &quot;Taobao&quot;, url : &quot;http://www.taobao.com&quot;}
+];
+</code></pre><p>ng-repeat 有局限性，选择的值是一个字符串:</p>
+<p>使用 ng-repeat:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;select ng-model=&#34;selectedSite&#34;&#62;&#10;&#9;&#60;option ng-repeat=&#34;x in sites&#34; value=&#34;&#123;&#123;x.site&#125;&#125;&#34;&#62;&#123;&#123;x.site&#125;&#125;&#60;/option&#62;&#10;&#9;&#60;/select&#62;&#10;&#9;&#60;h1&#62;&#20320;&#36873;&#25321;&#30340;&#26159;: &#123;&#123;selectedSite&#125;&#125;&#60;/h1&#62;</span><br></pre></td></tr></table></figure>
+<p>使用 ng-options 指令，选择的值是一个对象：</p>
+<p>使用 ng-options:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;select ng-model=&#34;selectedSite&#34; ng-options=&#34;x.site for x in sites&#34;&#62;&#10;&#9;&#60;/select&#62;&#10;&#9;&#60;h1&#62;&#20320;&#36873;&#25321;&#30340;&#26159;: &#123;&#123;selectedSite.site&#125;&#125;&#60;/h1&#62;&#10;&#9;&#60;p&#62;&#32593;&#22336;&#20026;: &#123;&#123;selectedSite.url&#125;&#125;&#60;/p&#62;</span><br></pre></td></tr></table></figure>
+<p><em>当选择值是一个对象时，我们就可以获取更多信息，应用也更灵活。</em></p>
+<p><strong>ng-model的值可以随便起名字，他是控制html输出的值</strong></p>
+<h3 id="u6570_u636E_u6E90_u4E3A_u5BF9_u8C61"><a href="#u6570_u636E_u6E90_u4E3A_u5BF9_u8C61" class="headerlink" title="数据源为对象"></a>数据源为对象</h3><p>前面实例我们使用了数组作为数据源，以下我们将数据对象作为数据源。</p>
+<pre><code>$scope.sites = {
+    site01 : &quot;Google&quot;,
+    site02 : &quot;Runoob&quot;,
+    site03 : &quot;Taobao&quot;
+};
+</code></pre><p>ng-options 使用对象有很大的不同，如下所示：</p>
+<p><strong>使用对象作为数据源, x 为键(key), y 为值(value):</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;select ng-model=&#34;selectedSite&#34; ng-options=&#34;x for (x, y) in sites&#34;&#62;&#10;&#9;&#60;/select&#62;&#9;&#10;&#9;&#60;h1&#62;&#20320;&#36873;&#25321;&#30340;&#20540;&#26159;: &#123;&#123;selectedSite&#125;&#125;&#60;/h1&#62;</span><br></pre></td></tr></table></figure>
+<p><em>你选择的值为在 key-value 对中的 value。</em></p>
+<p><strong>value 在 key-value 对中也可以是个对象：</strong></p>
+<p>选择的值在 key-value 对的 value 中, 这是它是一个对象:</p>
+<pre><code>$scope.cars = {
+car01 : {brand : &quot;Ford&quot;, model : &quot;Mustang&quot;, color : &quot;red&quot;},
+car02 : {brand : &quot;Fiat&quot;, model : &quot;500&quot;, color : &quot;white&quot;},
+car03 : {brand : &quot;Volvo&quot;, model : &quot;XC90&quot;, color : &quot;black&quot;}
+};
+</code></pre><p>在下拉菜单也可以不使用 key-value 对中的 key , 直接使用对象的属性：</p>
+<pre><code>&lt;select ng-model=&quot;selectedCar&quot; ng-options=&quot;y.brand for (x, y) in sites&quot;&gt;
+&lt;/select&gt;
+</code></pre><h2 id="AngularJS__u8868_u683C"><a href="#AngularJS__u8868_u683C" class="headerlink" title="AngularJS 表格"></a>AngularJS 表格</h2><p>ng-repeat 指令可以完美的显示表格。</p>
+<h3 id="u5728_u8868_u683C_u4E2D_u663E_u793A_u6570_u636E"><a href="#u5728_u8868_u683C_u4E2D_u663E_u793A_u6570_u636E" class="headerlink" title="在表格中显示数据"></a>在表格中显示数据</h3><p>使用 angular 显示表格是非常简单的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;myApp&#34; ng-controller=&#34;customersCtrl&#34;&#62; &#9;&#10;&#9;&#60;table&#62;&#10;&#9;  &#60;tr ng-repeat=&#34;x in names&#34;&#62;&#10;&#9;    &#60;td&#62;&#123;&#123; x.Name &#125;&#125;&#60;/td&#62;&#10;&#9;    &#60;td&#62;&#123;&#123; x.Country &#125;&#125;&#60;/td&#62;&#10;&#9;  &#60;/tr&#62;&#10;&#9;&#60;/table&#62;&#9;&#10;&#9;&#60;/div&#62;&#10;&#9;&#60;script&#62;&#10;&#9;var app = angular.module(&#39;myApp&#39;, []);&#10;&#9;app.controller(&#39;customersCtrl&#39;, function($scope, $http) &#123;&#10;&#9;    $http.get(&#34;http://www.runoob.com/try/angularjs/data/Customers_JSON.php&#34;)&#10;&#9;    .success(function (response) &#123;$scope.names = response.records;&#125;);&#10;&#9;&#125;);&#10;&#9;&#60;/script&#62;</span><br></pre></td></tr></table></figure>
+<h3 id="u4F7F_u7528_CSS__u6837_u5F0F"><a href="#u4F7F_u7528_CSS__u6837_u5F0F" class="headerlink" title="使用 CSS 样式"></a>使用 CSS 样式</h3><p>为了让页面更加美观，我们可以在页面中使用CSS：</p>
+<pre><code>&lt;style&gt;
+table, th , td {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+&lt;/style&gt;
+</code></pre><h3 id="u4F7F_u7528_orderBy__u8FC7_u6EE4_u5668"><a href="#u4F7F_u7528_orderBy__u8FC7_u6EE4_u5668" class="headerlink" title="使用 orderBy 过滤器"></a>使用 orderBy 过滤器</h3><p>排序显示，可以使用 orderBy 过滤器: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;table&#62;&#10;&#9;  &#60;tr ng-repeat=&#34;x in names | orderBy : &#39;Country&#39;&#34;&#62;&#10;&#9;    &#60;td&#62;&#123;&#123; x.Name &#125;&#125;&#60;/td&#62;&#10;&#9;    &#60;td&#62;&#123;&#123; x.Country &#125;&#125;&#60;/td&#62;&#10;&#9;  &#60;/tr&#62;&#10;&#9;&#60;/table&#62;</span><br></pre></td></tr></table></figure>
+<h3 id="u4F7F_u7528_uppercase__u8FC7_u6EE4_u5668"><a href="#u4F7F_u7528_uppercase__u8FC7_u6EE4_u5668" class="headerlink" title="使用 uppercase 过滤器"></a>使用 uppercase 过滤器</h3><p>使用 uppercase 过滤器转换为大写: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;table&#62;&#10;&#9;  &#60;tr ng-repeat=&#34;x in names&#34;&#62;&#10;&#9;    &#60;td&#62;&#123;&#123; x.Name &#125;&#125;&#60;/td&#62;&#10;&#9;    &#60;td&#62;&#123;&#123; x.Country | uppercase &#125;&#125;&#60;/td&#62;&#10;&#9;  &#60;/tr&#62;&#10;&#9;&#60;/table&#62;</span><br></pre></td></tr></table></figure>
+<h3 id="u663E_u793A_u5E8F_u53F7__28_24index_29"><a href="#u663E_u793A_u5E8F_u53F7__28_24index_29" class="headerlink" title="显示序号 ($index)"></a>显示序号 ($index)</h3><p>表格显示序号可以在 <td> 中添加 $index: </td></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;table&#62;&#10;&#9;  &#60;tr ng-repeat=&#34;x in names&#34;&#62;&#10;&#9;    &#60;td&#62;&#123;&#123; $index + 1 &#125;&#125;&#60;/td&#62;&#10;&#9;    &#60;td&#62;&#123;&#123; x.Name &#125;&#125;&#60;/td&#62;&#10;&#9;    &#60;td&#62;&#123;&#123; x.Country &#125;&#125;&#60;/td&#62;&#10;&#9;  &#60;/tr&#62;&#10;&#9;&#60;/table&#62;</span><br></pre></td></tr></table></figure>
+<h2 id="AngularJS_HTML_DOM"><a href="#AngularJS_HTML_DOM" class="headerlink" title="AngularJS HTML DOM"></a>AngularJS HTML DOM</h2><p>AngularJS 为 HTML DOM 元素的属性提供了绑定应用数据的指令。</p>
+<h3 id="ng-disabled__u6307_u4EE4"><a href="#ng-disabled__u6307_u4EE4" class="headerlink" title="ng-disabled 指令"></a>ng-disabled 指令</h3><p>ng-disabled 指令直接绑定应用程序数据到 HTML 的 disabled 属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;&#34; ng-init=&#34;mySwitch=true&#34;&#62;&#10;&#9;&#60;p&#62;&#10;&#9;&#60;button ng-disabled=&#34;mySwitch&#34;&#62;&#28857;&#25105;!&#60;/button&#62;&#10;&#9;&#60;/p&#62;&#9;&#10;&#9;&#60;p&#62;&#10;&#9;&#60;input type=&#34;checkbox&#34; ng-model=&#34;mySwitch&#34;&#62;&#25353;&#38062;&#10;&#9;&#60;/p&#62;&#9;&#10;&#9;&#60;p&#62;&#10;&#9;&#123;&#123; mySwitch &#125;&#125;&#10;&#9;&#60;/p&#62;&#9;&#10;&#9;&#60;/div&#62;</span><br></pre></td></tr></table></figure>
+<p><em>ng-disabled 指令绑定应用程序数据 “mySwitch” 到 HTML 的 disabled 属性。<br>ng-model 指令绑定 “mySwitch” 到 HTML input checkbox 元素的内容（value）。<br>如果 mySwitch 为true, 按钮将不可用:</em></p>
+<h3 id="ng-show__u6307_u4EE4"><a href="#ng-show__u6307_u4EE4" class="headerlink" title="ng-show 指令"></a>ng-show 指令</h3><p>ng-show 指令隐藏或显示一个 HTML 元素。</p>
+<pre><code>&lt;div ng-app=&quot;&quot;&gt;
+
+&lt;p ng-show=&quot;true&quot;&gt;我是可见的。&lt;/p&gt;
+
+&lt;p ng-show=&quot;false&quot;&gt;我是不可见的。&lt;/p&gt;
+
+&lt;/div&gt;
+</code></pre><p>你可以使用表达式来计算布尔值（ true 或 false）:</p>
+<pre><code>&lt;div ng-app=&quot;&quot;&gt;
+
+&lt;p ng-show=&quot;hour &gt; 12&quot;&gt;我是可见的。&lt;/p&gt;
+
+&lt;/div&gt;
+</code></pre><h3 id="ng-hide__u6307_u4EE4"><a href="#ng-hide__u6307_u4EE4" class="headerlink" title="ng-hide 指令"></a>ng-hide 指令</h3><p>ng-hide 指令用于隐藏或显示 HTML 元素。</p>
+<pre><code>&lt;div ng-app=&quot;&quot;&gt;
+
+&lt;p ng-hide=&quot;true&quot;&gt;我是不可见的。&lt;/p&gt;
+
+&lt;p ng-hide=&quot;false&quot;&gt;我是可见的。&lt;/p&gt;
+
+&lt;/div&gt;
+</code></pre><h2 id="AngularJS__u4E8B_u4EF6"><a href="#AngularJS__u4E8B_u4EF6" class="headerlink" title="AngularJS 事件"></a>AngularJS 事件</h2><p>AngularJS 有自己的 HTML 事件指令。</p>
+<h2 id="ng-click__u6307_u4EE4"><a href="#ng-click__u6307_u4EE4" class="headerlink" title="ng-click 指令"></a>ng-click 指令</h2><p>ng-click 指令定义了 AngularJS 点击事件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;&#34; ng-controller=&#34;myCtrl&#34;&#62;&#9;&#10;&#9;&#60;button ng-click=&#34;count = count + 1&#34;&#62;&#28857;&#25105;&#65281;&#60;/button&#62;&#10;&#9;&#60;p&#62;&#123;&#123; count &#125;&#125;&#60;/p&#62;&#10;&#9;&#60;/div&#62;</span><br></pre></td></tr></table></figure>
+<h3 id="u9690_u85CF_HTML__u5143_u7D20"><a href="#u9690_u85CF_HTML__u5143_u7D20" class="headerlink" title="隐藏 HTML 元素"></a>隐藏 HTML 元素</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;myApp&#34; ng-controller=&#34;personCtrl&#34;&#62;&#9;&#10;&#9;&#60;button ng-click=&#34;toggle()&#34;&#62;&#62;&#38544;&#34255;/&#26174;&#31034;&#60;/button&#62;&#9;&#10;&#9;&#60;p ng-hide=&#34;myVar&#34;&#62;&#10;&#9;&#21517;: &#60;input type=&#34;text&#34; ng-model=&#34;firstName&#34;&#62;&#60;br&#62;&#10;&#9;&#22995;&#21517;: &#60;input type=&#34;text&#34; ng-model=&#34;lastName&#34;&#62;&#60;br&#62;&#10;&#9;&#60;br&#62;&#10;&#9;Full Name: &#123;&#123;firstName + &#34; &#34; + lastName&#125;&#125;&#10;&#9;&#60;/p&#62;&#9;&#10;&#9;&#60;/div&#62;&#9;&#10;&#9;&#60;script&#62;&#10;&#9;var app = angular.module(&#39;myApp&#39;, []);&#10;&#9;app.controller(&#39;personCtrl&#39;, function($scope) &#123;&#10;&#9;    $scope.firstName = &#34;John&#34;,&#10;&#9;    $scope.lastName = &#34;Doe&#34;&#10;&#9;    $scope.myVar = false;&#10;&#9;    $scope.toggle = function() &#123;&#10;&#9;        $scope.myVar = !$scope.myVar;&#10;&#9;    &#125;;&#10;&#9;&#125;);&#10;&#9;&#60;/script&#62;</span><br></pre></td></tr></table></figure>
+<p>应用解析:</p>
+<p>应用有一个默认属性: $scope.myVar = false;</p>
+<p>ng-hide 指令设置 p元素及两个输入域是否可见， 根据 myVar 的值 (true 或 false) 来设置是否可见。</p>
+<p>toggle() 函数用于切换 myVar 变量的值（true 和 false）。</p>
+<p>ng-hide=”true” 让元素 不可见。</p>
+<h2 id="AngularJS__u6A21_u5757"><a href="#AngularJS__u6A21_u5757" class="headerlink" title="AngularJS 模块"></a>AngularJS 模块</h2><ul>
+<li>模块定义了一个应用程序。</li>
+<li>模块是应用程序中不同部分的容器。</li>
+<li>模块是应用控制器的容器。</li>
+<li>控制器通常属于一个模块。</li>
+</ul>
+<h3 id="u521B_u5EFA_u6A21_u5757"><a href="#u521B_u5EFA_u6A21_u5757" class="headerlink" title="创建模块"></a>创建模块</h3><p>你可以通过 AngularJS 的 angular.module 函数来创建模块：</p>
+<pre><code>&lt;div ng-app=&quot;myApp&quot;&gt;...&lt;/div&gt;
+
+&lt;script&gt;
+
+var app = angular.module(&quot;myApp&quot;, []); 
+
+&lt;/script&gt;
+</code></pre><p>“myApp” 参数对应执行应用的 HTML 元素。<br>现在你可以在 AngularJS 应用中添加控制器，指令，过滤器等。</p>
+<h3 id="u6DFB_u52A0_u63A7_u5236_u5668"><a href="#u6DFB_u52A0_u63A7_u5236_u5668" class="headerlink" title="添加控制器"></a>添加控制器</h3><p>你可以使用 ng-controller 指令来添加应用的控制器:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;myApp&#34; ng-controller=&#34;myCtrl&#34;&#62;&#10;&#9;&#123;&#123; firstName + &#34; &#34; + lastName &#125;&#125;&#10;&#9;&#60;/div&#62;&#9;&#10;&#9;&#60;script&#62;&#9;&#10;&#9;var app = angular.module(&#34;myApp&#34;, []);&#10;&#9;app.controller(&#34;myCtrl&#34;, function($scope) &#123;&#10;&#9;    $scope.firstName = &#34;John&#34;;&#10;&#9;    $scope.lastName = &#34;Doe&#34;;&#10;&#9;&#125;);&#10;&#9;&#60;/script&#62;</span><br></pre></td></tr></table></figure>
+<h3 id="u6DFB_u52A0_u6307_u4EE4"><a href="#u6DFB_u52A0_u6307_u4EE4" class="headerlink" title="添加指令"></a>添加指令</h3><p>AngularJS 提供了很多内置的指令，你可以使用它们来为你的应用添加功能。<br>完整的指令内容可以参阅 <a href="http://www.runoob.com/angularjs/angularjs-reference.html" target="_blank" rel="external">AngularJS 参考手册</a>。<br>此外，你可以使用模块来为你应用添加自己的指令：</p>
+<pre><code>&lt;div ng-app=&quot;myApp&quot; runoob-directive&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+var app = angular.module(&quot;myApp&quot;, []);
+
+app.directive(&quot;runoobDirective&quot;, function() {
+    return {
+        template : &quot;我在指令构造器中创建!&quot;
+    };
+});
+&lt;/script&gt;
+</code></pre><p><em>在模块定义中 [] 参数用于定义模块的依赖关系。中括号[]表示该模块没有依赖，如果有依赖的话会在中括号写上依赖的模块名字。</em></p>
+<h3 id="u51FD_u6570_u4F1A_u5F71_u54CD_u5230_u5168_u5C40_u547D_u540D_u7A7A_u95F4"><a href="#u51FD_u6570_u4F1A_u5F71_u54CD_u5230_u5168_u5C40_u547D_u540D_u7A7A_u95F4" class="headerlink" title="函数会影响到全局命名空间"></a>函数会影响到全局命名空间</h3><p>JavaScript 中应避免使用全局函数。因为他们很容易被其他脚本文件覆盖。</p>
+<p>AngularJS 模块让所有函数的作用域在该模块下，避免了该问题。</p>
+<h2 id="AngularJS__u8868_u5355"><a href="#AngularJS__u8868_u5355" class="headerlink" title="AngularJS 表单"></a>AngularJS 表单</h2><p>AngularJS 表单是输入控件的集合。</p>
+<h3 id="HTML__u8868_u5355"><a href="#HTML__u8868_u5355" class="headerlink" title="HTML 表单"></a>HTML 表单</h3><p>HTML 表单通常与 HTML 控件同时存在。</p>
+<h3 id="AngularJS__u8868_u5355_u5B9E_u4F8B"><a href="#AngularJS__u8868_u5355_u5B9E_u4F8B" class="headerlink" title="AngularJS 表单实例"></a>AngularJS 表单实例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;myApp&#34; ng-controller=&#34;formCtrl&#34;&#62;&#10;&#9;  &#60;form novalidate&#62;&#10;&#9;    First Name:&#60;br&#62;&#10;&#9;    &#60;input type=&#34;text&#34; ng-model=&#34;user.firstName&#34;&#62;&#60;br&#62;&#10;&#9;    Last Name:&#60;br&#62;&#10;&#9;    &#60;input type=&#34;text&#34; ng-model=&#34;user.lastName&#34;&#62;&#10;&#9;    &#60;br&#62;&#60;br&#62;&#10;&#9;    &#60;button ng-click=&#34;reset()&#34;&#62;RESET&#60;/button&#62;&#10;&#9;  &#60;/form&#62;&#10;&#9;  &#60;p&#62;form = &#123;&#123;user&#125;&#125;&#60;/p&#62;&#10;&#9;  &#60;p&#62;master = &#123;&#123;master&#125;&#125;&#60;/p&#62;&#10;&#9;&#60;/div&#62;&#10;&#9;&#60;script&#62;&#10;&#9;var app = angular.module(&#39;myApp&#39;, []);&#10;&#9;app.controller(&#39;formCtrl&#39;, function($scope) &#123;&#10;&#9;    $scope.master = &#123;firstName: &#34;John&#34;, lastName: &#34;Doe&#34;&#125;;&#10;&#9;    $scope.reset = function() &#123;&#10;&#9;        $scope.user = angular.copy($scope.master);&#10;&#9;    &#125;;&#10;&#9;    $scope.reset();&#10;&#9;&#125;);&#10;&#9;&#60;/script&#62;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>novalidate 属性是在 HTML5 中新增的。禁用了使用浏览器的默认验证。</p>
+</blockquote>
+<h3 id="u5B9E_u4F8B_u89E3_u6790"><a href="#u5B9E_u4F8B_u89E3_u6790" class="headerlink" title="实例解析"></a>实例解析</h3><ul>
+<li><strong>ng-app</strong> 指令定义了 AngularJS 应用。</li>
+<li><strong>ng-controller</strong> 指令定义了应用控制器。</li>
+<li><strong>ng-model</strong> 指令绑定了两个 input 元素到模型的 user 对象。</li>
+<li><strong>formCtrl</strong> 函数设置了 master 对象的初始值，并定义了 reset() 方法。</li>
+<li><strong>reset()</strong> 方法设置了 user 对象等于 master 对象。</li>
+<li><strong>ng-click</strong> 指令调用了 reset() 方法，且在点击按钮时调用。</li>
+<li><strong>novalidate</strong> 属性在应用中不是必须的，但是你需要在 AngularJS 表单中使用，用于重写标准的 HTML5 验证。</li>
+</ul>
+<h2 id="AngularJS__u8F93_u5165_u9A8C_u8BC1"><a href="#AngularJS__u8F93_u5165_u9A8C_u8BC1" class="headerlink" title="AngularJS 输入验证"></a>AngularJS 输入验证</h2><p>AngularJS 表单和控件可以验证输入的数据。</p>
+<h3 id="u8F93_u5165_u9A8C_u8BC1"><a href="#u8F93_u5165_u9A8C_u8BC1" class="headerlink" title="输入验证"></a>输入验证</h3><p>AngularJS 表单和控件可以提供验证功能，并对用户输入的非法数据进行警告。</p>
+<p><em>客户端的验证不能确保用户输入数据的安全，所以服务端的数据验证也是必须的。</em></p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js&quot;&gt;&lt;/script&gt;
+&lt;body&gt;
+
+&lt;h2&gt;Validation Example&lt;/h2&gt;
+
+&lt;form  ng-app=&quot;myApp&quot;  ng-controller=&quot;validateCtrl&quot;
+name=&quot;myForm&quot; novalidate&gt;
+
+&lt;p&gt;用户名:&lt;br&gt;
+  &lt;input type=&quot;text&quot; name=&quot;user&quot; ng-model=&quot;user&quot; required&gt;
+  &lt;span style=&quot;color:red&quot; ng-show=&quot;myForm.user.$dirty &amp;&amp; myForm.user.$invalid&quot;&gt;
+  &lt;span ng-show=&quot;myForm.user.$error.required&quot;&gt;用户名是必须的。&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p&gt;邮箱:&lt;br&gt;
+  &lt;input type=&quot;email&quot; name=&quot;email&quot; ng-model=&quot;email&quot; required&gt;
+  &lt;span style=&quot;color:red&quot; ng-show=&quot;myForm.email.$dirty &amp;&amp; myForm.email.$invalid&quot;&gt;
+  &lt;span ng-show=&quot;myForm.email.$error.required&quot;&gt;邮箱是必须的。&lt;/span&gt;
+  &lt;span ng-show=&quot;myForm.email.$error.email&quot;&gt;非法的邮箱。&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;input type=&quot;submit&quot;
+  ng-disabled=&quot;myForm.user.$dirty &amp;&amp; myForm.user.$invalid ||
+  myForm.email.$dirty &amp;&amp; myForm.email.$invalid&quot;&gt;
+&lt;/p&gt;
+
+&lt;/form&gt;
+
+&lt;script&gt;
+var app = angular.module(&apos;myApp&apos;, []);
+app.controller(&apos;validateCtrl&apos;, function($scope) {
+    $scope.user = &apos;John Doe&apos;;
+    $scope.email = &apos;john.doe@gmail.com&apos;;
+});
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h3 id="u5B9E_u4F8B_u89E3_u6790-1"><a href="#u5B9E_u4F8B_u89E3_u6790-1" class="headerlink" title="实例解析"></a>实例解析</h3><p>AngularJS ng-model 指令用于绑定输入元素到模型中。</p>
+<p>模型对象有两个属性： user 和 email。</p>
+<p>我们使用了 ng-show指令， color:red 在邮件是 $dirty 或 $invalid 才显示。</p>
+<table class="reference"> <tbody><tr> <th>属性</th> <th>描述</th> </tr> <tr> <td>$dirty</td> <td>表单有填写记录</td> </tr> <tr> <td>$valid</td> <td>字段内容合法的</td> </tr> <tr> <td>$invalid</td> <td>字段内容是非法的</td> </tr> <tr> <td>$pristine</td> <td>表单没有填写记录</td> </tr> </tbody></table>
+
+<h2 id="AngularJS_API"><a href="#AngularJS_API" class="headerlink" title="AngularJS API"></a>AngularJS API</h2><p>API 意为 Application Programming Interface（应用程序编程接口）。</p>
+<p>全局 API 函数使用 angular 对象进行访问。<br>以下列出了一些通用的 API 函数：</p>
+<table class="reference"> <tbody><tr> <th>API</th> <th>描述</th> </tr> <tr> <td>angular.lowercase()</td> <td>转换字符串为小写</td> </tr> <tr> <td>angular.uppercase()</td> <td>转换字符串为大写</td> </tr> <tr> <td>angular.isString()</td> <td>判断给定的对象是否为字符串，如果是返回 true。 </td> </tr> <tr> <td>angular.isNumber()</td> <td>判断给定的对象是否为数字，如果是返回 true。</td> </tr> </tbody></table>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;myApp&#34; ng-controller=&#34;myCtrl&#34;&#62;&#10;&#9;&#60;p&#62;&#123;&#123; x1 &#125;&#125;&#60;/p&#62;&#10;&#9;&#60;p&#62;&#123;&#123; x2 &#125;&#125;&#60;/p&#62;&#10;&#9;&#60;/div&#62;&#10;&#9;&#60;script&#62;&#10;&#9;var app = angular.module(&#39;myApp&#39;, []);&#10;&#9;app.controller(&#39;myCtrl&#39;, function($scope) &#123;&#10;&#9;$scope.x1 = &#34;JOHN&#34;;&#10;&#9;$scope.x2 = angular.lowercase($scope.x1);&#10;&#9;&#125;);&#10;&#9;&#60;/script&#62;</span><br></pre></td></tr></table></figure>
+<h2 id="AngularJS__u52A8_u753B"><a href="#AngularJS__u52A8_u753B" class="headerlink" title="AngularJS 动画"></a>AngularJS 动画</h2><p>AngularJS 提供了动画效果，可以配合 CSS 使用。</p>
+<p>AngularJS 使用动画需要引入 angular-animate.min.js 库。</p>
+<pre><code>&lt;script src=&quot;http://apps.bdimg.com/libs/angular.js/1.4.6/angular-animate.min.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>还需在应用中使用模型 ngAnimate：</p>
+<pre><code>&lt;body ng-app=&quot;ngAnimate&quot;&gt;
+</code></pre><p>勾选复选框隐藏 DIV:</p>
+<pre><code>&lt;body ng-app=&quot;ngAnimate&quot;&gt;
+
+隐藏 DIV: &lt;input type=&quot;checkbox&quot; ng-model=&quot;myCheck&quot;&gt;
+
+&lt;div ng-hide=&quot;myCheck&quot;&gt;&lt;/div&gt;
+
+&lt;/body&gt;
+</code></pre><p>如果我们应用已经设置了应用名，可以把 ngAnimate 直接添加在模型中：</p>
+<pre><code>&lt;body ng-app=&quot;myApp&quot;&gt;
+
+&lt;h1&gt;隐藏 DIV: &lt;input type=&quot;checkbox&quot; ng-model=&quot;myCheck&quot;&gt;&lt;/h1&gt;
+
+&lt;div ng-hide=&quot;myCheck&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+var app = angular.module(&apos;myApp&apos;, [&apos;ngAnimate&apos;]);
+&lt;/script&gt;
+</code></pre>  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/TinyFractionBlog/tags/AngularJs/">AngularJs</a><a href="/TinyFractionBlog/tags/javascript/">javascript</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/TinyFractionBlog/categories/js/">js</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://mmww1024.github.io/TinyFractionBlog/2016/02/15/AngularJs菜鸟教程笔记/" data-title="AngularJs | 玖牛一毛的博客" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/TinyFractionBlog/2016/02/26/ie6,7兼容性问题总结/" title="">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  (no title)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/TinyFractionBlog/2016/02/04/ie6与文档编码/"  title="神奇的ie6与文档编码的仇恨">
+ <strong>NEXT:</strong><br/> 
+ <span>神奇的ie6与文档编码的仇恨
+</span>
+</a>
+</div>
+
+</nav>
+
+	    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'nntt'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJs_u7B80_u4ECB"><span class="toc-number">1.</span> <span class="toc-text">AngularJs简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AngularJS__u6269_u5C55_u4E86_HTML"><span class="toc-number">1.1.</span> <span class="toc-text">AngularJS 扩展了 HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4EC0_u4E48_u662F_AngularJS_uFF1F"><span class="toc-number">1.2.</span> <span class="toc-text">什么是 AngularJS？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AngularJS__u6307_u4EE4"><span class="toc-number">1.3.</span> <span class="toc-text">AngularJS 指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AngularJS__u8868_u8FBE_u5F0F"><span class="toc-number">1.4.</span> <span class="toc-text">AngularJS 表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AngularJS__u5E94_u7528"><span class="toc-number">1.5.</span> <span class="toc-text">AngularJS 应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS__u8868_u8FBE_u5F0F-1"><span class="toc-number">2.</span> <span class="toc-text">AngularJS 表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AngularJS__u5BF9_u8C61"><span class="toc-number">2.1.</span> <span class="toc-text">AngularJS 对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AngularJS__u6570_u7EC4"><span class="toc-number">2.2.</span> <span class="toc-text">AngularJS 数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AngularJS__u8868_u8FBE_u5F0F__u4E0E_JavaScript__u8868_u8FBE_u5F0F"><span class="toc-number">2.3.</span> <span class="toc-text">AngularJS 表达式 与 JavaScript 表达式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS__u6307_u4EE4-1"><span class="toc-number">3.</span> <span class="toc-text">AngularJS 指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u91CD_u590D_HTML__u5143_u7D20"><span class="toc-number">3.1.</span> <span class="toc-text">重复 HTML 元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ng-app__u6307_u4EE4"><span class="toc-number">3.2.</span> <span class="toc-text">ng-app 指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ng-init__u6307_u4EE4"><span class="toc-number">3.3.</span> <span class="toc-text">ng-init 指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ng-model__u6307_u4EE4"><span class="toc-number">3.4.</span> <span class="toc-text">ng-model 指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ng-repeat__u6307_u4EE4"><span class="toc-number">3.5.</span> <span class="toc-text">ng-repeat 指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u521B_u5EFA_u81EA_u5B9A_u4E49_u7684_u6307_u4EE4"><span class="toc-number">3.6.</span> <span class="toc-text">创建自定义的指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u9650_u5236_u4F7F_u7528"><span class="toc-number">3.7.</span> <span class="toc-text">限制使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ng-model__u6307_u4EE4-1"><span class="toc-number">3.8.</span> <span class="toc-text">ng-model 指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u9A8C_u8BC1_u7528_u6237_u8F93_u5165"><span class="toc-number">3.9.</span> <span class="toc-text">验证用户输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5E94_u7528_u72B6_u6001"><span class="toc-number">3.10.</span> <span class="toc-text">应用状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS__u7C7B"><span class="toc-number">3.11.</span> <span class="toc-text">CSS 类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS_Scope_28_u4F5C_u7528_u57DF_29"><span class="toc-number">4.</span> <span class="toc-text">AngularJS Scope(作用域)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u5982_u4F55_u4F7F_u7528_Scope"><span class="toc-number">4.1.</span> <span class="toc-text">如何使用 Scope</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scope__u6982_u8FF0"><span class="toc-number">4.2.</span> <span class="toc-text">Scope 概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scope__u4F5C_u7528_u8303_u56F4"><span class="toc-number">4.3.</span> <span class="toc-text">Scope 作用范围</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6839_u4F5C_u7528_u57DF_3F_3F_3F"><span class="toc-number">4.4.</span> <span class="toc-text">根作用域???</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS__u63A7_u5236_u5668"><span class="toc-number">5.</span> <span class="toc-text">AngularJS 控制器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AngularJS__u63A7_u5236_u5668-1"><span class="toc-number">5.1.</span> <span class="toc-text">AngularJS 控制器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u63A7_u5236_u5668_u65B9_u6CD5"><span class="toc-number">5.2.</span> <span class="toc-text">控制器方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5916_u90E8_u6587_u4EF6_u4E2D_u7684_u63A7_u5236_u5668"><span class="toc-number">5.3.</span> <span class="toc-text">外部文件中的控制器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS__u8FC7_u6EE4_u5668"><span class="toc-number">6.</span> <span class="toc-text">AngularJS 过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AngularJS__u8FC7_u6EE4_u5668-1"><span class="toc-number">6.1.</span> <span class="toc-text">AngularJS 过滤器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u8868_u8FBE_u5F0F_u4E2D_u6DFB_u52A0_u8FC7_u6EE4_u5668"><span class="toc-number">6.2.</span> <span class="toc-text">表达式中添加过滤器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#currency__u8FC7_u6EE4_u5668"><span class="toc-number">6.3.</span> <span class="toc-text">currency 过滤器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5411_u6307_u4EE4_u6DFB_u52A0_u8FC7_u6EE4_u5668"><span class="toc-number">6.4.</span> <span class="toc-text">向指令添加过滤器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u8FC7_u6EE4_u8F93_u5165"><span class="toc-number">6.5.</span> <span class="toc-text">过滤输入</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS__u670D_u52A1_28Service_29"><span class="toc-number">7.</span> <span class="toc-text">AngularJS 服务(Service)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u4EC0_u4E48_u662F_u670D_u52A1_uFF1F"><span class="toc-number">7.1.</span> <span class="toc-text">什么是服务？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E3A_u4EC0_u4E48_u4F7F_u7528_u670D_u52A1_3F"><span class="toc-number">7.2.</span> <span class="toc-text">为什么使用服务?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24http__u670D_u52A1"><span class="toc-number">7.3.</span> <span class="toc-text">$http 服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24timeout__u670D_u52A1"><span class="toc-number">7.4.</span> <span class="toc-text">$timeout 服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24interval__u670D_u52A1"><span class="toc-number">7.5.</span> <span class="toc-text">$interval 服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u521B_u5EFA_u81EA_u5B9A_u4E49_u670D_u52A1"><span class="toc-number">7.6.</span> <span class="toc-text">创建自定义服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u8FC7_u6EE4_u5668_u4E2D_uFF0C_u4F7F_u7528_u81EA_u5B9A_u4E49_u670D_u52A1"><span class="toc-number">7.7.</span> <span class="toc-text">过滤器中，使用自定义服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS_XMLHttpRequest"><span class="toc-number">8.</span> <span class="toc-text">AngularJS XMLHttpRequest</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u8BFB_u53D6_JSON__u6587_u4EF6"><span class="toc-number">8.1.</span> <span class="toc-text">读取 JSON 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AngularJS__24http"><span class="toc-number">8.2.</span> <span class="toc-text">AngularJS $http</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS_Select_28_u9009_u62E9_u6846_29"><span class="toc-number">9.</span> <span class="toc-text">AngularJS Select(选择框)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u4F7F_u7528_ng-options__u521B_u5EFA_u9009_u62E9_u6846"><span class="toc-number">9.1.</span> <span class="toc-text">使用 ng-options 创建选择框</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ng-options__u4E0E_ng-repeat"><span class="toc-number">9.2.</span> <span class="toc-text">ng-options 与 ng-repeat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5E94_u8BE5_u7528_u54EA_u4E2A_u66F4_u597D_3F"><span class="toc-number">9.3.</span> <span class="toc-text">应该用哪个更好?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6570_u636E_u6E90_u4E3A_u5BF9_u8C61"><span class="toc-number">9.4.</span> <span class="toc-text">数据源为对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS__u8868_u683C"><span class="toc-number">10.</span> <span class="toc-text">AngularJS 表格</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u5728_u8868_u683C_u4E2D_u663E_u793A_u6570_u636E"><span class="toc-number">10.1.</span> <span class="toc-text">在表格中显示数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4F7F_u7528_CSS__u6837_u5F0F"><span class="toc-number">10.2.</span> <span class="toc-text">使用 CSS 样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4F7F_u7528_orderBy__u8FC7_u6EE4_u5668"><span class="toc-number">10.3.</span> <span class="toc-text">使用 orderBy 过滤器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4F7F_u7528_uppercase__u8FC7_u6EE4_u5668"><span class="toc-number">10.4.</span> <span class="toc-text">使用 uppercase 过滤器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u663E_u793A_u5E8F_u53F7__28_24index_29"><span class="toc-number">10.5.</span> <span class="toc-text">显示序号 ($index)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS_HTML_DOM"><span class="toc-number">11.</span> <span class="toc-text">AngularJS HTML DOM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ng-disabled__u6307_u4EE4"><span class="toc-number">11.1.</span> <span class="toc-text">ng-disabled 指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ng-show__u6307_u4EE4"><span class="toc-number">11.2.</span> <span class="toc-text">ng-show 指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ng-hide__u6307_u4EE4"><span class="toc-number">11.3.</span> <span class="toc-text">ng-hide 指令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS__u4E8B_u4EF6"><span class="toc-number">12.</span> <span class="toc-text">AngularJS 事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ng-click__u6307_u4EE4"><span class="toc-number">13.</span> <span class="toc-text">ng-click 指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u9690_u85CF_HTML__u5143_u7D20"><span class="toc-number">13.1.</span> <span class="toc-text">隐藏 HTML 元素</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS__u6A21_u5757"><span class="toc-number">14.</span> <span class="toc-text">AngularJS 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u521B_u5EFA_u6A21_u5757"><span class="toc-number">14.1.</span> <span class="toc-text">创建模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6DFB_u52A0_u63A7_u5236_u5668"><span class="toc-number">14.2.</span> <span class="toc-text">添加控制器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6DFB_u52A0_u6307_u4EE4"><span class="toc-number">14.3.</span> <span class="toc-text">添加指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u51FD_u6570_u4F1A_u5F71_u54CD_u5230_u5168_u5C40_u547D_u540D_u7A7A_u95F4"><span class="toc-number">14.4.</span> <span class="toc-text">函数会影响到全局命名空间</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS__u8868_u5355"><span class="toc-number">15.</span> <span class="toc-text">AngularJS 表单</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML__u8868_u5355"><span class="toc-number">15.1.</span> <span class="toc-text">HTML 表单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AngularJS__u8868_u5355_u5B9E_u4F8B"><span class="toc-number">15.2.</span> <span class="toc-text">AngularJS 表单实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5B9E_u4F8B_u89E3_u6790"><span class="toc-number">15.3.</span> <span class="toc-text">实例解析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS__u8F93_u5165_u9A8C_u8BC1"><span class="toc-number">16.</span> <span class="toc-text">AngularJS 输入验证</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u8F93_u5165_u9A8C_u8BC1"><span class="toc-number">16.1.</span> <span class="toc-text">输入验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5B9E_u4F8B_u89E3_u6790-1"><span class="toc-number">16.2.</span> <span class="toc-text">实例解析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS_API"><span class="toc-number">17.</span> <span class="toc-text">AngularJS API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS__u52A8_u753B"><span class="toc-number">18.</span> <span class="toc-text">AngularJS 动画</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/TinyFractionBlog/categories/2014D2/" title="2014D2">2014D2<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/categories/js/" title="js">js<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/categories/兼容性/" title="兼容性">兼容性<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/categories/前端小记/" title="前端小记">前端小记<sup>3</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/categories/小结/" title="小结">小结<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/categories/小结/第一天/" title="第一天">第一天<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/categories/邮箱设置/" title="邮箱设置">邮箱设置<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/categories/2014D2/阿里巴巴西溪园区/" title="阿里巴巴西溪园区">阿里巴巴西溪园区<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/TinyFractionBlog/tags/AngularJs/" title="AngularJs">AngularJs<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/JavaScript/" title="JavaScript">JavaScript<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/ie6/" title="ie6">ie6<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/iframe/" title="iframe">iframe<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/javascript/" title="javascript">javascript<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/js/" title="js">js<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/mail/" title="mail">mail<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/node/" title="node">node<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/兼容性/" title="兼容性">兼容性<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/函数/" title="函数">函数<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/分页/" title="分页">分页<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/前后端分离/" title="前后端分离">前后端分离<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/前端工业化/" title="前端工业化">前端工业化<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/博客/" title="博客">博客<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/开始/" title="开始">开始<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/我/" title="我">我<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/文档编码/" title="文档编码">文档编码<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/跨域/" title="跨域">跨域<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/邮件/" title="邮件">邮件<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/链接/" title="链接">链接<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+      
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2016 
+		
+		<a href="http://mmww1024.github.io/TinyFractionBlog" target="_blank" title="JIUTOU">JIUTOU</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/TinyFractionBlog/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>

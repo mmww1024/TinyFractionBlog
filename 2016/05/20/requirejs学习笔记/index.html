@@ -4,13 +4,17 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>chrome的癖好 | 玖牛一毛的博客</title>
+    <title>玖牛一毛的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="JIUTOU">
     
-    <meta name="description" content="chrome的癖好这篇想写chrome的一些特点，想到哪写哪，一点一点累计吧
-一、chrome默认最小字体为12px站在用户体验的角度，太小的字体对于视力不好的用户很不友好，所以任凭你设9px，10px的字体，chrome都默认显示为12px，但是有的时候小像素的字体不是给用户看的，只是起到装饰作用">
+    <meta name="description" content="requirejs具有如下优点：
+
+防止js加载阻塞页面渲染
+使用程序调用的方式加载js，防出现如下丑陋的场景
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;a.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script">
     
     
     
@@ -67,15 +71,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/TinyFractionBlog/2015/01/05/chrome的癖好/" title="chrome的癖好" itemprop="url">chrome的癖好</a>
+      <a href="/TinyFractionBlog/2016/05/20/requirejs学习笔记/" title="" itemprop="url"></a>
   </h1>
   <p class="article-author">By
     
       <a href="http://mmww1024.github.io/TinyFractionBlog" title="JIUTOU">JIUTOU</a>
     </p>
   <p class="article-time">
-    <time datetime="2015-01-05T08:37:30.000Z" itemprop="datePublished">Jan 5 2015</time>
-    更新日期:<time datetime="2015-01-08T08:06:39.000Z" itemprop="dateModified">Jan 8 2015</time>
+    <time datetime="2016-05-20T08:50:08.240Z" itemprop="datePublished">May 20 2016</time>
+    更新日期:<time datetime="2016-05-20T08:49:35.516Z" itemprop="dateModified">May 20 2016</time>
     
   </p>
 </header>
@@ -84,43 +88,86 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#chrome_u7684_u7656_u597D"><span class="toc-number">1.</span> <span class="toc-text">chrome的癖好</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u4E00_u3001chrome_u9ED8_u8BA4_u6700_u5C0F_u5B57_u4F53_u4E3A12px"><span class="toc-number">1.1.</span> <span class="toc-text">一、chrome默认最小字体为12px</span></a></li></ol></li></ol>
+		
 		</div>
 		
-		<h1 id="chrome_u7684_u7656_u597D"><a href="#chrome_u7684_u7656_u597D" class="headerlink" title="chrome的癖好"></a>chrome的癖好</h1><p><em>这篇想写chrome的一些特点，想到哪写哪，一点一点累计吧</em></p>
-<h2 id="u4E00_u3001chrome_u9ED8_u8BA4_u6700_u5C0F_u5B57_u4F53_u4E3A12px"><a href="#u4E00_u3001chrome_u9ED8_u8BA4_u6700_u5C0F_u5B57_u4F53_u4E3A12px" class="headerlink" title="一、chrome默认最小字体为12px"></a>一、chrome默认最小字体为12px</h2><p>站在用户体验的角度，太小的字体对于视力不好的用户很不友好，所以任凭你设9px，10px的字体，chrome都默认显示为12px，但是有的时候小像素的字体不是给用户看的，只是起到装饰作用，比如下面这张图,英文单词只是起到了装饰作用，所以小一点也无妨嘛</p>
-<p><img src="/TinyFractionBlog/img/01.jpg" alt="example01"></p>
-<p>在网上搜了下解决办法，可以用-webkit-text-size-adjust：none属性，但是Chrome27正式取消了此属性，有别的办法吗？<br>找到这个</p>
-<pre><code>.webkit {
-font-size: 9px;
--webkit-transform: scale(0.75);
-}
-</code></pre><p>通过把div整个缩小，实现了字体的变小，12×0.75=9，对于其它浏览器来说，9px默认识别，仅需要对于webkit浏览器进行缩放。我在web端的ie,ff,opera上测试都通过了，移动端没有管，毕竟做的网页不是给移动端看的。</p>
-<p>##二、chrome专有的hack##</p>
-<p>针对Chrome和Safari等Webkit核心浏览器的CSS hack代码：</p>
-<pre><code>/* Webkit*/ 
-@media screen and (-webkit-min-device-pixel-ratio:0) {.font1 {color:#f00} .border1 {border:1px solid #f00;} .bg3 {background:#f00;}} 
-</code></pre><p>同时，针对Opera浏览器的写法：</p>
-<pre><code>/*Opera*/ 
-@media all and (-webkit-min-device-pixel-ratio:10000),not and all (-webkit-min-device-pixel-ratio:0) { .font1 {color:red;} }
-</code></pre><p>针对Firefox浏览器的写法： </p>
-<pre><code>/*Firefox*/
-@-moz-document url-prefix() { .font1 {color:red} } 
-</code></pre>  
+		<p>requirejs具有如下优点：</p>
+<ul>
+<li>防止js加载阻塞页面渲染</li>
+<li><p>使用程序调用的方式加载js，防出现如下丑陋的场景</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;a.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;b.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;c.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;d.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;e.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;f.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;g.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;h.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;i.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;j.js&quot;&gt;&lt;/script&gt;
+</code></pre></li>
+</ul>
+<p>使用要点：</p>
+<ol>
+<li><p>在页面底部引入require.js</p>
+<pre><code>&lt;script src=&quot;js/require.js&quot; data-main=&quot;js/main&quot; &gt;&lt;/script&gt;
+</code></pre></li>
+</ol>
+<blockquote>
+<p>main.js，我把它称为”主模块”，意思是整个网页的入口代码。它有点像C语言的main()函数，所有代码都从这儿开始运行。</p>
+</blockquote>
+<ol>
+<li><p>在main.js里加载js模块，并调用，可以有回调函数</p>
+<pre><code>require.config({
+ 　　　　paths: {
+ 　　　　　　&quot;jquery&quot;: [&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min&quot;,&quot;jquery&quot;],//远程cdn库没有加载成功，可以加载本地的库
+ 　　　　　　&quot;tiles&quot;: &quot;jquery.tiles&quot;,//由于设置了main，相当于设置了默认位置js/jquery.tiles
+      &quot;slide&quot;: &quot;slide&quot;
+ 　　　　}
+ 　　});
+require([&apos;jquery&apos;, &apos;tiles&apos;, &quot;slide&quot;]，function(){
+});
+</code></pre></li>
+<li><p>还可以改变基目录baseUrl</p>
+<pre><code>require.config({
+ 　　　　paths: {
+ 　　　　　　&quot;jquery&quot;: &quot;lib/jquery.min&quot;,
+ 　　　　　　&quot;underscore&quot;: &quot;lib/underscore.min&quot;,
+ 　　　　　　&quot;backbone&quot;: &quot;lib/backbone.min&quot;
+ 　　　　}
+ 　　});
+
+require.config({
+ 　　　　baseUrl: &quot;js/lib&quot;,
+ 　　　　paths: {
+ 　　　　　　&quot;jquery&quot;: &quot;jquery.min&quot;,
+ 　　　　　　&quot;underscore&quot;: &quot;underscore.min&quot;,
+ 　　　　　　&quot;backbone&quot;: &quot;backbone.min&quot;
+ 　　　　}
+ 　　});
+</code></pre></li>
+<li><p>允许加载非规范的模块（即没有define定义的）</p>
+<pre><code>shim: {
+ 　　　　&apos;jquery.scroll&apos;: {
+ 　　　　　　deps: [&apos;jquery&apos;],
+ 　　　　　　exports: &apos;jQuery.fn.scroll&apos;
+ 　　　　}
+ 　　}
+</code></pre></li>
+</ol>
+<blockquote>
+<p>require.config()接受一个配置对象，这个对象除了有前面说过的paths属性之外，还有一个shim属性，专门用来配置不兼容的模块。具体来说，每个模块要定义（1）exports值（输出的变量名），表明这个模块外部调用时的名称；（2）deps数组，表明该模块的依赖性。</p>
+</blockquote>
+  
 	</div>
 		<footer class="article-footer clearfix">
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/TinyFractionBlog/tags/兼容性/">兼容性</a>
-  </div>
 
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://mmww1024.github.io/TinyFractionBlog/2015/01/05/chrome的癖好/" data-title="chrome的癖好 | 玖牛一毛的博客" data-tsina="null" class="share clearfix">
+  <div data-url="http://mmww1024.github.io/TinyFractionBlog/2016/05/20/requirejs学习笔记/" data-title="玖牛一毛的博客" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -129,19 +176,11 @@ font-size: 9px;
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/TinyFractionBlog/2016/01/12/JavaScript高级程序设计笔记/" title="JavaScript高级程序设计笔记">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  JavaScript高级程序设计笔记</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/TinyFractionBlog/2014/12/10/跨域的iframe高度自适应/"  title="跨域的iframe高度自适应">
+<a href="/TinyFractionBlog/2016/02/26/ie6,7兼容性问题总结/"  title="">
  <strong>NEXT:</strong><br/> 
- <span>跨域的iframe高度自适应
+ <span>(no title)
 </span>
 </a>
 </div>
@@ -167,7 +206,7 @@ font-size: 9px;
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#chrome_u7684_u7656_u597D"><span class="toc-number">1.</span> <span class="toc-text">chrome的癖好</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u4E00_u3001chrome_u9ED8_u8BA4_u6700_u5C0F_u5B57_u4F53_u4E3A12px"><span class="toc-number">1.1.</span> <span class="toc-text">一、chrome默认最小字体为12px</span></a></li></ol></li></ol>
+  
   </div>
 
 <div id="asidepart">
