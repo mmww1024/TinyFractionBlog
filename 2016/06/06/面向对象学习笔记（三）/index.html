@@ -4,13 +4,20 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>chrome的癖好 | 玖牛一毛的博客</title>
+    <title>面向对象学习笔记（三） | 玖牛一毛的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="JIUTOU">
     
-    <meta name="description" content="chrome的癖好这篇想写chrome的一些特点，想到哪写哪，一点一点累计吧
-一、chrome默认最小字体为12px站在用户体验的角度，太小的字体对于视力不好的用户很不友好，所以任凭你设9px，10px的字体，chrome都默认显示为12px，但是有的时候小像素的字体不是给用户看的，只是起到装饰作用">
+    <meta name="description" content="一、什么是”非构造函数”的继承？比如，现在有一个对象，叫做”中国人”。
+var Chinese = {
+　　　　nation:&amp;apos;中国&amp;apos;
+　　};
+还有一个对象，叫做”医生”。
+var Doctor ={
+　　　　career:&amp;apos;医生&amp;apos;
+　　}
+请问怎样才能让”">
     
     
     
@@ -67,15 +74,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/TinyFractionBlog/2015/01/05/chrome的癖好/" title="chrome的癖好" itemprop="url">chrome的癖好</a>
+      <a href="/TinyFractionBlog/2016/06/06/面向对象学习笔记（三）/" title="面向对象学习笔记（三）" itemprop="url">面向对象学习笔记（三）</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://mmww1024.github.io/TinyFractionBlog" title="JIUTOU">JIUTOU</a>
     </p>
   <p class="article-time">
-    <time datetime="2015-01-05T08:37:30.000Z" itemprop="datePublished">Jan 5 2015</time>
-    更新日期:<time datetime="2015-01-08T08:06:39.000Z" itemprop="dateModified">Jan 8 2015</time>
+    <time datetime="2016-06-06T03:47:28.000Z" itemprop="datePublished">Jun 6 2016</time>
+    更新日期:<time datetime="2016-06-06T07:10:54.319Z" itemprop="dateModified">Jun 6 2016</time>
     
   </p>
 </header>
@@ -84,43 +91,102 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#chrome_u7684_u7656_u597D"><span class="toc-number">1.</span> <span class="toc-text">chrome的癖好</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u4E00_u3001chrome_u9ED8_u8BA4_u6700_u5C0F_u5B57_u4F53_u4E3A12px"><span class="toc-number">1.1.</span> <span class="toc-text">一、chrome默认最小字体为12px</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u4E00_u3001_u4EC0_u4E48_u662F_u201D_u975E_u6784_u9020_u51FD_u6570_u201D_u7684_u7EE7_u627F_uFF1F"><span class="toc-number">1.</span> <span class="toc-text">一、什么是”非构造函数”的继承？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u4E8C_u3001object_28_29_u65B9_u6CD5"><span class="toc-number">2.</span> <span class="toc-text">二、object()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u4E09_u3001_u6D45_u62F7_u8D1D"><span class="toc-number">3.</span> <span class="toc-text">三、浅拷贝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u56DB_u3001_u6DF1_u62F7_u8D1D"><span class="toc-number">4.</span> <span class="toc-text">四、深拷贝</span></a></li></ol>
 		</div>
 		
-		<h1 id="chrome_u7684_u7656_u597D"><a href="#chrome_u7684_u7656_u597D" class="headerlink" title="chrome的癖好"></a>chrome的癖好</h1><p><em>这篇想写chrome的一些特点，想到哪写哪，一点一点累计吧</em></p>
-<h2 id="u4E00_u3001chrome_u9ED8_u8BA4_u6700_u5C0F_u5B57_u4F53_u4E3A12px"><a href="#u4E00_u3001chrome_u9ED8_u8BA4_u6700_u5C0F_u5B57_u4F53_u4E3A12px" class="headerlink" title="一、chrome默认最小字体为12px"></a>一、chrome默认最小字体为12px</h2><p>站在用户体验的角度，太小的字体对于视力不好的用户很不友好，所以任凭你设9px，10px的字体，chrome都默认显示为12px，但是有的时候小像素的字体不是给用户看的，只是起到装饰作用，比如下面这张图,英文单词只是起到了装饰作用，所以小一点也无妨嘛</p>
-<p><img src="/TinyFractionBlog/img/01.jpg" alt="example01"></p>
-<p>在网上搜了下解决办法，可以用-webkit-text-size-adjust：none属性，但是Chrome27正式取消了此属性，有别的办法吗？<br>找到这个</p>
-<pre><code>.webkit {
-font-size: 9px;
--webkit-transform: scale(0.75);
-}
-</code></pre><p>通过把div整个缩小，实现了字体的变小，12×0.75=9，对于其它浏览器来说，9px默认识别，仅需要对于webkit浏览器进行缩放。我在web端的ie,ff,opera上测试都通过了，移动端没有管，毕竟做的网页不是给移动端看的。</p>
-<p>##二、chrome专有的hack##</p>
-<p>针对Chrome和Safari等Webkit核心浏览器的CSS hack代码：</p>
-<pre><code>/* Webkit*/ 
-@media screen and (-webkit-min-device-pixel-ratio:0) {.font1 {color:#f00} .border1 {border:1px solid #f00;} .bg3 {background:#f00;}} 
-</code></pre><p>同时，针对Opera浏览器的写法：</p>
-<pre><code>/*Opera*/ 
-@media all and (-webkit-min-device-pixel-ratio:10000),not and all (-webkit-min-device-pixel-ratio:0) { .font1 {color:red;} }
-</code></pre><p>针对Firefox浏览器的写法： </p>
-<pre><code>/*Firefox*/
-@-moz-document url-prefix() { .font1 {color:red} } 
-</code></pre>  
+		<h2 id="u4E00_u3001_u4EC0_u4E48_u662F_u201D_u975E_u6784_u9020_u51FD_u6570_u201D_u7684_u7EE7_u627F_uFF1F"><a href="#u4E00_u3001_u4EC0_u4E48_u662F_u201D_u975E_u6784_u9020_u51FD_u6570_u201D_u7684_u7EE7_u627F_uFF1F" class="headerlink" title="一、什么是”非构造函数”的继承？"></a>一、什么是”非构造函数”的继承？</h2><p>比如，现在有一个对象，叫做”中国人”。</p>
+<pre><code>var Chinese = {
+　　　　nation:&apos;中国&apos;
+　　};
+</code></pre><p>还有一个对象，叫做”医生”。</p>
+<pre><code>var Doctor ={
+　　　　career:&apos;医生&apos;
+　　}
+</code></pre><p>请问怎样才能让”医生”去继承”中国人”，也就是说，我怎样才能生成一个”中国医生”的对象？</p>
+<p>这里要注意，这两个对象都是普通对象，不是构造函数，无法使用构造函数方法实现”继承”。</p>
+<h2 id="u4E8C_u3001object_28_29_u65B9_u6CD5"><a href="#u4E8C_u3001object_28_29_u65B9_u6CD5" class="headerlink" title="二、object()方法"></a>二、object()方法</h2><blockquote>
+<p>json格式的发明人Douglas Crockford，提出了一个object()函数，可以做到这一点。</p>
+</blockquote>
+<pre><code>    　function object(o) {
+    　　　　function F() {}
+    　　　　F.prototype = o;
+    　　　　return new F();
+    　　}
+</code></pre><p>这个object()函数，其实只做一件事，就是把子对象的prototype属性，指向父对象，从而使得子对象与父对象连在一起。</p>
+<pre><code>    　var Doctor = object(Chinese);
+</code></pre><p>然后，再加上子对象本身的属性：</p>
+<pre><code>Doctor.career = &apos;医生&apos;;
+</code></pre><p>这时，子对象已经继承了父对象的属性了。</p>
+<pre><code>alert(Doctor.nation); //中国
+</code></pre><h2 id="u4E09_u3001_u6D45_u62F7_u8D1D"><a href="#u4E09_u3001_u6D45_u62F7_u8D1D" class="headerlink" title="三、浅拷贝"></a>三、浅拷贝</h2><p>除了使用”prototype链”以外，还有另一种思路：把父对象的属性，全部拷贝给子对象，也能实现继承。</p>
+<p>下面这个函数，就是在做拷贝：</p>
+<pre><code>    　　function extendCopy(p) {
+    　　　　var c = {};
+    　　　　for (var i in p) { 
+    　　　　　　c[i] = p[i];
+    　　　　}
+    　　　　c.uber = p;
+    　　　　return c;
+    　　}
+</code></pre><p>使用的时候，这样写：</p>
+<pre><code>    　  var Doctor = extendCopy(Chinese);
+    　　Doctor.career = &apos;医生&apos;;
+    　　alert(Doctor.nation); // 中国
+</code></pre><p>但是，这样的拷贝有一个问题。那就是，如果父对象的属性等于数组或另一个对象，那么实际上，子对象获得的只是一个内存地址，而不是真正拷贝，因此存在父对象被篡改的可能。</p>
+<p>请看，现在给Chinese添加一个”出生地”属性，它的值是一个数组。</p>
+<pre><code>Chinese.birthPlaces = [&apos;北京&apos;,&apos;上海&apos;,&apos;香港&apos;];
+</code></pre><p>通过extendCopy()函数，Doctor继承了Chinese。</p>
+<pre><code>var Doctor = extendCopy(Chinese);
+</code></pre><p>然后，我们为Doctor的”出生地”添加一个城市：</p>
+<pre><code>Doctor.birthPlaces.push(&apos;厦门&apos;);
+</code></pre><p>发生了什么事？Chinese的”出生地”也被改掉了！</p>
+<pre><code>alert(Doctor.birthPlaces); //北京, 上海, 香港, 厦门
+alert(Chinese.birthPlaces); //北京, 上海, 香港, 厦门
+</code></pre><p>所以，extendCopy()只是拷贝基本类型的数据，我们把这种拷贝叫做”浅拷贝”。这是早期jQuery实现继承的方式。</p>
+<h2 id="u56DB_u3001_u6DF1_u62F7_u8D1D"><a href="#u56DB_u3001_u6DF1_u62F7_u8D1D" class="headerlink" title="四、深拷贝"></a>四、深拷贝</h2><blockquote>
+<p>所谓”深拷贝”，就是能够实现真正意义上的数组和对象的拷贝。它的实现并不难，只要递归调用”浅拷贝”就行了。</p>
+</blockquote>
+<pre><code>function deepCopy(p, c) {
+　　　　var c = c || {};
+　　　　for (var i in p) {
+　　　　　　if (typeof p[i] === &apos;object&apos;) {
+　　　　　　　　c[i] = (p[i].constructor === Array) ? [] : {};
+　　　　　　　　deepCopy(p[i], c[i]);
+　　　　　　} else {
+　　　　　　　　　c[i] = p[i];
+　　　　　　}
+　　　　}
+　　　　return c;
+　　}
+</code></pre><p>使用的时候这样写：</p>
+<pre><code>var Doctor = deepCopy(Chinese);
+</code></pre><p>现在，给父对象加一个属性，值为数组。然后，在子对象上修改这个属性：</p>
+<pre><code>Chinese.birthPlaces = [&apos;北京&apos;,&apos;上海&apos;,&apos;香港&apos;];
+Doctor.birthPlaces.push(&apos;厦门&apos;);
+</code></pre><p>这时，父对象就不会受到影响了。</p>
+<pre><code>alert(Doctor.birthPlaces); //北京, 上海, 香港, 厦门
+alert(Chinese.birthPlaces); //北京, 上海, 香港
+</code></pre><p>目前，jQuery库使用的就是这种继承方法。</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/TinyFractionBlog/tags/兼容性/">兼容性</a>
+  <span></span> <a href="/TinyFractionBlog/tags/javascript/">javascript</a><a href="/TinyFractionBlog/tags/继承/">继承</a><a href="/TinyFractionBlog/tags/非构造函数/">非构造函数</a><a href="/TinyFractionBlog/tags/面向对象/">面向对象</a>
   </div>
 
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/TinyFractionBlog/categories/技术/">技术</a>
+</div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://mmww1024.github.io/TinyFractionBlog/2015/01/05/chrome的癖好/" data-title="chrome的癖好 | 玖牛一毛的博客" data-tsina="null" class="share clearfix">
+  <div data-url="http://mmww1024.github.io/TinyFractionBlog/2016/06/06/面向对象学习笔记（三）/" data-title="面向对象学习笔记（三） | 玖牛一毛的博客" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -130,18 +196,18 @@ font-size: 9px;
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/TinyFractionBlog/2016/01/12/JavaScript高级程序设计笔记/" title="JavaScript高级程序设计笔记">
+ <a href="/TinyFractionBlog/2016/06/06/面向对象学习笔记（二）/" title="面向对象学习笔记（二）">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  JavaScript高级程序设计笔记</span>
+  面向对象学习笔记（二）</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/TinyFractionBlog/2014/12/10/跨域的iframe高度自适应/"  title="跨域的iframe高度自适应">
+<a href="/TinyFractionBlog/2016/05/20/requirejs学习笔记/"  title="requirejs学习笔记">
  <strong>NEXT:</strong><br/> 
- <span>跨域的iframe高度自适应
+ <span>requirejs学习笔记
 </span>
 </a>
 </div>
@@ -167,7 +233,7 @@ font-size: 9px;
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#chrome_u7684_u7656_u597D"><span class="toc-number">1.</span> <span class="toc-text">chrome的癖好</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u4E00_u3001chrome_u9ED8_u8BA4_u6700_u5C0F_u5B57_u4F53_u4E3A12px"><span class="toc-number">1.1.</span> <span class="toc-text">一、chrome默认最小字体为12px</span></a></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u4E00_u3001_u4EC0_u4E48_u662F_u201D_u975E_u6784_u9020_u51FD_u6570_u201D_u7684_u7EE7_u627F_uFF1F"><span class="toc-number">1.</span> <span class="toc-text">一、什么是”非构造函数”的继承？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u4E8C_u3001object_28_29_u65B9_u6CD5"><span class="toc-number">2.</span> <span class="toc-text">二、object()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u4E09_u3001_u6D45_u62F7_u8D1D"><span class="toc-number">3.</span> <span class="toc-text">三、浅拷贝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u56DB_u3001_u6DF1_u62F7_u8D1D"><span class="toc-number">4.</span> <span class="toc-text">四、深拷贝</span></a></li></ol>
   </div>
 
 <div id="asidepart">

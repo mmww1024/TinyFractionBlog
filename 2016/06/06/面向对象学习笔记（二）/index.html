@@ -1,0 +1,484 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>面向对象学习笔记（二） | 玖牛一毛的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="JIUTOU">
+    
+    <meta name="description" content="对象之间的”继承”的五种方法比如，现在有一个”动物”对象的构造函数。
+function Animal(){
+　　　　this.species = &amp;quot;动物&amp;quot;;
+　　}
+还有一个”猫”对象的构造函数。
+    　function Cat(name,color){
+    　　　　th">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/TinyFractionBlog/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/TinyFractionBlog/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/TinyFractionBlog/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/TinyFractionBlog/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/TinyFractionBlog/"><img src="/TinyFractionBlog/img/logo.png" alt="玖牛一毛的博客" title="玖牛一毛的博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/TinyFractionBlog/" title="玖牛一毛的博客">玖牛一毛的博客</a></h1>
+				<h2 class="blog-motto">多出两天思考</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/TinyFractionBlog">首页</a></li>
+					
+						<li><a href="/TinyFractionBlog/archives">所有日志</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:mmww1024.github.io/TinyFractionBlog">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/TinyFractionBlog/2016/06/06/面向对象学习笔记（二）/" title="面向对象学习笔记（二）" itemprop="url">面向对象学习笔记（二）</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://mmww1024.github.io/TinyFractionBlog" title="JIUTOU">JIUTOU</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-06-06T03:47:28.000Z" itemprop="datePublished">Jun 6 2016</time>
+    更新日期:<time datetime="2016-06-06T06:57:58.357Z" itemprop="dateModified">Jun 6 2016</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u5BF9_u8C61_u4E4B_u95F4_u7684_u201D_u7EE7_u627F_u201D_u7684_u4E94_u79CD_u65B9_u6CD5"><span class="toc-number">1.</span> <span class="toc-text">对象之间的”继承”的五种方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E00_u3001__u6784_u9020_u51FD_u6570_u7ED1_u5B9A"><span class="toc-number">1.1.</span> <span class="toc-text">一、 构造函数绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E8C_u3001_prototype_u6A21_u5F0F"><span class="toc-number">1.2.</span> <span class="toc-text">二、 prototype模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E09_u3001__u76F4_u63A5_u7EE7_u627Fprototype"><span class="toc-number">1.3.</span> <span class="toc-text">三、 直接继承prototype</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u56DB_u3001__u5229_u7528_u7A7A_u5BF9_u8C61_u4F5C_u4E3A_u4E2D_u4ECB"><span class="toc-number">1.4.</span> <span class="toc-text">四、 利用空对象作为中介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E94_u3001__u62F7_u8D1D_u7EE7_u627F"><span class="toc-number">1.5.</span> <span class="toc-text">五、 拷贝继承</span></a></li></ol></li></ol>
+		</div>
+		
+		<h2 id="u5BF9_u8C61_u4E4B_u95F4_u7684_u201D_u7EE7_u627F_u201D_u7684_u4E94_u79CD_u65B9_u6CD5"><a href="#u5BF9_u8C61_u4E4B_u95F4_u7684_u201D_u7EE7_u627F_u201D_u7684_u4E94_u79CD_u65B9_u6CD5" class="headerlink" title="对象之间的”继承”的五种方法"></a>对象之间的”继承”的五种方法</h2><p>比如，现在有一个”动物”对象的构造函数。</p>
+<pre><code>function Animal(){
+　　　　this.species = &quot;动物&quot;;
+　　}
+</code></pre><p>还有一个”猫”对象的构造函数。</p>
+<pre><code>    　function Cat(name,color){
+    　　　　this.name = name;
+    　　　　this.color = color;
+    　　}
+</code></pre><p>怎样才能使”猫”继承”动物”呢？</p>
+<h3 id="u4E00_u3001__u6784_u9020_u51FD_u6570_u7ED1_u5B9A"><a href="#u4E00_u3001__u6784_u9020_u51FD_u6570_u7ED1_u5B9A" class="headerlink" title="一、 构造函数绑定"></a>一、 构造函数绑定</h3><blockquote>
+<p>第一种方法也是最简单的方法，使用call或apply方法，将父对象的构造函数绑定在子对象上，即在子对象构造函数中加一行：</p>
+</blockquote>
+<pre><code>    　function Cat(name,color){
+    　　　　Animal.apply(this, arguments);//继承父元素的构造函数
+    　　　　this.name = name;
+    　　　　this.color = color;
+    　　}
+    　　var cat1 = new Cat(&quot;大毛&quot;,&quot;黄色&quot;);
+    　　alert(cat1.species); // 动物
+</code></pre><h3 id="u4E8C_u3001_prototype_u6A21_u5F0F"><a href="#u4E8C_u3001_prototype_u6A21_u5F0F" class="headerlink" title="二、 prototype模式"></a>二、 prototype模式</h3><blockquote>
+<p>第二种方法更常见，使用prototype属性。</p>
+</blockquote>
+<p>如果”猫”的prototype对象，指向一个Animal的实例，那么所有”猫”的实例，就能继承Animal了。</p>
+<pre><code>    　　Cat.prototype = new Animal();
+    　　Cat.prototype.constructor = Cat;
+    　　var cat1 = new Cat(&quot;大毛&quot;,&quot;黄色&quot;);
+    　　alert(cat1.species); // 动物
+</code></pre><p>代码的第一行，我们将Cat的prototype对象指向一个Animal的实例。</p>
+<pre><code>    　Cat.prototype = new Animal();
+</code></pre><p>它相当于完全删除了prototype 对象原先的值，然后赋予一个新值。但是，第二行又是什么意思呢？</p>
+<pre><code>Cat.prototype.constructor = Cat;
+</code></pre><p>原来，任何一个prototype对象都有一个constructor属性，指向它的构造函数。如果没有”Cat.prototype = new Animal();”这一行，Cat.prototype.constructor是指向Cat的；加了这一行以后，Cat.prototype.constructor指向Animal。</p>
+<pre><code>alert(Cat.prototype.constructor == Animal); //true
+</code></pre><p>更重要的是，每一个实例也有一个constructor属性，默认调用prototype对象的constructor属性。</p>
+<pre><code>alert(cat1.constructor == Cat.prototype.constructor); // true
+</code></pre><p>因此，在运行”Cat.prototype = new Animal();”这一行之后，cat1.constructor也指向Animal！</p>
+<pre><code>alert(cat1.constructor == Animal); // true
+</code></pre><p>这显然会导致继承链的紊乱（cat1明明是用构造函数Cat生成的），因此我们必须手动纠正，将Cat.prototype对象的constructor值改为Cat。这就是第二行的意思。</p>
+<p>这是很重要的一点，编程时务必要遵守。下文都遵循这一点，即如果替换了prototype对象，</p>
+<pre><code>    　o.prototype = {};
+</code></pre><p>那么，下一步必然是为新的prototype对象加上constructor属性，并将这个属性指回原来的构造函数。</p>
+<pre><code>o.prototype.constructor = o;
+</code></pre><h3 id="u4E09_u3001__u76F4_u63A5_u7EE7_u627Fprototype"><a href="#u4E09_u3001__u76F4_u63A5_u7EE7_u627Fprototype" class="headerlink" title="三、 直接继承prototype"></a>三、 直接继承prototype</h3><blockquote>
+<p>第三种方法是对第二种方法的改进。由于Animal对象中，不变的属性都可以直接写入Animal.prototype。所以，我们也可以让Cat()跳过 Animal()，直接继承Animal.prototype。</p>
+</blockquote>
+<p>现在，我们先将Animal对象改写：</p>
+<pre><code>　　function Animal(){ }
+Animal.prototype.species = &quot;动物&quot;;
+</code></pre><p>然后，将Cat的prototype对象，然后指向Animal的prototype对象，这样就完成了继承。</p>
+<pre><code>    　Cat.prototype = Animal.prototype;
+    　Cat.prototype.constructor = Cat;
+    　var cat1 = new Cat(&quot;大毛&quot;,&quot;黄色&quot;);
+    　alert(cat1.species); // 动物
+</code></pre><p>与前一种方法相比，这样做的优点是效率比较高（不用执行和建立Animal的实例了），比较省内存。缺点是 Cat.prototype和Animal.prototype现在指向了同一个对象，那么任何对Cat.prototype的修改，都会反映到Animal.prototype。</p>
+<p>所以，上面这一段代码其实是有问题的。请看第二行</p>
+<pre><code>Cat.prototype.constructor = Cat;
+</code></pre><p>这一句实际上把Animal.prototype对象的constructor属性也改掉了！</p>
+<pre><code>alert(Animal.prototype.constructor); // Cat
+</code></pre><h3 id="u56DB_u3001__u5229_u7528_u7A7A_u5BF9_u8C61_u4F5C_u4E3A_u4E2D_u4ECB"><a href="#u56DB_u3001__u5229_u7528_u7A7A_u5BF9_u8C61_u4F5C_u4E3A_u4E2D_u4ECB" class="headerlink" title="四、 利用空对象作为中介"></a>四、 利用空对象作为中介</h3><p>由于”直接继承prototype”存在上述的缺点，所以就有第四种方法，利用一个空对象作为中介。</p>
+<pre><code>var F = function(){};
+　　F.prototype = Animal.prototype;
+　　Cat.prototype = new F();
+　　Cat.prototype.constructor = Cat;
+</code></pre><p>F是空对象，所以几乎不占内存。这时，修改Cat的prototype对象，就不会影响到Animal的prototype对象。</p>
+<pre><code>alert(Animal.prototype.constructor); // Animal
+</code></pre><p>我们将上面的方法，封装成一个函数，便于使用。</p>
+<pre><code>function extend(Child, Parent) {    
+　　　　var F = function(){};
+　　　　F.prototype = Parent.prototype;
+　　　　Child.prototype = new F();
+　　　　Child.prototype.constructor = Child;
+　　　　Child.uber = Parent.prototype;
+　　}
+</code></pre><p>使用的时候，方法如下</p>
+<pre><code>　  extend(Cat,Animal);
+　　var cat1 = new Cat(&quot;大毛&quot;,&quot;黄色&quot;);
+　　alert(cat1.species); // 动物
+</code></pre><p>这个extend函数，就是YUI库如何实现继承的方法。<br>另外，说明一点，函数体最后一行</p>
+<pre><code>Child.uber = Parent.prototype;
+</code></pre><p>意思是为子对象设一个uber属性，这个属性直接指向父对象的prototype属性。（uber是一个德语词，意思是”向上”、”上一层”。）这等于在子对象上打开一条通道，可以直接调用父对象的方法。这一行放在这里，只是为了实现继承的完备性，纯属备用性质。</p>
+<h3 id="u4E94_u3001__u62F7_u8D1D_u7EE7_u627F"><a href="#u4E94_u3001__u62F7_u8D1D_u7EE7_u627F" class="headerlink" title="五、 拷贝继承"></a>五、 拷贝继承</h3><p>上面是采用prototype对象，实现继承。我们也可以换一种思路，纯粹采用”拷贝”方法实现继承。简单说，如果把父对象的所有属性和方法，拷贝进子对象，不也能够实现继承吗？这样我们就有了第五种方法。</p>
+<pre><code>function extend2(Child, Parent) {
+　　　　var p = Parent.prototype;
+　　　　var c = Child.prototype;
+　　　　for (var i in p) {
+　　　　　　c[i] = p[i];
+　　　　　　}
+　　　　c.uber = p;
+　　}
+</code></pre><p>这个函数的作用，就是将父对象的prototype对象中的属性，一一拷贝给Child对象的prototype对象。<br>使用的时候，这样写：</p>
+<pre><code>　  extend2(Cat, Animal);
+　　var cat1 = new Cat(&quot;大毛&quot;,&quot;黄色&quot;);
+　　alert(cat1.species); // 动物
+</code></pre>  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/TinyFractionBlog/tags/javascript/">javascript</a><a href="/TinyFractionBlog/tags/继承/">继承</a><a href="/TinyFractionBlog/tags/面向对象/">面向对象</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/TinyFractionBlog/categories/技术/">技术</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://mmww1024.github.io/TinyFractionBlog/2016/06/06/面向对象学习笔记（二）/" data-title="面向对象学习笔记（二） | 玖牛一毛的博客" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/TinyFractionBlog/2016/06/06/面向对象学习笔记（一）/" title="面向对象学习笔记(一)">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  面向对象学习笔记(一)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/TinyFractionBlog/2016/06/06/面向对象学习笔记（三）/"  title="面向对象学习笔记（三）">
+ <strong>NEXT:</strong><br/> 
+ <span>面向对象学习笔记（三）
+</span>
+</a>
+</div>
+
+</nav>
+
+	    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'nntt'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u5BF9_u8C61_u4E4B_u95F4_u7684_u201D_u7EE7_u627F_u201D_u7684_u4E94_u79CD_u65B9_u6CD5"><span class="toc-number">1.</span> <span class="toc-text">对象之间的”继承”的五种方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E00_u3001__u6784_u9020_u51FD_u6570_u7ED1_u5B9A"><span class="toc-number">1.1.</span> <span class="toc-text">一、 构造函数绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E8C_u3001_prototype_u6A21_u5F0F"><span class="toc-number">1.2.</span> <span class="toc-text">二、 prototype模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E09_u3001__u76F4_u63A5_u7EE7_u627Fprototype"><span class="toc-number">1.3.</span> <span class="toc-text">三、 直接继承prototype</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u56DB_u3001__u5229_u7528_u7A7A_u5BF9_u8C61_u4F5C_u4E3A_u4E2D_u4ECB"><span class="toc-number">1.4.</span> <span class="toc-text">四、 利用空对象作为中介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E94_u3001__u62F7_u8D1D_u7EE7_u627F"><span class="toc-number">1.5.</span> <span class="toc-text">五、 拷贝继承</span></a></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/TinyFractionBlog/categories/2014D2/" title="2014D2">2014D2<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/categories/javascript/" title="javascript">javascript<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/categories/js/" title="js">js<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/categories/兼容性/" title="兼容性">兼容性<sup>2</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/categories/前端小记/" title="前端小记">前端小记<sup>3</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/categories/小结/" title="小结">小结<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/categories/技术/" title="技术">技术<sup>3</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/categories/小结/第一天/" title="第一天">第一天<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/categories/邮箱设置/" title="邮箱设置">邮箱设置<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/categories/2014D2/阿里巴巴西溪园区/" title="阿里巴巴西溪园区">阿里巴巴西溪园区<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/TinyFractionBlog/tags/AngularJs/" title="AngularJs">AngularJs<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/JavaScript/" title="JavaScript">JavaScript<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/ie/" title="ie">ie<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/ie6/" title="ie6">ie6<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/iframe/" title="iframe">iframe<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/javascript/" title="javascript">javascript<sup>4</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/js/" title="js">js<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/mail/" title="mail">mail<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/node/" title="node">node<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/requirejs/" title="requirejs">requirejs<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/兼容性/" title="兼容性">兼容性<sup>2</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/函数/" title="函数">函数<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/分页/" title="分页">分页<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/前后端分离/" title="前后端分离">前后端分离<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/前端工业化/" title="前端工业化">前端工业化<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/博客/" title="博客">博客<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/开始/" title="开始">开始<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/我/" title="我">我<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/文档编码/" title="文档编码">文档编码<sup>1</sup></a></li>
+		
+			<li><a href="/TinyFractionBlog/tags/构造函数/" title="构造函数">构造函数<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+      
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2016 
+		
+		<a href="http://mmww1024.github.io/TinyFractionBlog" target="_blank" title="JIUTOU">JIUTOU</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/TinyFractionBlog/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>
