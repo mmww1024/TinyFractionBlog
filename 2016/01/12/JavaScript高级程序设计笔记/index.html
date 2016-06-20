@@ -80,7 +80,7 @@ defer:可选。表示脚本可以等文档解析完">
     </p>
   <p class="article-time">
     <time datetime="2016-01-12T07:15:28.000Z" itemprop="datePublished">Jan 12 2016</time>
-    更新日期:<time datetime="2016-06-20T08:25:18.874Z" itemprop="dateModified">Jun 20 2016</time>
+    更新日期:<time datetime="2016-06-20T09:35:28.995Z" itemprop="dateModified">Jun 20 2016</time>
     
   </p>
 </header>
@@ -283,8 +283,13 @@ var hexNum2 = 0x1f;  //十六进制的31
 <li><p>字符字面量</p>
 <p> \n  换行<br> \t  制表<br> \b  空格<br> \r  回车<br> \f  进纸<br> \  斜杠<br> \’  单引号（’）<br> \”    双引号（”）</p>
 </li>
-<li><p>字符串的特点 </p>
+<li><p>字符串的特点</p>
 </li>
+</ol>
+<ul>
+<li>字符串一旦创建，他们的值就不能改变。要改变某个变量保存的字符串，首先要销毁原来的字符串，然后在用另一个包含新值的字符串填充该变量。</li>
+</ul>
+<ol>
 <li><p>转换为字符串</p>
 <p> var age = 11;<br> var ageAsString = age.toString();      //字符串”11”<br> //toString()可以传递基数，输出不同进制的数<br> //age.toString(2)<br> //age.toString(8)<br> //age.toString(10)<br> //age.toString(16)</p>
 </li>
@@ -296,7 +301,16 @@ var hexNum2 = 0x1f;  //十六进制的31
 <li>如果值是null,则返回”null”;</li>
 <li>如果值是undefined,则返回”undefined”。</li>
 </ul>
-<p><strong>3.4.7 Object 类型</strong></p>
+<pre><code>var value1 = 10;
+var value2 = true;
+var value3 = null;
+var value4;
+
+alert(String(value1));  //&apos;10&apos;,有toString（）方法
+alert(String(value2));  //&apos;true&apos;，有toString（）方法
+alert(String(value3));  //&apos;null&apos;
+alert(String(value4));  //&apos;undefined&apos;
+</code></pre><p><strong>3.4.7 Object 类型</strong></p>
 <pre><code>var o = new Object();
 </code></pre><blockquote>
 <p>Object的每个实例都具有下列属性和方法</p>
