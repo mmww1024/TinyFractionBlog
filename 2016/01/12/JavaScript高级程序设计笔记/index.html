@@ -80,7 +80,7 @@ defer:可选。表示脚本可以等文档解析完">
     </p>
   <p class="article-time">
     <time datetime="2016-01-12T07:15:28.000Z" itemprop="datePublished">Jan 12 2016</time>
-    更新日期:<time datetime="2016-06-06T07:21:13.373Z" itemprop="dateModified">Jun 6 2016</time>
+    更新日期:<time datetime="2016-06-20T08:25:18.874Z" itemprop="dateModified">Jun 20 2016</time>
     
   </p>
 </header>
@@ -122,24 +122,22 @@ defer:可选。表示脚本可以等文档解析完">
 </ul>
 <p><strong>2.1.4 在XHTML中的用法</strong></p>
 <ul>
-<li><p>在xhtml中会把&lt;号理解为一个新标签的开始，新标签后跟空格，就会导致错误，因此需要引入CData片段，才可以通过xhtml验证，而且对xhtml之前的浏览器也会平稳退化。</p>
-  <script>
-  //<![CDATA[
-      function compare(a,b){
-          if(a < b){
-
-          }else if(a > b){
-
-          }else{
-
-          }
-      }
-  //]]>
-  </script>
-
-</li>
+<li>在xhtml中会把&lt;号理解为一个新标签的开始，新标签后跟空格，就会导致错误，因此需要引入CData片段，才可以通过xhtml验证，而且对xhtml之前的浏览器也会平稳退化。</li>
 </ul>
-<h2 id="2-2__u5D4C_u5165_u4EE3_u7801_u4E0E_u5916_u90E8_u6587_u4EF6"><a href="#2-2__u5D4C_u5165_u4EE3_u7801_u4E0E_u5916_u90E8_u6587_u4EF6" class="headerlink" title="2.2 嵌入代码与外部文件"></a>2.2 嵌入代码与外部文件</h2><p>优点：</p>
+<pre><code>&lt;script&gt;
+//&lt;![CDATA[
+    function compare(a,b){
+        if(a &lt; b){
+
+        }else if(a &gt; b){
+
+        }else{
+
+        }
+    }
+//]]&gt;
+&lt;/script&gt;
+</code></pre><h2 id="2-2__u5D4C_u5165_u4EE3_u7801_u4E0E_u5916_u90E8_u6587_u4EF6"><a href="#2-2__u5D4C_u5165_u4EE3_u7801_u4E0E_u5916_u90E8_u6587_u4EF6" class="headerlink" title="2.2 嵌入代码与外部文件"></a>2.2 嵌入代码与外部文件</h2><p>优点：</p>
 <ul>
 <li>可维护性</li>
 <li>可缓存</li>
