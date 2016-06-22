@@ -80,7 +80,7 @@ defer:可选。表示脚本可以等文档解析完">
     </p>
   <p class="article-time">
     <time datetime="2016-01-12T07:15:28.000Z" itemprop="datePublished">Jan 12 2016</time>
-    更新日期:<time datetime="2016-06-20T09:35:28.995Z" itemprop="dateModified">Jun 20 2016</time>
+    更新日期:<time datetime="2016-06-21T09:50:48.304Z" itemprop="dateModified">Jun 21 2016</time>
     
   </p>
 </header>
@@ -598,7 +598,7 @@ alert(name.age);      //undefined
 var count = 20;
 var result = addTen(count);
 alert(count);      //20,没有变化
-alert(result);     //20
+alert(result);     //30
 //参数num与变量count互不认识，他们仅仅是具有相同的值
 
 function setName(obj){
@@ -617,8 +617,9 @@ function setName(obj){
 var person = new Object();
 setName(person);
 alert(person.name);   //&quot;Nicholas&quot;
-//即使在函数内部修改了参数的值，但原始的引用仍然保持未变。实际上，挡在函数内部重写obj时，这个变量引用的就是一个局部对象了，这个局部对象会在函数执行完毕后立即被销毁
+//即使在函数内部修改了参数的值，但原始的引用仍然保持未变。实际上，当在函数内部重写obj时，这个变量引用的就是一个局部对象了，这个局部对象会在函数执行完毕后立即被销毁
 </code></pre><p><strong>4.1.4 检测类型</strong></p>
+<p>检测基本数据类型用typeof,可以确定一个变量是字符串，数值，布尔值，还是undefined的最佳工具，但是在检测引用类型的值时，这个操作符用处不大。通常，我们并不想知道某个值是对象，而是想知道他是什么类型的对象。为此，可以用instanceof操作符：</p>
 <pre><code>alert(person instanceof Object);   //变量person是Object吗？
 alert(colors instanceof Array);   //变量colors是Array吗？
 alert(pattern instanceof RegExp);   //变量pattern是RegExp吗？
@@ -672,10 +673,17 @@ person.age = 29;
     name : &quot;Nicholas&quot;,
     age : 29
 };
+</code></pre><p> 如果留空其花括号，则与new Object()相同</p>
+<pre><code>var person = {};
+person.name = &quot;Nicholas&quot;;
+person.age = 29;
 </code></pre></li>
 </ol>
 </li>
-<li><p>通过变量访问属性</p>
+<li><p>一般来说，访问对象属性时使用的都是点表示法：</p>
+<pre><code>person.name
+</code></pre></li>
+<li><p>也可以使用方括号法来访问，这种方式的优点是可以通过变量访问属性：</p>
 <p>  var propertyName = “name”;<br>  alert(person[propertyName]);   //“Nicholas”</p>
 </li>
 </ul>
@@ -687,14 +695,24 @@ colors[colors.length] = &quot;brown&quot;;
 </code></pre></li>
 </ul>
 <p><strong>5.2.1 监测数组</strong></p>
-<pre><code>if(Array.isArray(value)){
-    //对数组执行某些操作
-}
-</code></pre><p><strong>5.2.2 转换方法</strong></p>
 <ul>
-<li>三种方法：toLocaleString(),toString()和valueOf()</li>
+<li><p>确定某个值到底是不是数组：</p>
+<p>  if(Array.isArray(value)){</p>
+<pre><code>//对数组执行某些操作
+</code></pre><p>  }</p>
+</li>
+</ul>
+<p><strong>5.2.2 转换方法</strong></p>
+<ul>
+<li>三种转换为字符串的方法：toLocaleString(),toString()和valueOf()</li>
 <li>valueOf()返回的是数组</li>
 <li>toString()返回的是一个以逗号分割的字符串</li>
+<li>toLocaleString()与其他两个方法唯一的不同之处在于，这一次为了取得每一项的值，调用的是每一项的toLocaleString()方法，而不是toString()方法</li>
+<li><p>以上三种方法，默认情况下都会以逗号分隔的字符串的形式返回数组项。而join()方法，则可用不同的分隔符来构建这个字符串，join()方法只接受一个参数，即用作分隔符的字符串。</p>
+<pre><code>var colors = [&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;];
+alert(colors.join(&quot;,&quot;))  //red,green,blue
+alert(colors.join(&quot;||&quot;))  //red||green||blue
+</code></pre></li>
 </ul>
 <p><strong>5.2.3 栈方法</strong></p>
 <ul>
@@ -728,7 +746,7 @@ var item = colors.shift();    //取得第一项
 alert(item);            //&quot;red&quot;    
 alert(colors.length);   //2
 </code></pre></li>
-<li><p>使用unshift()和pop()方法，可以从相反的方向来模拟队列，即在叔组的前端添加项，从数组的末端移除项</p>
+<li><p>使用unshift()和pop()方法，可以从相反的方向来模拟队列，即在数组的前端添加项，从数组的末端移除项</p>
 <pre><code>var colors = new Array();
 var count = colors.unshift(&quot;red&quot;,&quot;green&quot;);
 alert(count);      //2
