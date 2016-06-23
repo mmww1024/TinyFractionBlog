@@ -80,7 +80,7 @@ defer:可选。表示脚本可以等文档解析完">
     </p>
   <p class="article-time">
     <time datetime="2016-01-12T07:15:28.000Z" itemprop="datePublished">Jan 12 2016</time>
-    更新日期:<time datetime="2016-06-21T09:50:48.304Z" itemprop="dateModified">Jun 21 2016</time>
+    更新日期:<time datetime="2016-06-23T09:18:12.344Z" itemprop="dateModified">Jun 23 2016</time>
     
   </p>
 </header>
@@ -812,17 +812,17 @@ alert(colors);   //red,green,blue
 alert(colors2);  //red,green,blue,yellow,black,brown
 </code></pre></li>
 <li><p>slice()方法基于当前数组中的一个或多个项创建一个新数组</p>
-<pre><code>var colors = [&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;yellow&quot;,&quot;purple&quot;];
-var colors2 = colors.slice(1);
-var colors3 = colors.slice(1,4);
-
-alert(colors2);  //green,blue,yellow,purple
-alert(colors3);  //green,blue,yellow
-
-//如果slice()方法的参数中有一个负数，则用数组长度加上该数来确定相应的位置
-    如：slice(-2,-1)与调用slice(3,4)结果一样
-//如果结束位置小雨起始位置，则返回空数组
-</code></pre></li>
+<ol>
+<li>一个参数时：返回从该参数指定位置开始到当前数组末尾的所有项</li>
+<li><p>两个参数时：返回其实和结束位置之间的项，但不包括结束位置的项</p>
+<p> var colors = [“red”,”green”,”blue”,”yellow”,”purple”];<br> var colors2 = colors.slice(1);//返回1到结束位置的项<br> var colors3 = colors.slice(1,4);//返回1到3位置的项</p>
+<p> alert(colors2);  //green,blue,yellow,purple<br> alert(colors3);  //green,blue,yellow</p>
+<p> //如果slice()方法的参数中有一个负数，则用数组长度加上该数来确定相应的位置</p>
+<pre><code>如：slice(-2,-1)与调用slice(3,4)结果一样
+</code></pre><p> //如果结束位置小雨起始位置，则返回空数组</p>
+</li>
+</ol>
+</li>
 <li><p>splice()方法，主要用途是向数组的中部插入项</p>
 <ol>
 <li>删除：可以删除任意数量的项，只需提供2个参数，eg:splice(0,2)会删除数组中的前两项</li>
@@ -873,6 +873,15 @@ alert(morePeople.indexOf(person));  //0
 <ul>
 <li>5个迭代方法，每个方法接受两个参数：要在每一项上运行的函数和（可选的）运行该函数的作用域对象——影响this的值。</li>
 <li><p>传入这些方法中的函数会接受三个参数：数组项的值、该项在数组中的位置和数组对象本身</p>
+<ol>
+<li>every():对数组中每一项运行给定函数，如果该函数对每一项都返回true,则返回true</li>
+<li>filter():对数组中每一项运行给定函数，返回该函数会返回true的项组成的数组</li>
+<li>forEach():对数组中每一项运行给定函数，这个方法没有返回值</li>
+<li>map():对数组中每一项运行给定函数，返回每次函数调用的结果组成的数组</li>
+<li>some():对数组中每一项运行给定函数，如果该函数对任一项返回true,则返回true</li>
+</ol>
+</li>
+<li><p>以上方法都不会修改数组中的包含的值</p>
 <pre><code>var numbers = [1,2,3,4,5,4,3,2,1];
 
 var everyResult = numbers.every(function(item,index,array){
@@ -903,7 +912,7 @@ numbers.forEach(function(item,index,array){
 <p><strong>5.2.9 缩小方法</strong></p>
 <ul>
 <li>两个缩小数组的方法：reduce()和reduceRight()。这两个方法都会迭代数组的所有项，然后构建一个最终返回的值</li>
-<li>reduce()方法丛书组的第一项开始，逐个遍历到最后</li>
+<li>reduce()方法从数组的第一项开始，逐个遍历到最后</li>
 <li>reduceRight()则从数组的最后一项开始，向前遍历到第一项</li>
 <li>这两个方法都接受两个参数：一个在每一项上调用的函数和（可选的）作为缩小基础的初始值。</li>
 <li>传递给reduce()和reduceRight()的函数接受4个参数：前一个值、当前值、项的索引和数组对象</li>
@@ -930,7 +939,7 @@ alert(sum);     //15
 <pre><code>//为2004年5月25日创建一个日期对象，如下：
 var someDate = new Date(Date.parse(&quot;May 25,2004&quot;));
 //直接将表示日期的字符串传递给Date构造函数，也会在后台调用Date.parse(),即：下面这个与上面的效果一样
-var someDate = new Date(&quot;May 25,2004&quot;);
+var someDate = new Date(&quot;May 25,2004&quot;);//Tue May 25 2004 00:00:00 GMT+0800 (中国标准时间)
 </code></pre></li>
 <li><p>Date.UTC()返回表日期的毫秒数。其参数分别是年份、基于0的月份（1月是0，二月是1，以此类推）、月中的哪一天（1到31）、小时数（0到23）、分钟、秒以及毫秒数。这些参数中，只有前两个参数（年和月）是必须的。如果没有提供月中的天数，则假设天数为1；如果省略其他参数，则统统假设为0</p>
 <pre><code>//GMT时间2000年1月1日午夜零时
@@ -941,7 +950,7 @@ var allFives = new Date(Date.UTC(2005,4,5,17,55,55));
 
 //如果第一个参数是数值，Date构造函数会假设该值是日期中的年份，而第二个参数是月份，以此类推，因此上面的可以简写如下：
 var y2k = new Date(2000,0);
-var allFives =(2005,4,5,17,55,55);
+var allFives = new Date(2005,4,5,17,55,55);//Thu May 05 2005 17:55:55 GMT+0800 (中国标准时间)
 </code></pre></li>
 <li><p>Data.now()方法，返回表示调用这个方法时的日期和时间的毫秒数</p>
 <pre><code>//取得开始时间
@@ -954,7 +963,7 @@ doSomething();
 var stop = Date.now();
     result = stop-start;
 
-//无兼容性写法
+//兼容性写法,在不支持Date.now()的浏览器中，使用+操作符把Date对象转换成字符串，也可以达到同样的目的
 var start = +new Date();
 doSomething();
 var stop = +new Date();
@@ -984,6 +993,70 @@ alert(date1 &lt; date2);   //true
 <h2 id="5-4_RegExp_u7C7B_u578B"><a href="#5-4_RegExp_u7C7B_u578B" class="headerlink" title="5.4 RegExp类型"></a>5.4 RegExp类型</h2><ul>
 <li>正则表达式 var expression = / pattern / flags;</li>
 </ul>
+<blockquote>
+<p>其中pattern是任何简单或复杂的正则表达式，可以包含字符类，限定符，分组，向前查找以及反向引用。<br>每个正则表达式都可带有一个或多个标志（flags）,用以表明正则表达式的行为。</p>
+</blockquote>
+<pre><code>正则表达式的匹配模式支持下列3个标志
+</code></pre><ul>
+<li>g:表示全局模式，即模式将被应用于所有字符串，而非在发现第一个匹配项时立即停止</li>
+<li>i:表示不区分大小写模式，即在确定匹配项时忽略模式与字符串的大小写</li>
+<li><p>m:表示多行模式，即在到达一行文本末尾时还会继续查找下一行中是否存在与模式匹配的项</p>
+<p>  因此，一个正则表达式就是一个模式与上述3个标志的组合体</p>
+</li>
+</ul>
+<p>与其他语言中的正则表达式类似，模式中使用的所有元字符都必须转义。正则表达式中的元字符包括：</p>
+<pre><code>( [ { \ ^ $ | ? * + . } ] )
+</code></pre><p>这些元字符在正则表达式中都有一或多种特殊用途，因此如果想要匹配字符串中包含的这些字符，就必须对他们进行转义。<br>传递给RegExp构造函数的两个参数都是字符串（不能把正则表达式字面量传递给RegExp构造函数），由于RegExp构造函数的模式参数是字符串，所以在某些情况下要对字符进行双重转义。<br>例如：</p>
+<pre><code>//匹配第一个“bat”或“cat”,不区分大小写
+var pattern1 = /\[bc\]at/i;
+var pattern2 = new RegExp(&quot;\\[bc\\]at&quot;,&quot;i&quot;);
+
+//匹配所有以“at”结尾的3个字符的组合，不区分大小写
+var pattern3 = /\.at/gi
+</code></pre><p><strong> 5.4.1 RegExp实例属性 </strong></p>
+<ul>
+<li>global:布尔值，表示是否设置了g标志</li>
+<li>ignoreCase:布尔值，表示是否设置了i标志</li>
+<li>lastIndex:整数，表示开始搜索下一个匹配项的字符位置，从0算起</li>
+<li>multiline:布尔值，表示是否设置了m标志</li>
+<li><p>source:正则表达式的字符串表示，按照字面量形式而非传入都早函数中的字符串模式返回。</p>
+<pre><code>var pattern1 = /\[bc\]at/i;
+alert(pattern1.global);     //false
+alert(pattern1.ignoreCase); //true
+alert(pattern1.lastIndex);  //0
+alert(pattern1.multiline);  //false
+alert(pattern1.source);        //&quot;\[bc\]at&quot;
+</code></pre></li>
+</ul>
+<p><strong> 5.4.2 RegExp 实例方法 </strong></p>
+<ul>
+<li><p>RegExp对象的主要方法是exec(),该方法是专门为捕获组而设计的。</p>
+<blockquote>
+<p>exec()接受一个参数，即要应用模式的字符串，然后返回包含第一个匹配项信息的数组；或者在没有匹配项的情况下返回null.<br>返回的数组虽然是Array的实例，但包含两个额外的属性：index和input。index表示匹配项在字符串中的位置，而input表示应用正则表达式的字符串。<br>在数组中，第一项是与整个模式匹配的字符串，其他项是与模式中的捕获组匹配的字符串（如果模式中没有捕获组，则该数组只包含一项）</p>
+</blockquote>
+<pre><code>var text = &quot;mom and dad and baby&quot;;
+var pattern = /mom( and dad( and baby)?)?/gi;    
+
+var matches = pattern.exec(text);
+alert(matches.index);   //0
+alert(matches.input);   //&quot;mom and dad and baby&quot;
+alert(matches[0]);         //&quot;mom and dad and baby&quot;
+alert(matches[1]);      //&quot; and dad and baby&quot;
+alert(matches[2]);      //&quot; ang baby&quot;
+
+//这个例子中的模式包含两个捕获组。最内部的是“and baby”
+</code></pre></li>
+<li><p>第二个方法是test(),他接受一个字符串参数。在模式与该参数匹配的情况下返回true,否则，返回false。</p>
+<pre><code>var text = &quot;000-00-0000&quot;;
+var pattern = /\d{3}-\d{2}-\d{4}/;//匹配数字个数
+if(pattern.test(text)){
+    alert(&apos;success&apos;);
+}
+</code></pre></li>
+</ul>
+<p><strong> 5.4.3 RegExp 构造函数属性 </strong></p>
+<p>input,lastMatch,lastParen,LeftContent,multiline,rightContext</p>
+<p><strong> 5.4.4 模式的局限性 </strong></p>
 <h2 id="5-5_Function_u7C7B_u578B"><a href="#5-5_Function_u7C7B_u578B" class="headerlink" title="5.5 Function类型"></a>5.5 Function类型</h2><ul>
 <li><p>函数通常是使用函数声明语法定义的，如下：</p>
 <pre><code>function sum(num1,num2){
@@ -992,7 +1065,7 @@ alert(date1 &lt; date2);   //true
 //这与下面使用函数表达式定义函数的方式几乎相差无几
 var sum = function(num1,num2){
     return num1 + num2;
-}
+}；
 差别：1.function关键字后面没有函数名。这是因为在使用函数表达式定义函数时，没有必要使用函数名，通过变量sum即可引用函数
      2.还要注意函数末尾有个分号，就像声明其他变量一样
 </code></pre></li>
