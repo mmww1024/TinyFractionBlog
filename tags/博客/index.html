@@ -1,0 +1,163 @@
+
+  <!DOCTYPE HTML>
+<html lang="中文简体">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Tag: 博客 | 玖牛一毛的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="JIUTOU">
+    
+    <meta name="description" content="沉淀人生">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/TinyFractionBlog/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/TinyFractionBlog/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/TinyFractionBlog/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/TinyFractionBlog/css/style.css" type="text/css">
+
+</head>
+
+    <body>
+      <header>
+        <div>
+		
+			<div id="imglogo">
+				<a href="/TinyFractionBlog/"><img src="/TinyFractionBlog/img/logo.png" alt="玖牛一毛的博客" title="玖牛一毛的博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/TinyFractionBlog/" title="玖牛一毛的博客">玖牛一毛的博客</a></h1>
+				<h2 class="blog-motto">多出两天思考</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/TinyFractionBlog">首页</a></li>
+					
+						<li><a href="/TinyFractionBlog/archives">所有日志</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:mmww1024.github.io/TinyFractionBlog">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+      </header>
+      <div id="container">
+        
+
+<div class="archive-title" >
+  <h2 class="tag-icon">博客</h2>
+  
+</div>
+<div id="main" class="archive-part clearfix">
+  <div id="archive-page">
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/TinyFractionBlog/2014/10/17/myfirst/" title="我的第一篇博客" itemprop="url">
+  
+    <h1 itemprop="name">我的第一篇博客</h1>
+    
+    <time datetime="2014-10-17T07:15:28.000Z" itemprop="datePublished">Oct 17 2014</time>
+  </a>
+</section>
+
+
+  </div>
+</div>
+
+      </div>
+      <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2015 
+		
+		<a href="http://mmww1024.github.io/TinyFractionBlog" target="_blank" title="JIUTOU">JIUTOU</a>
+		
+		</p>
+</div>
+</footer>
+      <script src="/TinyFractionBlog/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+
+
+
+
+
+    </body>
+   </html>
