@@ -1,0 +1,134 @@
+Git 返回上一级目录：cd ..(cd与.. 之间有一空格)。
+进入某一目录：cd git (进入git目录)
+显示当前路径：pwd
+
+常用命令
+git status  查看文件状态
+git clone <git地址> 克隆仓库
+git add .  提交内容
+git commit -m '理由' 放入暂存区
+git pull origin 分支名 更新当前分支
+git push origin 分支名:分支名 推送当前分支到远程仓库的某个分支
+git branch 查看当前所有分支
+git checkout 分支名 切换分支
+git checkout -b 分支名 创建新分支并切换到这个分支
+git merge new1   当前分支合并new1分支
+git branch -d new1   在master分支下，删除new1分支（因为new1已经合并到master，故可以删除）
+git branch -D new2   强制删除没有合并的分支
+git log    查看提交日志
+git reset --hard commit-id   恢复到指定版本（可能有多个文件）
+	>> HEAD^  回到上一个版本
+	>> HEAD~<num>  回到上num个版本
+
+创建新文件夹，打开，然后执行,创建新的 git 仓库
+git init
+
+git clone https://github.com/josedvq/topology_docker.git       克隆项目
+git status   查看文件状态
+git log    查看提交日志
+git add <file.name>   提交到缓存区
+git add .  提交本地所有文件到缓存区
+git commit   提交到版本库
+git commit -m '注释内容'   提交到版本库并添加注释,提交到了 HEAD，但是还没到你的远端仓库,需要push到远程仓库
+git commit -a -m '注释内容'    提交到缓存区同时提交到版本库并加注释
+
+对比
+git diff    本地与缓存区之间差异
+git diff --cached(--staged)  缓存与版本库之间的差异
+git diff master 本地与版本库之间的差异
+
+撤销
+git reset HEAD <file.name>   撤销提交到缓存区的内容
+git checkout -- <file.name>   撤销当前操作
+git commit -m '注释内容' --amend    重新合并新的提交方案
+
+删除
+git rm <file.name>   工作区文件已删除时，可以删除缓存区的文件
+git rm -f <file.name>  同时删除缓存区和工作区文件
+git rm --cached <file.name>  只删除缓存区文件
+
+恢复
+git checkout commit id <file.name>   恢复指定文件（id是通过git log 查看得来的）
+git reset --hard commit id   恢复到指定版本（可能有多个文件）
+	>> HEAD^  回到上一个版本
+	>> HEAD~<num>  回到上num个版本
+git reflog  打印最近操作，可以获得相应id
+
+同步到远程仓库
+git remote  查看远程名字
+	>> -v   远程名字对应的地址
+	>> origin   默认名字
+git push origin master. 可以把 master 换成你想要推送的任何分支
+
+多人协作解决冲突与更新
+git fetch  手动同步，查看区别
+	>> git diff master origin/master  打印远端和本地区别
+	>> git merge orgin/master 手动合并冲突
+git pull  直接合并远端到本地
+
+开源项目协作
+fork  查看项目到本地分支
+pull request  发送请求给原作者
+
+分支
+git branch  查看分支
+git branch --merged  查看已经合并的分支
+git branch --no-merged  查看没有合并的分支（new2）
+git branch new1  创建了一个new1分支
+git checkout new1  切换到new1分支
+git checkout -b new2  创建并切换到new2分支
+git merge new1   当前分支合并new1分支
+git branch -d new1   在master分支下，删除new1分支（因为new1已经合并到master，故可以删除）
+git branch -D new2   强制删除没有合并的分支
+git push origin <branch>   除非你将分支推送到远端仓库，不然该分支就是 不为他人所见的
+
+
+删除到缓存区的文件
+git add . 先提交到缓存区
+git reset --hard HEAD  回滚到当前版本，即删除缓存区内容（HEAD相当于当前的commitID）
+
+查找当前版本文件（需要在当前目录下）
+git checkout COMMITID -- 文件名
+
+丢弃本地修改
+1 还未添加到缓存区，即未执行git add,用git checkout命令来撤销修改
+git checkout -- rainbow.txt start.txt
+git checkout -- *
+git checkout -- *.txt
+
+2 已经添加到缓存区，即已经执行了 git add, 用git reset命令来撤销修改
+git reset HEAD rainbow.txt start.txt
+git reset HEAD  *
+git reset HEAD *.txt
+要注意的是，执行以上命令后，本地的修改并不会消失，而只是从暂存区回到了工作区，即第一种情况下所示的状态。继续用第一种情况下的操作，就可以放弃本地的修改。
+
+3 已经将代码提交到本地仓库，即已经执行git commit命令，此时工作区已经clean,若想撤销之前的修改，需要执行版本回退操作：
+#回退到上一个版本
+git reset --hard HEAD^
+#回退到上上次版本
+git reset --hard HEAD^^
+git reset --hard HEAD^^^
+#回退到指定commitid的版本
+git reset --hard  commit_id
+
+
+Linux常用命令
+遇到进程占用无法操作时，删除git锁，就可以操作了
+rm -f ./.git/index.lock
+
+查看文件目录
+ll -a
+
+创建博客
+github上创建
+https://pages.github.com/
+注意格式的正确性
+
+其他
+ls  文件信息
+mkdir <file name>  创建文件夹
+notepad hello.txt   创建hello.txt记事本
+tab键自动补全功能
+git config --global alias.co checkout  设置别名
+
+
